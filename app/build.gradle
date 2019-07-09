@@ -31,7 +31,7 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.android.support:support-vector-drawable:28.0.0'
 
-    if (!isDebug.toBoolean()) {
+    if (!isModule.toBoolean()) {
         implementation project(':z_lib_video')
         implementation project(':z_lib_home')
         implementation project(':z_lib_persion')
