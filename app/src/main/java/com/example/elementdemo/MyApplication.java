@@ -5,7 +5,7 @@ import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
-import com.example.z_lib_common.untils.Utils;
+import com.example.z_lib_common.utils.Utils;
 
 
 /**

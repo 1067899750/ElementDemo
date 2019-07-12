@@ -8,8 +8,7 @@ import android.os.Build;
 import android.support.annotation.Keep;
 import android.util.Log;
 
-
-import com.example.z_lib_common.untils.Utils;
+import com.example.z_lib_common.utils.Utils;
 
 import java.io.File;
 import java.io.IOException;

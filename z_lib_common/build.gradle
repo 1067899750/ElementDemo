@@ -23,30 +23,39 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     api rootProject.ext.support["appcompat-v7"]
     api rootProject.ext.support["constraint-layout"]
-
     //    design
     api rootProject.ext.support["design"]
-
     //arouter
     api rootProject.ext.dependencies.arouter
-
     //other
     api rootProject.ext.dependencies.logger
-
     //分包
     api rootProject.ext.dependencies.multidex
-
     //    butterknife 引用
-//    api 'com.jakewharton:butterknife:8.4.0'
+    //    api 'com.jakewharton:butterknife:8.4.0'
+    //Gson 库
+    api rootProject.ext.dependencies.gson
+    // retrofit2
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.PersistentCookieJar
+    api rootProject.ext.dependencies["adapter-rxjava"]
+    api rootProject.ext.dependencies["converter-gson"]
+    //配合Rxjava 使用
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies["okhttp-logging-interceptor"]
+    //下面两个是RxJava 和 RxAndroid
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxandroid
 
-
+//    api rootProject.ext.dependencies.glide
+    implementation files('libs/simple-xml-core.jar')
 }
 
 

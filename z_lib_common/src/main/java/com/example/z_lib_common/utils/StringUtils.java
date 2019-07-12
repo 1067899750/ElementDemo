@@ -1,4 +1,4 @@
-package com.example.z_lib_common.untils;
+package com.example.z_lib_common.utils;
 
 /**
  * 字符串相关工具类

@@ -2,10 +2,7 @@ package com.example.z_lib_common.base;
 
 import android.app.Application;
 
-
-import com.example.z_lib_common.untils.Utils;
-
-import com.orhanobut.logger.Logger;
+import com.example.z_lib_common.utils.Utils;
 
 import java.util.List;
 
