@@ -41,8 +41,8 @@ dependencies {
     api 'com.orhanobut:logger:1.15'
 
 
-
-
+//分包
+    api 'com.android.support:multidex:1.0.3'
 
 
 }

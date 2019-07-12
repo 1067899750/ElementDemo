@@ -33,7 +33,6 @@ dependencies {
     }
     implementation project(':z_lib_common')
 
-    implementation 'com.android.support:multidex:1.0.3'
 
 
 
