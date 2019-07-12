@@ -17,8 +17,8 @@ public class NewsDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         NewsDetailView detailView = new NewsDetailView(this);
         setContentView(detailView);
-//        String id = getIntent().getStringExtra("id");
-//        new NewsDetailPresenter(detailView).getNewsDetail(id);
+        String id = getIntent().getStringExtra("id");
+        new NewsDetailPresenter(detailView).getNewsDetail(id);
     }
 
 }

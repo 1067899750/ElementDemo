@@ -37,10 +37,10 @@ public class NewsCenterActivity extends BaseActivity {
         setupToolBar(mToolBar, false);
         mTabLayout = (TabLayout) findViewById(R.id.date_tab);
         mViewPager = (ViewPager) findViewById(R.id.message_pager);
-//        mListAdapter = new NewsListViewAdapter(getMessageListViews(), getWeekDate());
-//        mViewPager.setAdapter(mListAdapter);
-//        //setupWithViewPager必须在ViewPager.setAdapter()之后调用
-//        mTabLayout.setupWithViewPager(mViewPager);
+        mListAdapter = new NewsListViewAdapter(getMessageListViews(), getWeekDate());
+        mViewPager.setAdapter(mListAdapter);
+        //setupWithViewPager必须在ViewPager.setAdapter()之后调用
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     /**
