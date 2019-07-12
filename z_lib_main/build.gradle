@@ -45,14 +45,22 @@ android {
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
                 //集成开发模式下排除debug文件夹中的所有Java文件
-//                java {
-//                    exclude 'debug/**'
-//                }
+                java {
+                    exclude 'debug/**'
+                }
             }
 
         }
     }
 
+    //代码混淆
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
 
     //避免资源名冲突
     resourcePrefix "main_"
