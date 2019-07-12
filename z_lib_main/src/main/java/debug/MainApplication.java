@@ -4,6 +4,7 @@ package debug;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
 
 /**
@@ -22,7 +23,7 @@ public class MainApplication extends BaseApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         // dex突破65535的限制
-        MultiDex.install(this);
+//        MultiDex.install(this);
     }
 
 

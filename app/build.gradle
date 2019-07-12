@@ -88,15 +88,13 @@ dependencies {
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     if (!isModule.toBoolean()) {
         implementation project(':z_lib_main')
+        implementation project(':z_lib_news')
     }
     implementation project(':z_lib_common')
-
     //    butterknife 引用
-//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-
+    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
 
 }
 

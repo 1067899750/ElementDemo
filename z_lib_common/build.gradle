@@ -39,7 +39,7 @@ dependencies {
     //分包
     api rootProject.ext.dependencies.multidex
     //    butterknife 引用
-    //    api 'com.jakewharton:butterknife:8.4.0'
+    api rootProject.ext.dependencies.butterknife
     //Gson 库
     api rootProject.ext.dependencies.gson
     // retrofit2
@@ -53,6 +53,10 @@ dependencies {
     //下面两个是RxJava 和 RxAndroid
     api rootProject.ext.dependencies.rxjava
     api rootProject.ext.dependencies.rxandroid
+
+    //recyclerview
+    api rootProject.ext.support["recyclerview-v7"]
+    api rootProject.ext.dependencies.easyrecyclerview
 
     api rootProject.ext.dependencies.glide
     implementation files('libs/simple-xml-core.jar')

@@ -6,6 +6,7 @@ import android.support.annotation.Keep;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.SparseArray;
 import android.view.View;
 
 import com.example.z_lib_common.R;
@@ -13,7 +14,6 @@ import com.example.z_lib_common.utils.Utils;
 
 
 /**
- *
  * Description  <p>Activity基类 </p>
  * Author puyantao
  * Email 1067899750@qq.com
@@ -91,6 +91,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 替换fragment
+     *
      * @param fragment
      * @param frameId
      */
@@ -106,6 +107,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 隐藏fragment
+     *
      * @param fragment
      */
     protected void hideFragment(BaseFragment fragment) {
@@ -119,6 +121,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 显示fragment
+     *
      * @param fragment
      */
     protected void showFragment(BaseFragment fragment) {
@@ -132,6 +135,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     /**
      * 移除fragment
+     *
      * @param fragment
      */
     protected void removeFragment(BaseFragment fragment) {

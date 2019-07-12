@@ -48,12 +48,14 @@ ext {
             "arouter"                   : 'com.alibaba:arouter-api:1.4.0',
             "arouter-compiler"          : 'com.alibaba:arouter-compiler:1.2.1',
             //butterknife
-            "butterknife"               : 'com.jakewharton:butterknife:8.4.0',
-            "butterknife-compiler"      : 'com.jakewharton:butterknife-compiler:8.4.0',
+            "butterknife"               : 'com.jakewharton:butterknife:8.8.1',
+            "butterknife-compiler"      : 'com.jakewharton:butterknife-compiler:8.8.1',
             //logger
             "logger"                    : 'com.orhanobut:logger:2.2.0',
             //multidex 分包
             "multidex"                  : 'com.android.support:multidex:1.0.3',
+            //recyclerview
+            "easyrecyclerview":"com.jude:easyrecyclerview:4.4.2",
     ]
 
 }

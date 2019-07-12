@@ -1,7 +1,19 @@
 package com.example.z_lib_main;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.Button;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.z_lib_common.arouter.ARouterManager;
+import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseActivity;
+import com.example.z_lib_common.base.ViewManager;
+import com.example.z_lib_common.utils.ToastUtils;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 /**
@@ -10,16 +22,52 @@ import com.example.z_lib_common.base.BaseActivity;
  * Email 1067899750@qq.com
  * Date 2019/7/9 17:20
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
+    private long mExitTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_main);
+        ButterKnife.bind(this);
+
+        findViewById(R.id.news_button).setOnClickListener(this);
+        findViewById(R.id.girls_button).setOnClickListener(this);
+        findViewById(R.id.fragment_button).setOnClickListener(this);
 
     }
 
+    @Override
+    public void onClick(View v) {
+        int i = v.getId();
+        if (i == R.id.news_button) {
+            //跳转到NewsCenterActivity
+            ARouterManager.startNewsCanterActivity();
+
+        }else if (i == R.id.girls_button){
 
 
+        }else if (i == R.id.fragment_button){
+
+
+        }
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            //两秒之内按返回键就会退出
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                ToastUtils.showShortToast(getString(R.string.main_app_exit_hint));
+                mExitTime = System.currentTimeMillis();
+            } else {
+                ViewManager.getInstance().exitApp(this);
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }
 
 
