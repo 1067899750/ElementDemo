@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class BaseApplication extends Application {
 
-    public static final String ROOT_PACKAGE = "com.guiying.module";
+    public static final String ROOT_PACKAGE = "com.example";
 
     private static BaseApplication sInstance;
 
