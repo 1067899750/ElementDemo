@@ -2,6 +2,8 @@ package com.example.elementdemo;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.untils.Utils;
 
@@ -15,12 +17,12 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-//        if (Utils.isAppDebug()) {
-//            //开启InstantRun之后，一定要在ARouter.init之前调用openDebug
-//            ARouter.openDebug();
-//            ARouter.openLog();
-//        }
-//        ARouter.init(this);
+        if (Utils.isAppDebug()) {
+            //开启InstantRun之后，一定要在ARouter.init之前调用openDebug
+            ARouter.openDebug();
+            ARouter.openLog();
+        }
+        ARouter.init(this);
     }
 
 

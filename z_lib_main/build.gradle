@@ -17,11 +17,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         //这是为了让ARouter知道这个模块用来区分其他模块的名字是什么，不然报错
-//        javaCompileOptions {
-//            annotationProcessorOptions {
-//                arguments = [ moduleName : project.getName() ]
-//            }
-//        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+            }
+        }
 
     }
 
@@ -68,7 +68,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
 
-//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.1'
     implementation project(':z_lib_common')
 }
 
