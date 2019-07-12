@@ -97,6 +97,10 @@ public class HttpClient {
         }
     }
 
+    /**
+     *  POST请求欧
+     * @param onResultListener
+     */
     public void post(final OnResultListener onResultListener) {
         Builder builder = mBuilder;
         mCall = retrofit.create(ApiService.class)
@@ -106,6 +110,10 @@ public class HttpClient {
     }
 
 
+    /**
+     *  Git请求欧
+     * @param onResultListener
+     */
     public void get(final OnResultListener onResultListener) {
         Builder builder = mBuilder;
         if (!builder.params.isEmpty()) {

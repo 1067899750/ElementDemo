@@ -2,6 +2,8 @@ package com.example.z_lib_girl.main;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -68,6 +70,7 @@ public class GirlsView extends FrameLayout implements GirlsContract.View, SwipeR
         mAdapter.setNoMore(R.layout.layout_load_no_more);
         mAdapter.setError(R.layout.layout_load_error);
         mAdapter.setOnMyItemClickListener(new GirlsAdapter.OnMyItemClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onItemClick(int position, BaseViewHolder holder) {
                 Intent intent = new Intent(Utils.getActivity(GirlsView.this), GirlActivity.class);
