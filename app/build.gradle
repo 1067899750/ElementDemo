@@ -24,6 +24,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
+    //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
@@ -32,8 +33,7 @@ dependencies {
     }
     implementation project(':z_lib_common')
 
-
-
+    implementation 'com.android.support:multidex:1.0.3'
 
 
 
