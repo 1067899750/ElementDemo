@@ -1,4 +1,4 @@
-package com.example.z_lib_main.debug;
+package debug;
 
 
 import android.content.Context;

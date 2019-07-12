@@ -28,20 +28,23 @@ dependencies {
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api 'com.android.support:appcompat-v7:28.0.0'
-    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    api rootProject.ext.support["appcompat-v7"]
+    api rootProject.ext.support["constraint-layout"]
 
-//    design
-    api 'com.android.support:design:28.0.0'
+    //    design
+    api rootProject.ext.support["design"]
 
-//arouter
-    api 'com.alibaba:arouter-api:1.4.0'
+    //arouter
+    api rootProject.ext.dependencies.arouter
 
-//other
-    api 'com.orhanobut:logger:1.15'
+    //other
+    api rootProject.ext.dependencies.logger
 
-//分包
-    api 'com.android.support:multidex:1.0.3'
+    //分包
+    api rootProject.ext.dependencies.multidex
+
+    //    butterknife 引用
+//    api 'com.jakewharton:butterknife:8.4.0'
 
 
 }

@@ -13,6 +13,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.orhanobut.logger.AndroidLogAdapter;
+import com.orhanobut.logger.BuildConfig;
+import com.orhanobut.logger.Logger;
+
 /**
  * <p>Utils初始化相关 </p>
  */
@@ -31,6 +35,8 @@ public class Utils {
      */
     public static void init(Context context) {
         Utils.context = context.getApplicationContext();
+        //初始化logger
+        initLogger();
     }
 
     /**
@@ -111,6 +117,18 @@ public class Utils {
             throw new NullPointerException();
         }
         return obj;
+    }
+
+    /**
+     * 初始化logger
+     */
+    private static void initLogger() {
+        Logger.addLogAdapter(new AndroidLogAdapter() {
+            @Override
+            public boolean isLoggable(int priority, String tag) {
+                return BuildConfig.DEBUG;
+            }
+        });
     }
 
 }

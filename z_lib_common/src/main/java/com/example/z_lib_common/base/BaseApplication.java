@@ -4,7 +4,7 @@ import android.app.Application;
 
 
 import com.example.z_lib_common.untils.Utils;
-import com.orhanobut.logger.LogLevel;
+
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
@@ -35,7 +35,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-        Logger.init("pattern").logLevel(LogLevel.FULL);
         Utils.init(this);
         mAppDelegateList = ClassUtils.getObjectsWithInterface(this, IApplicationDelegate.class, ROOT_PACKAGE);
         for (IApplicationDelegate delegate : mAppDelegateList) {
