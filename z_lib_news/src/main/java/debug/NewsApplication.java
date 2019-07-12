@@ -24,6 +24,7 @@ public class NewsApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         login();
+        ARouter.init(this);
     }
 
     @Override

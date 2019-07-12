@@ -22,6 +22,7 @@ public class MyApplication extends BaseApplication {
             ARouter.openDebug();
             ARouter.openLog();
         }
+        ARouter.init(this);
     }
 
 
