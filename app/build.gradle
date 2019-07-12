@@ -96,7 +96,7 @@ dependencies {
     }
     //    butterknife 引用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
-
+    implementation files('libs/acra-4.5.0.jar')
 }
 
 
