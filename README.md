@@ -1,2 +1,2 @@
 # ElementDemo
-组件化
+组件化 用于不同模块之间的Activity和Fragment之间的跳转
