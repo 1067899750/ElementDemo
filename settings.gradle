@@ -1,1 +1,1 @@
-include ':app', ':z_lib_common', ':z_lib_main', ':z_lib_news'
+include ':app', ':z_lib_common', ':z_lib_main', ':z_lib_news', ':z_lib_girl'

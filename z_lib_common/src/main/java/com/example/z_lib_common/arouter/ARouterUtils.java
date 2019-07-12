@@ -9,15 +9,7 @@ package com.example.z_lib_common.arouter;
 public class ARouterUtils {
     public static final String NEWS_CENTER = "/news/center";
 
-
-
-
-
-
-
-
-
-
+    public static final String GRILS_LIST = "/girls/list";
 
 
 }

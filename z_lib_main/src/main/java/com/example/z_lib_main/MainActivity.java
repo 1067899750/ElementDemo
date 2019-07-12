@@ -1,5 +1,6 @@
 package com.example.z_lib_main;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -45,10 +46,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             ARouterManager.startNewsCanterActivity();
 
         }else if (i == R.id.girls_button){
-
+            //跳转到GirlsActivity
+            ARouterManager.startGrilsListActivity();
 
         }else if (i == R.id.fragment_button){
-
+            startActivity(new Intent(this, BottomNavigationActivity.class));
 
         }
     }

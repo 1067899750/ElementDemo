@@ -10,6 +10,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".BottomNavigationActivity"
+            android:label="@string/main_title_activity_fragment_module"/>
     </application>
 
 </manifest>

@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.z_lib_girl" >
+    <application>
+        <activity
+            android:name=".main.GirlsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".girl.GirlActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+</manifest>

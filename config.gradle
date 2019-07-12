@@ -55,7 +55,8 @@ ext {
             //multidex 分包
             "multidex"                  : 'com.android.support:multidex:1.0.3',
             //recyclerview
-            "easyrecyclerview":"com.jude:easyrecyclerview:4.4.2",
+            "easyrecyclerview"          : "com.jude:easyrecyclerview:4.4.2",
+            "PhotoView"                 : "com.github.chrisbanes:PhotoView:2.0.0",
     ]
 
 }

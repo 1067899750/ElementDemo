@@ -58,6 +58,9 @@ dependencies {
     api rootProject.ext.support["recyclerview-v7"]
     api rootProject.ext.dependencies.easyrecyclerview
 
+    //PhotoView
+    api rootProject.ext.dependencies.PhotoView
+
     api rootProject.ext.dependencies.glide
     implementation files('libs/simple-xml-core.jar')
 }
