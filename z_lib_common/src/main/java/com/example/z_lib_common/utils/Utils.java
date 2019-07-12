@@ -122,7 +122,7 @@ public class Utils {
     /**
      * 初始化logger
      */
-    private static void initLogger() {
+    public static void initLogger() {
         Logger.addLogAdapter(new AndroidLogAdapter() {
             @Override
             public boolean isLoggable(int priority, String tag) {
