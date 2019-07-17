@@ -16,6 +16,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            // proguard-android.txt 表示 Android 系统为我们提供的默认混淆规则文件
+            // proguard-rules.pro 则是我们想要自定义的混淆规则
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
