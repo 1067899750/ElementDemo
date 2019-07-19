@@ -2,6 +2,7 @@ package com.example.elementdemo;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
@@ -51,6 +52,12 @@ public class MyApplication extends BaseApplication {
         ACRA.init(this);
         ACRA.getErrorReporter().removeAllReportSenders();
         ACRA.getErrorReporter().setReportSender(new CrashReportSender());
+
+        //java代码中使用
+        Log.d("--->",getResources().getString(R.string.app_token));
+        Log.d("--->",getResources().getBoolean(R.bool.rel)+"");
+        Log.d("--->",getResources().getInteger(R.integer.num)+"");
+        Log.d("--->",getResources().getString(R.string.base_url));
     }
 
 

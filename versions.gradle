@@ -9,3 +9,14 @@ build_versions.app_file_provider="com.purang.bsd_purang.fileProvider"
 build_versions.version_code = 100
 build_versions.version_name = "3.1.7"
 ext.build_versions = build_versions
+
+/**
+ * url地址
+ */
+def build_url = [:]
+build_url.base_purang_shop_develop = "http://10.10.64.114:8080/"
+build_url.base_purang_shop_test = "https://testmobile.purang.com:8088/"
+build_url.base_purang_shop_uat = "https://mobile.purang.com/"
+build_url.base_purang_shop_release = "https://m3.purang.com:8050/"
+build_url.base_purang_shop_debug = "https://m3.purang.com:8050/"
+ext.build_url = build_url
