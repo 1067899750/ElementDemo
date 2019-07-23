@@ -1,6 +1,8 @@
 package com.example.elementdemo;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
@@ -83,6 +85,17 @@ public class MyApplication extends BaseApplication {
             EmailIntentSender emailSender = new EmailIntentSender(getApplicationContext());
             emailSender.send(context, crashReportData);
         }
+    }
+
+
+    private String getChannel() {
+        try {
+            PackageManager pm = getPackageManager();
+            ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            return appInfo.metaData.getString("UMENG_CHANNEL");
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+        return "";
     }
 
 }
