@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 // Create a variable called keystorePropertiesFile, and initialize it to your
 // keystore.properties file, in the rootProject folder.
+//配置秘钥
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 // Initialize a new Properties() object called keystoreProperties.
 def keystoreProperties = new Properties()
@@ -47,6 +48,7 @@ android {
     //*******************打包设置开始
     //自定义生成的apk的地址及名称
     def apkName
+    //配置秘钥
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -81,8 +83,8 @@ android {
 
             //resValue自定义资源
             resValue("string", "app_token", "${TOKEN}")
-            resValue("bool","rel","true")
-            resValue("integer","num","4")
+            resValue("bool", "rel", "true")
+            resValue("integer", "num", "4")
 
             resValue "string", "base_url", build_url.base_purang_shop_release
         }
@@ -101,9 +103,9 @@ android {
             resValue "string", "base_url", build_url.base_purang_shop_debug
 
             //resValue自定义资源
-            resValue("string","app_token","${TOKEN}")
-            resValue("bool","rel","true")
-            resValue("integer","num","4")
+            resValue("string", "app_token", "${TOKEN}")
+            resValue("bool", "rel", "true")
+            resValue("integer", "num", "4")
         }
 
 
@@ -116,9 +118,9 @@ android {
             apkName = "element.apk"
 
             //resValue自定义资源
-            resValue("string","app_token","${TOKEN}")
-            resValue("bool","rel","true")
-            resValue("integer","num","4")
+            resValue("string", "app_token", "${TOKEN}")
+            resValue("bool", "rel", "true")
+            resValue("integer", "num", "4")
         }
     }
 
@@ -126,7 +128,7 @@ android {
         variant.outputs.all {
             if (outputFileName.endsWith('.apk')) {
                 //这里使用之前定义apk文件名称
-                outputFileName = apkName
+                outputFileName = buildTime() + "_" + apkName
             }
         }
     }
@@ -166,8 +168,7 @@ android {
     }
     //*******************多环境打包设置结束
 
-
-        //代码混淆
+    //代码混淆
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
