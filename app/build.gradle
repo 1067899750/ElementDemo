@@ -74,7 +74,7 @@ android {
 
             debuggable false //禁止使用dug调试
 
-            apkName = "release.apk"
+            apkName = "element.apk"
 
             //签名
             signingConfig signingConfigs.release
@@ -96,7 +96,7 @@ android {
             minifyEnabled false
             debuggable true
 
-            apkName = "debug.apk"
+            apkName = "element.apk"
 
             resValue "string", "base_url", build_url.base_purang_shop_debug
 
@@ -113,7 +113,7 @@ android {
             shrinkResources false
             resValue "string", "base_url", build_url.base_purang_shop_test
 
-            apkName = "debugUat.apk"
+            apkName = "element.apk"
 
             //resValue自定义资源
             resValue("string","app_token","${TOKEN}")
