@@ -185,6 +185,34 @@ android {
     /**************************************多环境打包设置结束******************************************/
 
     /**
+     * 目录指向配置
+     */
+//    sourceSets {
+//        main {
+//            manifest.srcFile 'src/main/AndroidManifest.xml'//指定AndroidManifest文件
+//            java.srcDirs = ['src']//指定source目录
+//            resources.srcDirs = ['src']//指定source目录
+//            aidl.srcDirs = ['src']//指定source目录
+//            renderscript.srcDirs =   [
+//                    'src/main/res/layouts/layoutsCredit',
+//                    'src/main/res/layouts/activities',
+//                    'src/main/res/layouts/fragments',
+//                    'src/main/res/layouts/widgets',
+//                    'src/main/res/layouts/dialogs',
+//                    'src/main/res/layouts/views',
+//                    'src/main/res/layouts',
+//                    'src/main/res'
+//            ]//指定source目录
+//            res.srcDirs = ['res']//指定资源目录
+//            assets.srcDirs = ['assets']//指定assets目录
+//            jniLibs.srcDirs = ['libs']//指定lib库目录
+//        }
+//        debug.setRoot('build-types/debug')//指定debug模式的路径
+//        release.setRoot('build-types/release')//指定release模式的路径
+//    }
+
+
+    /**
      *调用本地 和z_lib_girl 的 aar文件
      */
     repositories {
