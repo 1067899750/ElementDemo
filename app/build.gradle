@@ -46,10 +46,12 @@ android {
 //        resValue("string", "base_url", build_url.base_purang_shop_release)
     }
 
-    //*******************打包设置开始
+    /*****************************************打包设置开始**********************************************/
     //自定义生成的apk的地址及名称
     def apkName
-    //配置秘钥
+    /**
+     * 配置秘钥
+     */
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -139,8 +141,9 @@ android {
             }
         }
     }
-    //*******************打包设置结束
-    //*******************多环境打包设置开始
+    /************************************打包设置结束******************************************/
+
+    /**********************************多环境打包设置开始******************************************/
     productFlavors {
         //开发环境
         develop {
@@ -179,9 +182,22 @@ android {
             ]
         }
     }
-    //*******************多环境打包设置结束
+    /**************************************多环境打包设置结束******************************************/
 
-    //代码混淆
+    /**
+     *调用本地aar文件
+     */
+    repositories {
+        //mavenLocal()
+        //mavenCentral()
+        flatDir {
+            dirs 'libs', project(':z_lib_girl').file('libs')
+        }
+    }
+
+    /**
+     *  代码混淆
+     */
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
@@ -190,8 +206,9 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
-
-    //添加多 dex分包支持 ,4.4系统上
+    /**
+     * 添加多 dex分包支持 ,4.4系统上
+     */
     dexOptions {
         javaMaxHeapSize "4g"
         preDexLibraries = false
@@ -205,8 +222,12 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-
-
+    /**
+     * 设置DataBinding状态为可用
+     */
+    dataBinding{
+        enabled = true
+    }
 
 
 }
