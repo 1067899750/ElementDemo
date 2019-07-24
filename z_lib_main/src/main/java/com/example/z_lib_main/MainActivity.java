@@ -1,6 +1,8 @@
 package com.example.z_lib_main;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -39,7 +41,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.fragment_button).setOnClickListener(this);
 
         Log.d("--->", BaseApplication.MY_STR);
-
+        getChannel();
     }
 
     @Override
@@ -56,6 +58,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (i == R.id.fragment_button){
             startActivity(new Intent(this, BottomNavigationActivity.class));
 
+        }
+    }
+
+
+    private void getChannel() {
+        try {
+            PackageManager pm = getPackageManager();
+            ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            String packageName = appInfo.packageName;
+            Log.d("---> packageName ",packageName);
+            String className = appInfo.className;
+            String name = appInfo.name;
+
+
+            Bundle bundle =  appInfo.metaData;
+
+            String APP_ID = appInfo.metaData.getString("APP_ID");
+            Log.d("---> APP_ID ",APP_ID + "");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
