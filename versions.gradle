@@ -6,8 +6,8 @@ build_versions.apk_name = "bsd_purang.apk"
 build_versions.application_id = "com.example.elementdemo"
 build_versions.application_package = "com.purang.bsd.purang"
 build_versions.app_file_provider="com.purang.bsd_purang.fileProvider"
-build_versions.version_code = 100
-build_versions.version_name = "3.1.7"
+build_versions.version_code = 1
+build_versions.version_name = "1.0.0"
 ext.build_versions = build_versions
 
 /**

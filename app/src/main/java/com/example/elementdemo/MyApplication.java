@@ -2,6 +2,7 @@ package com.example.elementdemo;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.multidex.MultiDex;
@@ -66,7 +67,12 @@ public class MyApplication extends BaseApplication {
         Log.d("--->",getResources().getBoolean(R.bool.rel)+"");
         Log.d("--->",getResources().getInteger(R.integer.num)+"");
         Log.d("--->",getResources().getString(R.string.base_url));
+//        Log.d("--->",getResources().getString(R.string.mall_base_url));
         getChannel();
+
+
+        Log.d("---> VersionCode : ",getAppVersionCode(this));
+        Log.d("---> VersionName : ",getAppVersionName(this));
 
         int envType = BuildConfig.ENV_TYPE;
     }
@@ -102,6 +108,7 @@ public class MyApplication extends BaseApplication {
             PackageManager pm = getPackageManager();
             ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             String packageName = appInfo.packageName;
+            Log.d("---> packageName : ",packageName);
             String className = appInfo.className;
             String name = appInfo.name;
 
@@ -112,6 +119,38 @@ public class MyApplication extends BaseApplication {
             e.printStackTrace();
         }
     }
+
+
+    /**
+     * 返回当前程序版本号
+     */
+    public static String getAppVersionCode(Context context) {
+        int versioncode = 0;
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            versioncode = pi.versionCode;
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
+        return versioncode + "";
+    }
+
+    /**
+     * 返回当前程序版本名
+     */
+    public static String getAppVersionName(Context context) {
+        String versionName=null;
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            versionName = pi.versionName;
+        } catch (Exception e) {
+            Log.e("VersionInfo", "Exception", e);
+        }
+        return versionName;
+    }
+
 
 
     /**

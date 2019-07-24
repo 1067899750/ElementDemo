@@ -42,7 +42,7 @@ android {
         resConfigs "en", "zh"
 
         //resValue自定义资源
-        resValue("string", "base_url", build_url.base_purang_shop_release)
+//        resValue("string", "base_url", build_url.base_purang_shop_release)
     }
 
     //*******************打包设置开始
@@ -125,6 +125,12 @@ android {
     }
 
     android.applicationVariants.all { variant ->
+        def buildType = variant.buildType.name
+        def productFlavor = variant.flavorName
+
+//        resValue "string", "app_client", rootProject.ext[productFlavor]["app_client"]
+//        resValue "string", "mall_base_url", rootProject.ext[productFlavor][buildType]
+
         variant.outputs.all {
             if (outputFileName.endsWith('.apk')) {
                 //这里使用之前定义apk文件名称
@@ -139,20 +145,26 @@ android {
         develop {
             dimension "versionCode"
             buildConfigField "int", "ENV_TYPE", "1"
-            applicationId 'com.example.elementdemo.develop'
+
+            applicationId rootProject.ext["develop"]["application_id"]
+            versionCode rootProject.ext["develop"]["version_code"]
+            versionName rootProject.ext["develop"]["version_name"]
             manifestPlaceholders = [
-                    app_name: "DevelopDemo",
-                    app_icon: "@drawable/icon_develop"
+                    app_name: rootProject.ext["develop"]["app_name"],
+                    app_icon: rootProject.ext["develop"]["app_icon"]
             ]
         }
         //测试环境
         check {
             dimension "versionCode"
             buildConfigField "int", "ENV_TYPE", "2"
-            applicationId 'com.example.elementdemo.check'
+
+            applicationId rootProject.ext["develop"]["application_id"]
+            versionCode rootProject.ext["develop"]["version_code"]
+            versionName rootProject.ext["develop"]["version_name"]
             manifestPlaceholders = [
-                    app_name: "CheckDemo",
-                    app_icon: "@drawable/icon_check"
+                    app_name: rootProject.ext["develop"]["app_name"],
+                    app_icon: rootProject.ext["develop"]["app_icon"]
             ]
         }
         //生产环境
