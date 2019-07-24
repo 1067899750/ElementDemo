@@ -3,11 +3,13 @@ package com.example.elementdemo;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
+import com.example.z_lib_common.multipackage.EnvType;
 import com.example.z_lib_common.utils.Utils;
 
 import org.acra.ACRA;
@@ -39,7 +41,8 @@ import org.acra.sender.ReportSenderException;
         resDialogText = R.string.crash_dialog_text,
         resDialogTitle = R.string.crash_dialog_title)
 public class MyApplication extends BaseApplication {
-
+    //多环境打包路径
+    public static int envType = BuildConfig.ENV_TYPE;//多环境打包标志  1：开发环境 2：测试环境3：生产环境
 
     @Override
     public void onCreate() {
@@ -55,11 +58,17 @@ public class MyApplication extends BaseApplication {
         ACRA.getErrorReporter().removeAllReportSenders();
         ACRA.getErrorReporter().setReportSender(new CrashReportSender());
 
+        //初始化多环境打包
+        initMultiPackage();
+
         //java代码中使用
         Log.d("--->",getResources().getString(R.string.app_token));
         Log.d("--->",getResources().getBoolean(R.bool.rel)+"");
         Log.d("--->",getResources().getInteger(R.integer.num)+"");
         Log.d("--->",getResources().getString(R.string.base_url));
+        getChannel();
+
+        int envType = BuildConfig.ENV_TYPE;
     }
 
 
@@ -88,14 +97,38 @@ public class MyApplication extends BaseApplication {
     }
 
 
-    private String getChannel() {
+    private void getChannel() {
         try {
             PackageManager pm = getPackageManager();
             ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-            return appInfo.metaData.getString("UMENG_CHANNEL");
-        } catch (PackageManager.NameNotFoundException ignored) {
+            String packageName = appInfo.packageName;
+            String className = appInfo.className;
+            String name = appInfo.name;
+
+
+            Bundle bundle = appInfo.metaData;
+//            return appInfo.metaData.getString("UMENG_CHANNEL");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return "";
+    }
+
+
+    /**
+     * 初始化多环境打包
+     */
+    private void initMultiPackage() {
+        switch (envType) {
+            case EnvType.DEVELOP://开发环境（
+                MY_STR = "开发环境";
+                break;
+            case EnvType.CHECK://测试环境
+                MY_STR = "测试环境";
+                break;
+            case EnvType.PRODUCT://生产环境
+                MY_STR = "生产环境";
+                break;
+        }
     }
 
 }

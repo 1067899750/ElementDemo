@@ -2,6 +2,7 @@ package com.example.z_lib_main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.arouter.ARouterManager;
 import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseActivity;
+import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.ToastUtils;
 
@@ -35,6 +37,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.news_button).setOnClickListener(this);
         findViewById(R.id.girls_button).setOnClickListener(this);
         findViewById(R.id.fragment_button).setOnClickListener(this);
+
+        Log.d("--->", BaseApplication.MY_STR);
 
     }
 

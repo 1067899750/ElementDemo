@@ -24,7 +24,16 @@ android {
         versionCode build_versions.version_code
         versionName build_versions.version_name
 
+        flavorDimensions "versionCode"//多环境打包设置
+//        multiDexEnabled true
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            // 设置支持的SO库架构（第三方腾讯bug上传含有多个SO库架构）
+            abiFilters 'armeabi', 'x86', 'armeabi-v7a'
+            //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
 
         //打包时间
         resValue "string", "build_time", buildTime()
@@ -35,6 +44,9 @@ android {
         resValue("string", "base_url", build_url.base_purang_shop_release)
     }
 
+    //*******************打包设置开始
+    //自定义生成的apk的地址及名称
+    def apkName
     signingConfigs {
         release {
             keyAlias keystoreProperties['keyAlias']
@@ -50,17 +62,19 @@ android {
             //manifestPlaceholders = [app_icon: "@drawable/icon"]
             // 不显示Log
             buildConfigField "boolean", "LEO_DEBUG", "false"
-            //是否zip对齐
+            //Zipalign优化
             zipAlignEnabled true
-            // 缩减resource文件
-            shrinkResources true
-            //Proguard
-            minifyEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+            //混淆
+            minifyEnabled false
             // proguard-android.txt 表示 Android 系统为我们提供的默认混淆规则文件
             // proguard-rules.pro 则是我们想要自定义的混淆规则
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            debuggable false
+            debuggable false //禁止使用dug调试
+
+            apkName = "release.apk"
 
             //签名
             signingConfig signingConfigs.release
@@ -79,10 +93,10 @@ android {
             applicationIdSuffix ".debug"
             //manifestPlaceholders = [app_icon: "@drawable/launch_beta"]
             buildConfigField "boolean", "LOG_DEBUG", "true"
-            zipAlignEnabled false
-            shrinkResources false
             minifyEnabled false
             debuggable true
+
+            apkName = "debug.apk"
 
             resValue "string", "base_url", build_url.base_purang_shop_debug
 
@@ -99,6 +113,8 @@ android {
             shrinkResources false
             resValue "string", "base_url", build_url.base_purang_shop_test
 
+            apkName = "debugUat.apk"
+
             //resValue自定义资源
             resValue("string","app_token","${TOKEN}")
             resValue("bool","rel","true")
@@ -106,33 +122,52 @@ android {
         }
     }
 
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (outputFileName.endsWith('.apk')) {
+                //这里使用之前定义apk文件名称
+                outputFileName = apkName
+            }
+        }
+    }
+    //*******************打包设置结束
+    //*******************多环境打包设置开始
+    productFlavors {
+        //开发环境
+        develop {
+            dimension "versionCode"
+            buildConfigField "int", "ENV_TYPE", "1"
+            applicationId 'com.example.elementdemo.develop'
+            manifestPlaceholders = [
+                    app_name: "DevelopDemo",
+                    app_icon: "@drawable/icon_develop"
+            ]
+        }
+        //测试环境
+        check {
+            dimension "versionCode"
+            buildConfigField "int", "ENV_TYPE", "2"
+            applicationId 'com.example.elementdemo.check'
+            manifestPlaceholders = [
+                    app_name: "CheckDemo",
+                    app_icon: "@drawable/icon_check"
+            ]
+        }
+        //生产环境
+        product {
+            dimension "versionCode"
+            buildConfigField "int", "ENV_TYPE", "3"
+            applicationId 'com.example.elementdemo.product'
+            manifestPlaceholders = [
+                    app_name: "ProductDemo",
+                    app_icon: "@drawable/icon_product"
+            ]
+        }
+    }
+    //*******************多环境打包设置结束
 
-    //必须放在buildTypes 后面
-//    productFlavors{
-//        //随便命名，建议根据该维度的具体信息进行命名
-//        wandoujia{
-//
-//        }
-//        xiaomi{
-//
-//        }
-//    }
-//    productFlavors.all { flavor ->
-//        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-//    }
-//    applicationVariants.all { variant ->
-//        variant.outputs.each { output ->
-//            def outputFile = output.outputFile
-//            if (outputFile != null && outputFile.name.endsWith('.apk')) {
-//                def fileName = outputFile.name.replace(".apk", "-${defaultConfig.versionName}.apk")
-//                output.outputFile = new File(outputFile.parent, fileName)
-//            }
-//        }
-//    }
-//
 
-
-    //代码混淆
+        //代码混淆
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
@@ -158,6 +193,7 @@ dependencies {
     //    butterknife 引用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation files('libs/acra-4.5.0.jar')
+
 }
 
 

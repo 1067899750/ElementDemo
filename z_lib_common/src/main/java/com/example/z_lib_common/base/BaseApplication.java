@@ -23,7 +23,7 @@ public class BaseApplication extends Application {
     private static BaseApplication sInstance;
 
     private List<IApplicationDelegate> mAppDelegateList;
-
+    public static String MY_STR = "";
 
     public static BaseApplication getIns() {
         return sInstance;
