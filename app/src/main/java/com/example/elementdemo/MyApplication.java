@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.multidex.MultiDex;
 import android.util.Log;
 
@@ -62,17 +63,24 @@ public class MyApplication extends BaseApplication {
         //初始化多环境打包
         initMultiPackage();
 
-        //java代码中使用
-        Log.d("--->",getResources().getString(R.string.app_token));
-        Log.d("--->",getResources().getBoolean(R.bool.rel)+"");
-        Log.d("--->",getResources().getInteger(R.integer.num)+"");
-        Log.d("--->",getResources().getString(R.string.base_url));
-//        Log.d("--->",getResources().getString(R.string.mall_base_url));
+        // resValue 资源文件调用
+        Log.d("---> app_token ",getResources().getString(R.string.app_token));
+        Log.d("---> rel ",getResources().getBoolean(R.bool.rel)+"");
+        Log.d("---> num ",getResources().getInteger(R.integer.num)+"");
+        Log.d("---> base_url ",getResources().getString(R.string.base_url));
+        Log.d("---> mall_base_url ",getResources().getString(R.string.mall_base_url));
+        Log.d("---> app_client ",getResources().getString(R.string.app_client));
+
+
+        // buildConfigField 配置文件调用
+        Log.d("---> QQ_APPID ",BuildConfig.QQ_APPID);
+        Log.d("---> LOG_DEBUG ",BuildConfig.LOG_DEBUG + "");
+        Log.d("---> APPLICATION_ID ",BuildConfig.APPLICATION_ID);
         getChannel();
 
 
-        Log.d("---> VersionCode : ",getAppVersionCode(this));
-        Log.d("---> VersionName : ",getAppVersionName(this));
+        Log.d("---> VersionCode  ",getAppVersionCode(this));
+        Log.d("---> VersionName  ",getAppVersionName(this));
 
         int envType = BuildConfig.ENV_TYPE;
     }
@@ -103,18 +111,21 @@ public class MyApplication extends BaseApplication {
     }
 
 
+
     private void getChannel() {
         try {
             PackageManager pm = getPackageManager();
             ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             String packageName = appInfo.packageName;
-            Log.d("---> packageName : ",packageName);
+            Log.d("---> packageName ",packageName);
             String className = appInfo.className;
             String name = appInfo.name;
 
 
-            Bundle bundle = appInfo.metaData;
-//            return appInfo.metaData.getString("UMENG_CHANNEL");
+            Bundle bundle =  appInfo.metaData;
+
+            String APP_ID = appInfo.metaData.getString("APP_ID");
+            Log.d("---> APP_ID ",APP_ID + "");
         } catch (Exception e) {
             e.printStackTrace();
         }
