@@ -42,6 +42,12 @@ android {
         //保留中文和英文国际化支持
         resConfigs "en", "zh"
 
+//        manifestPlaceholders = [
+//                GETUI_APP_ID : "此处填写您的APP_ID",
+//                GETUI_APP_KEY : "此处填写您的APP_KEY",
+//                GETUI_APP_SECRET : "此处填写您的APP_SECRET"
+//        ]
+
         //resValue自定义资源
 //        resValue("string", "base_url", build_url.base_purang_shop_release)
     }
@@ -147,13 +153,19 @@ android {
                                                          app_icon        : rootProject.ext[productFlavor]["app_icon"],
                                                          app_package     : rootProject.ext[productFlavor]["application_package"],
                                                          "APP_ID"        : rootProject.ext[productFlavor]["app_id_app_key"],
-                                                         GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"]]
+
+                                                         GETUI_APP_ID    : rootProject.ext[productFlavor]["getui_app_id_debug"],
+                                                         GETUI_APP_KEY   : rootProject.ext[productFlavor]["getui_app_key_debug"],
+                                                         GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"],]
         } else {
             variant.mergedFlavor.manifestPlaceholders = [app_name        : rootProject.ext[productFlavor]["app_name"],
                                                          app_icon        : rootProject.ext[productFlavor]["app_icon"],
                                                          app_package     : rootProject.ext[productFlavor]["application_package"],
                                                          "APP_ID"        : rootProject.ext[productFlavor]["app_id_app_key"],
-                                                         GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"]]
+
+                                                         GETUI_APP_ID    : rootProject.ext[productFlavor]["getui_app_id_debug"],
+                                                         GETUI_APP_KEY   : rootProject.ext[productFlavor]["getui_app_key_debug"],
+                                                         GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"],]
         }
 
         variant.outputs.all {

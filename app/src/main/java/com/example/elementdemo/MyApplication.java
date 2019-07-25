@@ -63,24 +63,9 @@ public class MyApplication extends BaseApplication {
         //初始化多环境打包
         initMultiPackage();
 
-        // resValue 资源文件调用
-        Log.d("---> app_token ",getResources().getString(R.string.app_token));
-        Log.d("---> rel ",getResources().getBoolean(R.bool.rel)+"");
-        Log.d("---> num ",getResources().getInteger(R.integer.num)+"");
-        Log.d("---> base_url ",getResources().getString(R.string.base_url));
-        Log.d("---> mall_base_url ",getResources().getString(R.string.mall_base_url));
-        Log.d("---> app_client ",getResources().getString(R.string.app_client));
-
-
-        // buildConfigField 配置文件调用
-        Log.d("---> QQ_APPID ",BuildConfig.QQ_APPID);
-        Log.d("---> LOG_DEBUG ",BuildConfig.LOG_DEBUG + "");
-        Log.d("---> APPLICATION_ID ",BuildConfig.APPLICATION_ID);
+        getOtherMessage();
         getChannel();
-
-
-        Log.d("---> VersionCode  ",getAppVersionCode(this));
-        Log.d("---> VersionName  ",getAppVersionName(this));
+        parseManifests();
 
         int envType = BuildConfig.ENV_TYPE;
     }
@@ -111,6 +96,26 @@ public class MyApplication extends BaseApplication {
     }
 
 
+    private void getOtherMessage(){
+        // resValue 资源文件调用
+        Log.d("---> app_token ",getResources().getString(R.string.app_token));
+        Log.d("---> rel ",getResources().getBoolean(R.bool.rel)+"");
+        Log.d("---> num ",getResources().getInteger(R.integer.num)+"");
+        Log.d("---> base_url ",getResources().getString(R.string.base_url));
+        Log.d("---> mall_base_url ",getResources().getString(R.string.mall_base_url));
+        Log.d("---> app_client ",getResources().getString(R.string.app_client));
+
+        // buildConfigField 配置文件调用
+        Log.d("---> QQ_APPID ",BuildConfig.QQ_APPID);
+        Log.d("---> LOG_DEBUG ",BuildConfig.LOG_DEBUG + "");
+        Log.d("---> APPLICATION_ID ",BuildConfig.APPLICATION_ID);
+
+
+        Log.d("---> VersionCode  ",getAppVersionCode(this));
+        Log.d("---> VersionName  ",getAppVersionName(this));
+
+    }
+
 
     private void getChannel() {
         try {
@@ -126,6 +131,25 @@ public class MyApplication extends BaseApplication {
 
             String APP_ID = appInfo.metaData.getString("APP_ID");
             Log.d("---> APP_ID ",APP_ID + "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void parseManifests() {
+        String packageName = getApplicationContext().getPackageName();
+        try {
+            ApplicationInfo appInfo = getPackageManager().getApplicationInfo(packageName, PackageManager.GET_META_DATA);
+            if (appInfo.metaData != null) {
+                String appid = appInfo.metaData.getString("PUSH_APPID");
+                String appsecret = appInfo.metaData.getString("PUSH_APPSECRET");
+                String appkey = appInfo.metaData.getString("PUSH_APPKEY");
+
+                Log.d("---> PUSH_APPID ",appid + "");
+                Log.d("---> PUSH_APPSECRET ",appsecret + "");
+                Log.d("---> PUSH_APPKEY ",appkey + "");
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
