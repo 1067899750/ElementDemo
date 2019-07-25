@@ -26,7 +26,7 @@
             android:name="notch.config"
             android:value="portrait" />
 
-        <!--这一句起到至关重要作用 用于在application中取直-->
+        <!--这一句起到至关重要作用 用于在 service,receiver，Activity，Application中取直-->
         <meta-data
             android:name="PUSH_APPID"
             android:value="${GETUI_APP_ID}" />
