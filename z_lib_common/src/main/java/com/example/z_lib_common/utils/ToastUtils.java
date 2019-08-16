@@ -262,7 +262,9 @@ public class ToastUtils {
      * @param duration 显示时长
      */
     private static void showToast(CharSequence text, int duration) {
-        if (isJumpWhenMore) cancelToast();
+        if (isJumpWhenMore) {
+            cancelToast();
+        }
         if (sToast == null) {
             sToast = Toast.makeText(Utils.getContext(), text, duration);
             TextView tv = (TextView) sToast.getView().findViewById(android.R.id.message);
