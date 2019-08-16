@@ -10,6 +10,7 @@ import android.support.multidex.MultiDex;
 import android.util.Log;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.z_lib_common.bankres.ConfigPermission;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.multipackage.EnvType;
 import com.example.z_lib_common.utils.Utils;
@@ -97,6 +98,13 @@ public class MyApplication extends BaseApplication {
 
 
     private void getOtherMessage(){
+        String str = getPackageName();
+        if (str.contains(".debug")){
+            str = str.substring(0, str.length() - 6);
+        } else if (str.contains(".debugUat")){
+            str = str.substring(0, str.length() - 9);
+        }
+        ConfigPermission.APPLICATION_PACKAGE = str;
         // resValue 资源文件调用
         Log.d("---> app_token ",getResources().getString(R.string.app_token));
         Log.d("---> rel ",getResources().getBoolean(R.bool.rel)+"");

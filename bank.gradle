@@ -2,10 +2,10 @@ ext {
     develop = [
             app_client              : "pr",
             apk_name                : "bsd_purang.apk",
-            application_id          : "com.purang.bsd_purang",
+            application_id          : "com.purang.develop",
             version_code            : 100,
-            version_name            : "3.3.3",
-            app_name                : "组件化APP",
+            version_name            : "1.0.0",
+            app_name                : "组件化APP-develop",
             release                 : "https://yanyangtian.purang.com/",
             debug                   : "http://10.10.64.108:8010/",//开发模式
             debugTest               : "https://yytuatbranch.purang.com/",
@@ -28,10 +28,10 @@ ext {
     check = [
             app_client              : "pr",
             apk_name                : "bsd_purang.apk",
-            application_id          : "com.purang.bsd_purang",
-            version_code            : 100,
-            version_name            : "3.3.3",
-            app_name                : '组件化APP',
+            application_id          : "com.purang.check",
+            version_code            : 101,
+            version_name            : "1.0.1",
+            app_name                : '组件化APP-check',
             release                 : "https://yanyangtian.purang.com/",
             debug                   : "https://yanyangtian.purang.com/",//生成
             debugTest               : "https://testpurang.purang.com/",//测试分支
@@ -52,10 +52,10 @@ ext {
     product = [
             app_client              : "pr",
             apk_name                : "bsd_purang.apk",
-            application_id          : "com.purang.bsd_purang",
-            version_code            : 100,
-            version_name            : "3.3.3",
-            app_name                : '组件化APP',
+            application_id          : "com.purang.product",
+            version_code            : 102,
+            version_name            : "1.0.2",
+            app_name                : '组件化APP-product',
             release                 : "https://yanyangtian.purang.com/",
             debug                   : "https://yanyangtian.purang.com/",//生成
             debugTest               : "https://testpurang.purang.com/",//测试分支

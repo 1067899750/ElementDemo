@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.arouter.ARouterManager;
 import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.z_lib_common.bankres.BankResFactory;
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.base.ViewManager;
@@ -41,7 +42,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.fragment_button).setOnClickListener(this);
 
         Log.d("--->", BaseApplication.MY_STR);
+        getAppliactionPackage();
         getChannel();
+    }
+
+    private void getAppliactionPackage() {
+        String str = BankResFactory.getInstance().getPackage();
+        Log.d("---> BankResFactory", str);
     }
 
     @Override

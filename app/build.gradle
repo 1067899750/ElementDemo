@@ -199,9 +199,9 @@ android {
             dimension "versionCode"
             buildConfigField "int", "ENV_TYPE", "2"
 
-            applicationId rootProject.ext["develop"]["application_id"]
-            versionCode rootProject.ext["develop"]["version_code"]
-            versionName rootProject.ext["develop"]["version_name"]
+            applicationId rootProject.ext["check"]["application_id"]
+            versionCode rootProject.ext["check"]["version_code"]
+            versionName rootProject.ext["check"]["version_name"]
 //            manifestPlaceholders = [
 //                    app_name   : rootProject.ext["develop"]["app_name"],
 //                    app_icon   : rootProject.ext["develop"]["app_icon"],
@@ -213,7 +213,10 @@ android {
         product {
             dimension "versionCode"
             buildConfigField "int", "ENV_TYPE", "3"
-            applicationId 'com.example.elementdemo.product'
+//            applicationId 'com.example.elementdemo.product'
+            applicationId rootProject.ext["product"]["application_id"]
+            versionCode rootProject.ext["product"]["version_code"]
+            versionName rootProject.ext["product"]["version_name"]
 //            manifestPlaceholders = [
 //                    app_name   : "ProductDemo",
 //                    app_icon   : "@drawable/icon_product",
