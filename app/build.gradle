@@ -203,8 +203,8 @@ android {
             versionCode rootProject.ext["check"]["version_code"]
             versionName rootProject.ext["check"]["version_name"]
 //            manifestPlaceholders = [
-//                    app_name   : rootProject.ext["develop"]["app_name"],
-//                    app_icon   : rootProject.ext["develop"]["app_icon"],
+//                    app_name   : rootProject.ext["check"]["app_name"],
+//                    app_icon   : rootProject.ext["check"]["app_icon"],
 //                    "APP_ID"   : rootProject.ext["check"]["app_id_app_key"],
 //                    app_package: rootProject.ext["check"]["application_package"],
 //            ]
