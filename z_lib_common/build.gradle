@@ -72,7 +72,10 @@ dependencies {
     //PhotoView
     api rootProject.ext.dependencies.PhotoView
 
+    //glide
     api rootProject.ext.dependencies.glide
+    implementation rootProject.ext.dependencies["glide-transformations"]
+    implementation rootProject.ext.dependencies["gpuimage-library"]
     implementation files('libs/simple-xml-core.jar')
 }
 

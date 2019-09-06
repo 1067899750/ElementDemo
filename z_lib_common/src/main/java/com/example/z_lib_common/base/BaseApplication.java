@@ -3,6 +3,7 @@ package com.example.z_lib_common.base;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.z_lib_common.imageloader.loader.ImageLoader;
 import com.example.z_lib_common.utils.Utils;
 
 import java.util.List;
@@ -34,6 +35,7 @@ public class BaseApplication extends Application {
         super.onCreate();
         sInstance = this;
         Utils.init(this);
+        ImageLoader.init(getApplicationContext());
         mAppDelegateList = ClassUtils.getObjectsWithInterface(this, IApplicationDelegate.class, ROOT_PACKAGE);
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onCreate();
@@ -50,19 +52,60 @@ public class BaseApplication extends Application {
     }
 
 
+/**
+ * OnLowMemory被回调时，已经没有后台进程；而onTrimMemory被回调时，还有后台进程。
+ *
+ * OnLowMemory是在最后一个后台进程被杀时调用，一般情况是low memory killer 杀进程后触发；而OnTrimMemory的触发更频繁，每次计算进程优先级时，只要满足条件，都会触发。
+ *
+ * 通过一键清理后，OnLowMemory不会被触发，而OnTrimMemory会被触发一次。
+ */
+
+    /**
+     * 系统内存不足
+     */
     @Override
     public void onLowMemory() {
         super.onLowMemory();
+        ImageLoader.clearAllMemoryCaches();
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onLowMemory();
         }
     }
 
+    /**
+     * Android 4.0之后提供的API，系统会根据不同的内存状态来回调
+     *
+     * @param level
+     */
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
+        ImageLoader.trimMemory(level);
         for (IApplicationDelegate delegate : mAppDelegateList) {
             delegate.onTrimMemory(level);
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -17,6 +17,8 @@ import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.ToastUtils;
+import com.example.z_lib_main.glide.SimpleActivity;
+import com.example.z_lib_main.glide.ViewpagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +42,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.news_button).setOnClickListener(this);
         findViewById(R.id.girls_button).setOnClickListener(this);
         findViewById(R.id.fragment_button).setOnClickListener(this);
+        findViewById(R.id.glide_button1).setOnClickListener(this);
+        findViewById(R.id.glide_button2).setOnClickListener(this);
 
         Log.d("--->", BaseApplication.MY_STR);
         getAppliactionPackage();
@@ -65,6 +69,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }else if (i == R.id.fragment_button){
             startActivity(new Intent(this, BottomNavigationActivity.class));
 
+        } else if (i == R.id.glide_button1){
+            //加载图片
+            startActivity(new Intent(MainActivity.this, ViewpagerActivity.class));
+
+        } else if (i == R.id.glide_button2){
+            //加载图片
+            startActivity(new Intent(MainActivity.this, SimpleActivity.class));
         }
     }
 

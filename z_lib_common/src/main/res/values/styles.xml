@@ -38,4 +38,16 @@
         <item name="android:backgroundDimEnabled">false</item><!--模糊-->
     </style>
 
+    <!--glide 配置-->
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" format="dimension" />
+        <attr name="type">
+            <enum name="circle" value="0" />
+            <enum name="round" value="1" />
+            <enum name="multi" value="3" />
+        </attr>
+        <attr name="angleCount" format="integer" />
+        <attr name="currentAngle" format="integer" />
+    </declare-styleable>
+
 </resources>

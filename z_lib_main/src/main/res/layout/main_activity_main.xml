@@ -30,4 +30,20 @@
         android:textAllCaps="false"
         android:text="Fragment" />
 
+
+    <Button
+        android:id="@+id/glide_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="glide1" />
+
+    <Button
+        android:id="@+id/glide_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="glide2" />
+
+
 </LinearLayout>
