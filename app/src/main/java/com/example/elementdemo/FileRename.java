@@ -3,10 +3,11 @@ package com.example.elementdemo;
 import java.io.File;
 
 /**
- * @Describe
- * @Author puyantao
- * @Email 1067899750@qq.com
- * @create 2019/7/23 16:38
+ *
+ * @description FileRename
+ * @author puyantao
+ * @email 1067899750@qq.com
+ * @date 2019/9/21 23:04
  */
 public class FileRename {
     public static void main(String[] args) {
@@ -29,18 +30,23 @@ public class FileRename {
 
         String[] files = file.list();
         File f = null;
-        String oldFileName = ""; //之前的名字
-        int count = 0; // 下划线个数统计
-        int validApkcount = 0; // 有效apk包个数
+        //之前的名字
+        String oldFileName = "";
+        // 下划线个数统计
+        int count = 0;
+        // 有效apk包个数
+        int validApkcount = 0;
         /** 循环遍历所有文件* */
         for(String fileName : files){
             oldFileName = fileName;
             count = fileName.length() - fileName.replace("_", "").length();
             if(fileName.endsWith(".apk") && count ==9){
-
-                String tempFileName = getText(fileName, 0, 6) + ".apk"; // 截取有用的文件名
-                String channelStr = getText(fileName, 8, 9); // 加固后的渠道
-                String originalChannelStr = getText(fileName,3, 4); // 加固前的渠道
+                // 截取有用的文件名
+                String tempFileName = getText(fileName, 0, 6) + ".apk";
+                // 加固后的渠道
+                String channelStr = getText(fileName, 8, 9);
+                // 加固前的渠道
+                String originalChannelStr = getText(fileName,3, 4);
 
                 fileName = tempFileName.replace(originalChannelStr, channelStr);
                 System.out.print(count + ":");
@@ -49,8 +55,8 @@ public class FileRename {
                 System.out.print(tempFileName + ":");
                 System.out.print(fileName + "\n");
 
-
-                f = new File(path + "\\" + oldFileName); //输出地址和原路径保持一致
+                //输出地址和原路径保持一致
+                f = new File(path + "\\" + oldFileName);
                 f.renameTo(new File(path + "\\" +  fileName));
                 validApkcount++;
             }else{
