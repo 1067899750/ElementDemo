@@ -1,5 +1,7 @@
 package com.example.z_lib_girl.main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -9,12 +11,23 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseActionBarActivity;
 import com.example.z_lib_girl.R;
-
+/**
+ *
+ * @description GirlsActivity
+ * @author puyantao
+ * @email 1067899750@qq.com
+ * @date 2019/9/25 20:37
+ */
 @Route(path = ARouterUtils.GIRLS_LIST)
 public class GirlsActivity extends BaseActionBarActivity {
 
     private GirlsView mView;
     private GirlsContract.Presenter mPresenter;
+
+    public static void startGirlsActivity(Context context){
+        Intent intent = new Intent(context, GirlsActivity.class);
+        context.startActivity(intent);
+    }
 
     @Override
     protected int setTitleId() {

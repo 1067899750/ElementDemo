@@ -18,6 +18,7 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //在这里传值给需要调试的Activity
+        //在这里传值给需要调试的Activity
         setContentView(R.layout.home_fragment);
         getSupportFragmentManager()
                 .beginTransaction()

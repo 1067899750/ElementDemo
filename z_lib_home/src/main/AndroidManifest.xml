@@ -1,10 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.z_lib_home" >
+    package="com.example.z_lib_home">
+
     <application>
+        <activity android:name=".debug.HomeActivity"/>
         <activity
-            android:name="com.example.z_lib_home.BottomNavigationActivity"
-            android:label="@string/home_title_activity_fragment_module"/>
-        <activity android:name="com.example.z_lib_home.glide.ViewpagerActivity" />
-        <activity android:name="com.example.z_lib_home.glide.SimpleActivity"/>
+            android:name=".BottomNavigationActivity"
+            android:label="@string/home_title_activity_fragment_module" />
+        <activity android:name=".glide.ViewpagerActivity" />
+        <activity android:name=".glide.SimpleActivity" />
     </application>
+
 </manifest>

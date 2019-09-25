@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.z_lib_news">
+    package="com.example.z_lib_home">
 
     <application
         android:name="debug.HomeApplication"
@@ -19,7 +19,12 @@
             </intent-filter>
         </activity>
 
-
+        <activity android:name=".debug.HomeActivity"/>
+        <activity
+            android:name=".BottomNavigationActivity"
+            android:label="@string/home_title_activity_fragment_module" />
+        <activity android:name=".glide.ViewpagerActivity" />
+        <activity android:name=".glide.SimpleActivity" />
 
     </application>
 

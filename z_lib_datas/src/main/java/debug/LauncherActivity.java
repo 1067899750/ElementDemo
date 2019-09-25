@@ -2,8 +2,10 @@ package debug;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
 import com.example.z_lib_datas.DataMainFragment;
-import com.example.z_lib_news.R;
+import com.example.z_lib_datas.R;
+
 
 /**
  * @author puyantao

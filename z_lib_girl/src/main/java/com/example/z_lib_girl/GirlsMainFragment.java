@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseFragment;
+import com.example.z_lib_girl.main.GirlsActivity;
 
 
 /**
@@ -40,8 +41,50 @@ public class GirlsMainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.gril_fragment_main_girls, container, false);
+        View view = inflater.inflate(R.layout.gril_fragment_main_girls, container, false);
+        initView(view);
+        intiData();
+        return view;
     }
 
 
+
+    private void initView(View view) {
+
+    }
+
+    private void intiData() {
+        GirlsActivity.startGirlsActivity(getContext());
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

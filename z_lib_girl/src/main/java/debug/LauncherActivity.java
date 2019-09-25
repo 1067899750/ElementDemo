@@ -3,8 +3,8 @@ package debug;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.z_lib_user.R;
-import com.example.z_lib_user.UserMainFragment;
+import com.example.z_lib_girl.R;
+import com.example.z_lib_girl.main.GirlsActivity;
 
 
 /**
@@ -18,12 +18,13 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //在这里传值给需要调试的Activity
-        setContentView(R.layout.user_layout);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.user_content_ll, UserMainFragment.newInstance())
-                .commit();
+        //在这里传值给需要调试的Activity
+        setContentView(R.layout.gril_fragment);
+        GirlsActivity.startGirlsActivity(this);
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .add(R.id.girl_content_cl, GirlsMainFragment.newInstance())
+//                .commit();
 
     }
 
