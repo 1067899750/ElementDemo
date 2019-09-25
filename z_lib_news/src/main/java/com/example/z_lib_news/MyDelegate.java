@@ -5,7 +5,6 @@ import android.support.annotation.Keep;
 import com.example.z_lib_common.base.IApplicationDelegate;
 import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.Utils;
-import com.orhanobut.logger.Logger;
 
 /**
  * <p>类说明</p>
@@ -17,7 +16,7 @@ public class MyDelegate implements IApplicationDelegate {
     public void onCreate() {
         Utils.initLogger();
         //主动添加
-        ViewManager.getInstance().addFragment(0, NewsFragment.newInstance());
+        ViewManager.getInstance().addFragment(0, NewsMainFragment.newInstance());
     }
 
     @Override

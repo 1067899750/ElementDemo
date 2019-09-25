@@ -16,7 +16,7 @@ public class MyViewDelegate implements IViewDelegate {
 
     @Override
     public BaseFragment getFragment(String name) {
-        return NewsFragment.newInstance();
+        return NewsMainFragment.newInstance();
     }
 
     @Override

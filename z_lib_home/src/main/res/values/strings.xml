@@ -1,4 +1,4 @@
 <resources>
     <string name="home_app_name">z_lib_home</string>
-
+    <string name="home_title_activity_fragment_module">Fragment组件化</string>
 </resources>

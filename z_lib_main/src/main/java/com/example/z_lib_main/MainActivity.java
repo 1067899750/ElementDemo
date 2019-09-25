@@ -1,16 +1,14 @@
 package com.example.z_lib_main;
 
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
-import android.widget.Button;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.z_lib_common.arouter.ARouterManager;
 import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.bankres.BankResFactory;
 import com.example.z_lib_common.base.BaseActivity;
@@ -18,28 +16,36 @@ import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.ToastUtils;
 import com.example.z_lib_common.widget.NewStyleToolBar;
-import com.example.z_lib_main.glide.SimpleActivity;
-import com.example.z_lib_main.glide.ViewpagerActivity;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.example.z_lib_common.widget.annotation.PageTypeAnnotation;
+import java.util.ArrayList;
 
 
 /**
- * @description 首页
  * @author puyantao
+ * @description 首页
  * @date 2019/9/25 14:16
  */
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity  {
     private long mExitTime = 0;
     private NewStyleToolBar mNewStyleToolBar;
+    private ArrayList<Fragment> mFragments;
+
+    /**
+     * 缓存Fragment或上次显示的Fragment
+     */
+    private Fragment tempFragment;
+
+    /**
+     * 记录选着的位置
+     */
+    private int mPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_main);
 
-
+        mFragments = new ArrayList<>();
 
         initView();
         initData();
@@ -51,70 +57,115 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
     private void initView() {
-        findViewById(R.id.news_button).setOnClickListener(this);
-        findViewById(R.id.girls_button).setOnClickListener(this);
-        findViewById(R.id.fragment_button).setOnClickListener(this);
-        findViewById(R.id.glide_button1).setOnClickListener(this);
-        findViewById(R.id.glide_button2).setOnClickListener(this);
-
         mNewStyleToolBar = findViewById(R.id.ns_tool_bar);
     }
 
 
     private void initData() {
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.HOME_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.NEWS_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.DATA_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.GIRLS_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.USER_MAIN_FRAGMENT).navigation());
+        updateFragment();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         mNewStyleToolBar.setClickChildLocationListener(new NewStyleToolBar.OnClickChildLocationListener() {
             @Override
             public void onChildPosition(int position) {
                 Log.d("---> position", position + "");
+                mPosition = position;
+                updateFragment();
             }
         });
 
     }
+
+    /**
+     * 重新设置 bg 选着的位置
+     *
+     * @param position
+     */
+    public void setNewGbPosition(@PageTypeAnnotation int position) {
+        mPosition = position;
+        updateFragment();
+    }
+
+
+    public void updateFragment() {
+        mNewStyleToolBar.setRbPosition(mPosition);
+        Fragment baseFragment = getFragment(mPosition);
+        switchFragment(tempFragment, baseFragment, mPosition);
+    }
+
+    /**
+     * 根据位置得到对应的 Fragment
+     *
+     * @param position
+     * @return
+     */
+    private Fragment getFragment(int position) {
+        if (mFragments != null && mFragments.size() > 0) {
+            Fragment fragment = mFragments.get(position);
+            return fragment;
+        }
+        return null;
+    }
+
+    /**
+     * 切换Fragment
+     *
+     * @param fragment     上一个fragment
+     * @param nextFragment 要替换的fragment
+     */
+    private void switchFragment(Fragment fragment, Fragment nextFragment, final int position) {
+        Log.i("--> : ", position + "");
+        if (tempFragment != nextFragment) {
+            tempFragment = nextFragment;
+            if (nextFragment != null) {
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                //判断nextFragment是否添加成功
+                if (!nextFragment.isAdded()) {
+                    //隐藏当前的Fragment
+                    if (fragment != null) {
+                        fragmentTransaction.hide(fragment);
+                    }
+                    //添加Fragment
+                    fragmentTransaction.add(R.id.fl_main_content, nextFragment).commitAllowingStateLoss();
+                } else {
+                    //隐藏当前Fragment
+                    if (fragment != null) {
+                        fragmentTransaction.hide(fragment);
+                    }
+                    fragmentTransaction.show(nextFragment).commitAllowingStateLoss();
+                }
+            }
+        }
+    }
+
 
     private void getAppliactionPackage() {
         String str = BankResFactory.getInstance().getPackage();
         Log.d("---> BankResFactory", str);
     }
 
-    @Override
-    public void onClick(View v) {
-        int i = v.getId();
-        if (i == R.id.news_button) {
-            //跳转到NewsCenterActivity
-            ARouterManager.startNewsCanterActivity();
-
-        }else if (i == R.id.girls_button){
-            //跳转到GirlsActivity
-            ARouterManager.startGrilsListActivity();
-
-        }else if (i == R.id.fragment_button){
-            startActivity(new Intent(this, BottomNavigationActivity.class));
-
-        } else if (i == R.id.glide_button1){
-            //加载图片
-            startActivity(new Intent(MainActivity.this, ViewpagerActivity.class));
-
-        } else if (i == R.id.glide_button2){
-            //加载图片
-            startActivity(new Intent(MainActivity.this, SimpleActivity.class));
-        }
-    }
-
-
     private void getChannel() {
         try {
             PackageManager pm = getPackageManager();
             ApplicationInfo appInfo = pm.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             String packageName = appInfo.packageName;
-            Log.d("---> packageName ",packageName);
+            Log.d("---> packageName ", packageName);
             String className = appInfo.className;
             String name = appInfo.name;
 
 
-            Bundle bundle =  appInfo.metaData;
+            Bundle bundle = appInfo.metaData;
 
             String APP_ID = appInfo.metaData.getString("APP_ID");
-            Log.d("---> APP_ID ",APP_ID + "");
+            Log.d("---> APP_ID ", APP_ID + "");
         } catch (Exception e) {
             e.printStackTrace();
         }

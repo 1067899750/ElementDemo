@@ -3,7 +3,7 @@ package debug;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import com.example.z_lib_home.HomeMianFragment;
+import com.example.z_lib_home.HomeMainFragment;
 import com.example.z_lib_home.R;
 
 
@@ -21,7 +21,7 @@ public class LauncherActivity extends AppCompatActivity {
         setContentView(R.layout.home_fragment);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.home_content_cl, HomeMianFragment.newInstance())
+                .add(R.id.home_content_cl, HomeMainFragment.newInstance())
                 .commit();
 
     }

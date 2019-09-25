@@ -10,7 +10,7 @@ import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseActionBarActivity;
 import com.example.z_lib_girl.R;
 
-@Route(path = ARouterUtils.GRILS_LIST)
+@Route(path = ARouterUtils.GIRLS_LIST)
 public class GirlsActivity extends BaseActionBarActivity {
 
     private GirlsView mView;

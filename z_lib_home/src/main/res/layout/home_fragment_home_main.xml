@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeMainFragment">
+
+
+    <Button
+        android:id="@+id/news_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="News"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/girls_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Girls"
+        android:layout_below="@+id/news_button"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/fragment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fragment"
+        android:layout_below="@+id/girls_button"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:id="@+id/glide_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="glide1"
+        android:layout_below="@+id/fragment_button"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/glide_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="glide2"
+        android:layout_below="@+id/glide_button1"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

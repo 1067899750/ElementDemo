@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.z_lib_common.arouter.ARouterUtils;
+
 
 /**
  *
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
  * @author puyantao
  * @date 2019/9/25 15:18
  */
+@Route(path = ARouterUtils.DATA_MAIN_FRAGMENT)
 public class DataMainFragment extends Fragment {
 
 

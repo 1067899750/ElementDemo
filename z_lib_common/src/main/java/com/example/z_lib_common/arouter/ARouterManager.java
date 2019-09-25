@@ -16,7 +16,7 @@ public class ARouterManager {
 
 
     public static void startGrilsListActivity(){
-        ARouter.getInstance().build(ARouterUtils.GRILS_LIST).navigation();
+        ARouter.getInstance().build(ARouterUtils.GIRLS_LIST).navigation();
     }
 
 
