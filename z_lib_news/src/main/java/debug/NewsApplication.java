@@ -15,8 +15,10 @@ import com.example.z_lib_news.data.bean.StoryList;
 import com.orhanobut.logger.Logger;
 
 /**
- * <p>类说明</p>
  *
+ * @description 类说明
+ * @author puyantao
+ * @date 2019/9/25 14:48
  */
 public class NewsApplication extends BaseApplication {
 

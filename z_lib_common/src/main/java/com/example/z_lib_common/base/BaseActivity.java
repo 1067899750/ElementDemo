@@ -14,10 +14,10 @@ import com.example.z_lib_common.utils.Utils;
 
 
 /**
- * Description  <p>Activity基类 </p>
- * Author puyantao
- * Email 1067899750@qq.com
- * Date 2019/7/9 17:37
+ *
+ * @description Activity基类
+ * @author puyantao
+ * @date 2019/9/25 16:25
  */
 @Keep
 public abstract class BaseActivity extends AppCompatActivity {

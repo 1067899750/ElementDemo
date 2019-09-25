@@ -17,6 +17,7 @@ import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.ToastUtils;
+import com.example.z_lib_common.widget.NewStyleToolBar;
 import com.example.z_lib_main.glide.SimpleActivity;
 import com.example.z_lib_main.glide.ViewpagerActivity;
 
@@ -25,29 +26,49 @@ import butterknife.ButterKnife;
 
 
 /**
- * Description
- * Author puyantao
- * Email 1067899750@qq.com
- * Date 2019/7/9 17:20
+ * @description 首页
+ * @author puyantao
+ * @date 2019/9/25 14:16
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener {
     private long mExitTime = 0;
+    private NewStyleToolBar mNewStyleToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity_main);
-        ButterKnife.bind(this);
 
+
+
+        initView();
+        initData();
+
+        Log.d("--->", BaseApplication.MY_STR);
+        getAppliactionPackage();
+        getChannel();
+    }
+
+
+    private void initView() {
         findViewById(R.id.news_button).setOnClickListener(this);
         findViewById(R.id.girls_button).setOnClickListener(this);
         findViewById(R.id.fragment_button).setOnClickListener(this);
         findViewById(R.id.glide_button1).setOnClickListener(this);
         findViewById(R.id.glide_button2).setOnClickListener(this);
 
-        Log.d("--->", BaseApplication.MY_STR);
-        getAppliactionPackage();
-        getChannel();
+        mNewStyleToolBar = findViewById(R.id.ns_tool_bar);
+    }
+
+
+    private void initData() {
+        mNewStyleToolBar.setClickChildLocationListener(new NewStyleToolBar.OnClickChildLocationListener() {
+            @Override
+            public void onChildPosition(int position) {
+                Log.d("---> position", position + "");
+            }
+        });
+
     }
 
     private void getAppliactionPackage() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,38 +12,59 @@
         android:id="@+id/news_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         android:text="News"
-        android:textAllCaps="false"
-        android:layout_marginTop="100dp"/>
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/girls_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Girls" />
+        android:text="Girls"
+        android:layout_below="@+id/news_button"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/fragment_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Fragment" />
+        android:text="Fragment"
+        android:layout_below="@+id/girls_button"
+        android:textAllCaps="false" />
 
 
     <Button
         android:id="@+id/glide_button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="glide1" />
+        android:text="glide1"
+        android:layout_below="@+id/fragment_button"
+        android:textAllCaps="false" />
 
     <Button
         android:id="@+id/glide_button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="glide2" />
+        android:text="glide2"
+        android:layout_below="@+id/glide_button1"
+        android:textAllCaps="false" />
 
 
-</LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ns_tool_bar" />
+
+
+    <com.example.z_lib_common.widget.NewStyleToolBar
+        android:id="@+id/ns_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:main="true"
+        app:selectItem="0" />
+
+
+</RelativeLayout>

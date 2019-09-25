@@ -44,8 +44,10 @@ import org.acra.sender.ReportSenderException;
         resDialogText = R.string.crash_dialog_text,
         resDialogTitle = R.string.crash_dialog_title)
 public class MyApplication extends BaseApplication {
-    //多环境打包路径
-    public static int envType = BuildConfig.ENV_TYPE;//多环境打包标志  1：开发环境 2：测试环境3：生产环境
+    /**
+     * 多环境打包标志  1：开发环境 2：测试环境3：生产环境
+     */
+    public static int envType = BuildConfig.ENV_TYPE;
 
     @Override
     public void onCreate() {
@@ -201,13 +203,16 @@ public class MyApplication extends BaseApplication {
      */
     private void initMultiPackage() {
         switch (envType) {
-            case EnvType.DEVELOP://开发环境（
+            case EnvType.DEVELOP:
+                //开发环境（
                 MY_STR = "开发环境";
                 break;
-            case EnvType.CHECK://测试环境
+            case EnvType.CHECK:
+                //测试环境
                 MY_STR = "测试环境";
                 break;
-            case EnvType.PRODUCT://生产环境
+            case EnvType.PRODUCT:
+                //生产环境
                 MY_STR = "生产环境";
                 break;
         }

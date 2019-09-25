@@ -1,9 +1,4 @@
-if (isModule.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
-
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -19,7 +14,7 @@ android {
         //这是为了让ARouter知道这个模块用来区分其他模块的名字是什么，不然报错
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
 
@@ -47,21 +42,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    // 分模块，根据是否是debug，使用不同的 Manifest
-    sourceSets {
-        main {
-            if (isModule.toBoolean()) {
-                manifest.srcFile 'src/main/module/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-                //集成开发模式下排除debug文件夹中的所有Java文件
-                java {
-                    exclude 'debug/**'
-                }
-            }
-
-        }
-    }
 
     //代码混淆
     packagingOptions {

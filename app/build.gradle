@@ -309,14 +309,18 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':z_lib_common')
+    implementation project(':z_lib_main')
     if (!isModule.toBoolean()) {
-        implementation project(':z_lib_main')
         implementation project(':z_lib_news')
         implementation project(':z_lib_girl')
+        implementation project(':z_lib_user')
+        implementation project(':z_lib_datas')
+        implementation project(path: ':z_lib_home')
     }
-    //    butterknife 引用
+    //butterknife 引用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation files('libs/acra-4.5.0.jar')
+
 
 }
 
