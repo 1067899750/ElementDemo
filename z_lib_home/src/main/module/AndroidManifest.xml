@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".debug.HomeActivity"/>
         <activity
             android:name=".BottomNavigationActivity"
             android:label="@string/home_title_activity_fragment_module" />
