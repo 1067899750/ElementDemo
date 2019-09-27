@@ -15,9 +15,10 @@ import com.example.z_lib_common.widget.MyActionBar;
  * BaseActionBarActivity继承于BaseActivity，封装了actionBar的逻辑；
  * 继承于ActionBarBaseActivity的Activity都将默认带有ActionBar，并且只能使用AppTheme主题；
  * 只有那些ActionBar只带有Title和返回按钮的Activity方可继承
- * Author puyantao
- * Email 1067899750@qq.com
- * Date 2019/7/9 17:31
+ *
+ * @author puyantao
+ * @description
+ * @date 2019/9/27 17:40
  */
 @Keep
 public abstract class BaseActionBarActivity extends BaseActivity {
@@ -41,8 +42,14 @@ public abstract class BaseActionBarActivity extends BaseActivity {
      */
     protected abstract String setTitle();
 
+    @Override
+    protected int setLayoutId() {
+        return 0;
+    }
+
     /**
      * 设置内容
+     *
      * @return
      */
     protected abstract View setConnectView();

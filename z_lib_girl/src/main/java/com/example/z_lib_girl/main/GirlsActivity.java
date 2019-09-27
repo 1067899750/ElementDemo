@@ -42,13 +42,6 @@ public class GirlsActivity extends BaseActionBarActivity {
         return mView;
     }
 
-    @SuppressLint("ResourceType")
-    @Override
-    protected int setLayoutId() {
-        return 0;
-    }
-
-
     @Override
     protected void initDate() {
 
