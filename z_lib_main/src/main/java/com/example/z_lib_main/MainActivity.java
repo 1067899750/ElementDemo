@@ -18,6 +18,7 @@ import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.ToastUtils;
 import com.example.z_lib_common.widget.NewStyleToolBar;
 import com.example.z_lib_common.widget.annotation.PageTypeAnnotation;
+
 import java.util.ArrayList;
 
 
@@ -26,7 +27,7 @@ import java.util.ArrayList;
  * @description 首页
  * @date 2019/9/25 14:16
  */
-public class MainActivity extends BaseActivity  {
+public class MainActivity extends BaseActivity {
     private long mExitTime = 0;
     private NewStyleToolBar mNewStyleToolBar;
     private ArrayList<Fragment> mFragments;
@@ -42,34 +43,40 @@ public class MainActivity extends BaseActivity  {
     private int mPosition = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity_main);
+    protected int setLayoutId() {
+        return R.layout.main_activity_main;
+    }
 
+    @Override
+    protected void beforeInit() {
+        super.beforeInit();
         mFragments = new ArrayList<>();
+    }
 
-        initView();
-        initData();
-
-        Log.d("--->", BaseApplication.MY_STR);
+    @Override
+    protected void afterInit() {
+        super.afterInit();
         getAppliactionPackage();
         getChannel();
     }
 
 
-    private void initView() {
+    @Override
+    protected void initViews() {
         mNewStyleToolBar = findViewById(R.id.ns_tool_bar);
     }
 
-
-    private void initData() {
+    @Override
+    protected void initDate() {
         mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.HOME_MAIN_FRAGMENT).navigation());
         mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.NEWS_MAIN_FRAGMENT).navigation());
         mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.DATA_MAIN_FRAGMENT).navigation());
         mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.GIRLS_MAIN_FRAGMENT).navigation());
         mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.USER_MAIN_FRAGMENT).navigation());
         updateFragment();
+        Log.d("--->", BaseApplication.MY_STR);
     }
+
 
     @Override
     protected void onNewIntent(Intent intent) {

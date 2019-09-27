@@ -1,13 +1,12 @@
 package com.example.z_lib_news.main;
 
-import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
-import com.example.z_lib_common.base.BaseActivity;
+import com.example.z_lib_common.base.activity.BaseAppBarActivity;
 import com.example.z_lib_news.R;
 
 
@@ -21,22 +20,31 @@ import java.util.Locale;
  * <p>类说明</p>
  */
 @Route(path = ARouterUtils.NEWS_CENTER)
-public class NewsCenterActivity extends BaseActivity {
+public class NewsCenterActivity extends BaseAppBarActivity {
 
     protected Toolbar mToolBar;
     protected TabLayout mTabLayout;
     protected ViewPager mViewPager;
     private NewsListViewAdapter mListAdapter;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        super.setContentView(R.layout.news_activity_news);
-        mToolBar = (Toolbar) findViewById(R.id.news_title_bar);
-        mToolBar.setTitle("知乎日报");
-        setupToolBar(mToolBar, false);
-        mTabLayout = (TabLayout) findViewById(R.id.date_tab);
-        mViewPager = (ViewPager) findViewById(R.id.message_pager);
+    protected int setLayoutId() {
+        return R.layout.news_activity_news;
+    }
+
+    @Override
+    protected void initDate() {
+
+    }
+
+    @Override
+    protected void initViews() {
+        mToolBar = findViewById(R.id.news_title_bar);
+        setupToolBar(mToolBar, "知乎日报", false);
+
+        mTabLayout =  findViewById(R.id.date_tab);
+        mViewPager =  findViewById(R.id.message_pager);
         mListAdapter = new NewsListViewAdapter(getMessageListViews(), getWeekDate());
         mViewPager.setAdapter(mListAdapter);
         //setupWithViewPager必须在ViewPager.setAdapter()之后调用

@@ -60,6 +60,9 @@ ext {
             "easyrecyclerview"          : "com.jude:easyrecyclerview:4.4.2",
             "PhotoView"                 : "com.github.chrisbanes:PhotoView:2.0.0",
 
+            //沉溺式状态栏
+            "barlibrary"                : "com.gyf.barlibrary:barlibrary:2.3.0",
+
     ]
 
 }

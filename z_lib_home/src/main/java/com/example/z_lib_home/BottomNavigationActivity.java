@@ -15,7 +15,12 @@ import com.example.z_lib_common.widget.NoScrollViewPager;
 
 import java.util.List;
 
-
+/**
+ *
+ * @description
+ * @author puyantao
+ * @date 2019/9/27 15:04
+ */
 public class BottomNavigationActivity extends BaseActivity {
 
     private NoScrollViewPager mPager;
@@ -43,20 +48,31 @@ public class BottomNavigationActivity extends BaseActivity {
 
     };
 
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_activity_bottom_navigation);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+    protected int setLayoutId() {
+        return R.layout.home_activity_bottom_navigation;
+    }
+
+    @Override
+    protected void initDate() {
+
+    }
+
+    @Override
+    protected void initViews() {
+        BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         initViewPager();
     }
 
     private void initViewPager() {
-        mFragments = ViewManager.getInstance().getAllFragment();//这几个Fragment是主动添加到ViewManager中的
-        BaseFragment newsFragment = getNewsFragment();//主动寻找
+        //这几个Fragment是主动添加到ViewManager中的
+        mFragments = ViewManager.getInstance().getAllFragment();
+        //主动寻找
+        BaseFragment newsFragment = getNewsFragment();
         mFragments.add(newsFragment);
-        mPager = (NoScrollViewPager) findViewById(R.id.container_pager);
+        mPager = findViewById(R.id.container_pager);
         mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         mPager.setPagerEnabled(false);
         mPager.setAdapter(mAdapter);

@@ -3,12 +3,25 @@
     package="com.example.z_lib_home">
 
     <application>
-        <activity android:name=".debug.HomeActivity"/>
         <activity
             android:name=".BottomNavigationActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
             android:label="@string/home_title_activity_fragment_module" />
-        <activity android:name=".glide.ViewpagerActivity" />
-        <activity android:name=".glide.SimpleActivity" />
+
+        <activity android:name=".glide.ViewpagerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".glide.SimpleActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

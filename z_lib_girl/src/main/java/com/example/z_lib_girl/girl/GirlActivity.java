@@ -17,8 +17,17 @@ import java.util.List;
 public class GirlActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int setLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected void initDate() {
+
+    }
+
+    @Override
+    protected void initViews() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         if (getIntent() != null) {

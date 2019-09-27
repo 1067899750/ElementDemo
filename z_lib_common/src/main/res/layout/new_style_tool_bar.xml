@@ -33,7 +33,7 @@
             android:drawablePadding="@dimen/d6"
             android:layout_weight="1"
             android:button="@null"
-            android:drawableTop="@drawable/selector_main_tab_info"
+            android:drawableTop="@drawable/selector_main_tab_subsidy"
             android:gravity="center"
             android:text="@string/home_info"
             android:textColor="#666666"

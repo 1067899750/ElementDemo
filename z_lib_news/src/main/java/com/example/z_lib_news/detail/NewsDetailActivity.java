@@ -13,12 +13,21 @@ import com.example.z_lib_common.base.BaseActivity;
 public class NewsDetailActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int setLayoutId() {
+        return 0;
+    }
+
+    @Override
+    protected void initDate() {
         NewsDetailView detailView = new NewsDetailView(this);
         setContentView(detailView);
         String id = getIntent().getStringExtra("id");
         new NewsDetailPresenter(detailView).getNewsDetail(id);
+    }
+
+    @Override
+    protected void initViews() {
+
     }
 
 }

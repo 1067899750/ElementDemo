@@ -1,27 +1,41 @@
 package com.example.z_lib_common.base;
 
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.Keep;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.SparseArray;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import com.example.z_lib_common.R;
 import com.example.z_lib_common.utils.Utils;
+import com.google.gson.Gson;
+import com.gyf.barlibrary.ImmersionBar;
+
+import butterknife.ButterKnife;
 
 
 /**
- *
- * @description Activity基类
  * @author puyantao
+ * @description Activity基类
  * @date 2019/9/25 16:25
  */
 @Keep
 public abstract class BaseActivity extends AppCompatActivity {
-
+    protected View vStatusBar;
+    protected FrameLayout flRoot;
+    protected ImmersionBar mImmersionBar;
+    protected FrameLayout flActionBar;
 
     /**
      * 封装的findViewByID方法
@@ -35,14 +49,131 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.common_activity_base);
+        vStatusBar = findViewById(R.id.v_status_bar);
+        flRoot = findViewById(R.id.fl_root);
+        flActionBar = findViewById(R.id.fl_action_bar);
+        if (setLayoutId() != 0) {
+            View content = getLayoutInflater().inflate(setLayoutId(), flRoot);
+        }
+
+        beforeInit();
+        initViews();
+        initDate();
+        if (isImmersionBarEnable()) {
+            initImmersionBar();
+        }
+        initActionBar();
+        afterInit();
+
+
         ViewManager.getInstance().addActivity(this);
     }
 
+
+
+
+    /**
+     * 页面布局
+     *
+     * @return
+     */
+    protected abstract @LayoutRes
+    int setLayoutId();
+
+    /**
+     * 配置Activity初始化环境
+     */
+    protected void beforeInit() {
+    }
+
+    /**
+     * 初始化数据
+     */
+    protected abstract void initDate();
+
+    /**
+     * 初始化顶部条
+     */
+    protected void initActionBar() {
+
+    }
+
+    /**
+     * 是否使用沉浸式
+     */
+    protected boolean isImmersionBarEnable() {
+        return true;
+    }
+
+    /**
+     * 初始化沉浸式配置
+     */
+    protected void initImmersionBar() {
+        //在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this);
+        View statusBarView = null;
+        int viewId = getStatusBarViewId();
+        if (viewId != -1) {
+            statusBarView = findViewById(viewId);
+        }
+        if (statusBarView == null) {
+            statusBarView = vStatusBar;
+        }
+        mImmersionBar.statusBarView(statusBarView)
+                .statusBarDarkFont(true, 1f)
+                .keyboardEnable(getKeyboardEnable())
+                .init();
+    }
+
+    /**
+     * 设置状态栏view的id
+     */
+    public @IdRes
+    int getStatusBarViewId() {
+        return -1;
+    }
+
+    /**
+     * 初始化试图
+     */
+    protected abstract void initViews();
+
+    protected void afterInit() {
+    }
+
+    public boolean getKeyboardEnable() {
+        return true;
+    }
+
+
+    /**
+     * 设置状态栏背景
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public void setStatusBar(Drawable drawable) {
+        if (vStatusBar != null) {
+            vStatusBar.setBackground(drawable);
+        }
+    }
+
+    /**
+     * 设置状态栏背景
+     */
+    public void setStatusBar(@DrawableRes int resId) {
+        if (vStatusBar != null) {
+            vStatusBar.setBackgroundResource(resId);
+        }
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         ViewManager.getInstance().finishActivity(this);
+        if (mImmersionBar != null) {
+            mImmersionBar.destroy();
+            mImmersionBar = null;
+        }
     }
 
     @Override
@@ -52,25 +183,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * Setup the toolbar.
-     *
-     * @param toolbar   toolbar
-     * @param hideTitle 是否隐藏Title
-     */
-    protected void setupToolBar(Toolbar toolbar, boolean hideTitle) {
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-            if (hideTitle) {
-                //隐藏Title
-                actionBar.setDisplayShowTitleEnabled(false);
-            }
-        }
-    }
+
+    /******************************************管理 fragment *************************************/
 
 
     /**

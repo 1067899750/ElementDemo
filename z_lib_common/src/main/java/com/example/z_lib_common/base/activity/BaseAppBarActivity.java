@@ -1,0 +1,42 @@
+package com.example.z_lib_common.base.activity;
+
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import com.example.z_lib_common.R;
+import com.example.z_lib_common.base.BaseActivity;
+
+/**
+ * @author puyantao
+ * @describe 用design 框架
+ * @create 2019/9/27 16:06
+ */
+public abstract class BaseAppBarActivity extends BaseActivity {
+    @Override
+    protected void afterInit() {
+        super.afterInit();
+        flActionBar.setVisibility(View.GONE);
+    }
+
+    /**
+     * Setup the toolbar.
+     *
+     * @param toolbar   toolbar
+     * @param hideTitle 是否隐藏Title
+     */
+    protected void setupToolBar(Toolbar toolbar, String title, boolean hideTitle) {
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_arrow_back);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setTitle(title);
+            if (hideTitle) {
+                //隐藏Title
+                actionBar.setDisplayShowTitleEnabled(false);
+            }
+        }
+    }
+}

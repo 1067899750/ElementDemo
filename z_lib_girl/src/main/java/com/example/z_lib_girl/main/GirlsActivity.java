@@ -1,20 +1,21 @@
 package com.example.z_lib_girl.main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
-import com.example.z_lib_common.base.BaseActionBarActivity;
+import com.example.z_lib_common.base.activity.BaseActionBarActivity;
 import com.example.z_lib_girl.R;
+
 /**
- *
- * @description GirlsActivity
  * @author puyantao
+ * @description GirlsActivity
  * @email 1067899750@qq.com
  * @date 2019/9/25 20:37
  */
@@ -24,27 +25,41 @@ public class GirlsActivity extends BaseActionBarActivity {
     private GirlsView mView;
     private GirlsContract.Presenter mPresenter;
 
-    public static void startGirlsActivity(Context context){
+    public static void startGirlsActivity(Context context) {
         Intent intent = new Intent(context, GirlsActivity.class);
         context.startActivity(intent);
     }
 
+
     @Override
-    protected int setTitleId() {
-        return R.string.gril_girls_activity_title;
+    protected String setTitle() {
+        return getResources().getString(R.string.gril_girls_activity_title);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected View setConnectView() {
         mView = new GirlsView(this);
-        setContentView(mView);
+        return mView;
+    }
+
+    @SuppressLint("ResourceType")
+    @Override
+    protected int setLayoutId() {
+        return 0;
+    }
+
+
+    @Override
+    protected void initDate() {
+
+    }
+
+    @Override
+    protected void initViews() {
         mPresenter = new GirlsPresenter(mView);
         mPresenter.start();
-
         parseManifests();
     }
-
 
 
     private void parseManifests() {
@@ -56,9 +71,9 @@ public class GirlsActivity extends BaseActionBarActivity {
                 String appsecret = appInfo.metaData.getString("PUSH_APPSECRET");
                 String appkey = appInfo.metaData.getString("PUSH_APPKEY");
 
-                Log.d("---> PUSH_APPID ",appid + "");
-                Log.d("---> PUSH_APPSECRET ",appsecret + "");
-                Log.d("---> PUSH_APPKEY ",appkey + "");
+                Log.d("---> PUSH_APPID ", appid + "");
+                Log.d("---> PUSH_APPSECRET ", appsecret + "");
+                Log.d("---> PUSH_APPKEY ", appkey + "");
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -77,6 +77,9 @@ dependencies {
     implementation rootProject.ext.dependencies["glide-transformations"]
     implementation rootProject.ext.dependencies["gpuimage-library"]
     implementation files('libs/simple-xml-core.jar')
+
+    //沉溺式状态栏
+    implementation rootProject.ext.dependencies.barlibrary
 }
 
 
