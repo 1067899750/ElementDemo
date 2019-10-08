@@ -2,13 +2,11 @@ package com.example.z_lib_user;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.z_lib_common.base.BaseFragment;
 
 
 /**
@@ -18,7 +16,7 @@ import com.example.z_lib_common.arouter.ARouterUtils;
  * @date 2019/9/25 15:26
  */
 @Route(path = ARouterUtils.USER_MAIN_FRAGMENT)
-public class UserMainFragment extends Fragment {
+public class UserMainFragment extends BaseFragment {
 
     public UserMainFragment() {
         // Required empty public constructor
@@ -38,11 +36,20 @@ public class UserMainFragment extends Fragment {
         }
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.user_fragment_user_main, container, false);
+    protected int setLayoutId() {
+        return R.layout.user_fragment_user_main;
+    }
+
+    @Override
+    protected void initViews(View view) {
+        super.initViews(view);
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
     }
 
     @Override

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
+
 import com.example.z_lib_common.R;
 import com.example.z_lib_common.widget.annotation.PageTypeAnnotation;;
 
@@ -54,39 +55,38 @@ public class NewStyleToolBar extends LinearLayout implements View.OnClickListene
     }
 
 
-
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
-        if (viewId == R.id.bottom_home){
+        if (viewId == R.id.bottom_home) {
             if (rbHome.isSelected()) {
                 return;
             }
             setRbPosition(PageType.HOME_PAGE);
             mChildLocationListener.onChildPosition(PageType.HOME_PAGE);
 
-        }else if (viewId == R.id.bottom_info){
+        } else if (viewId == R.id.bottom_info) {
             if (rbInfo.isSelected()) {
                 return;
             }
             setRbPosition(PageType.NEWS_PAGE);
             mChildLocationListener.onChildPosition(PageType.NEWS_PAGE);
 
-        }else if (viewId == R.id.bottom_data){
+        } else if (viewId == R.id.bottom_data) {
             if (rbData.isSelected()) {
                 return;
             }
             setRbPosition(PageType.DATA_PAGE);
             mChildLocationListener.onChildPosition(PageType.DATA_PAGE);
 
-        }else if (viewId == R.id.bottom_tool){
+        } else if (viewId == R.id.bottom_tool) {
             if (rbTool.isSelected()) {
                 return;
             }
             setRbPosition(PageType.TOOL_PAGE);
             mChildLocationListener.onChildPosition(PageType.TOOL_PAGE);
 
-        }else if (viewId == R.id.bottom_user){
+        } else if (viewId == R.id.bottom_user) {
             if (rbUser.isSelected()) {
                 return;
             }
@@ -99,7 +99,10 @@ public class NewStyleToolBar extends LinearLayout implements View.OnClickListene
     /**
      * 设置rb的选着位置
      *
-     * @param position
+     * @param position 表示选中的 Fragment
+     *                 {@link PageType#HOME_PAGE 表示 首页}；{@link PageType#NEWS_PAGE 表示 咨询}；
+     *                 {@link PageType#DATA_PAGE 表示 数据}；{@link PageType#TOOL_PAGE 表示 工具}；
+     *                 {@link PageType#USER_CENTER_PAGE 表示 我的}；
      */
     public void setRbPosition(@PageTypeAnnotation int position) {
         rbHome.setSelected(false);

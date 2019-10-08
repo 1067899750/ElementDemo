@@ -1,10 +1,7 @@
 package com.example.z_lib_girl;
 
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
@@ -38,25 +35,22 @@ public class GirlsMainFragment extends BaseFragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.girl_fragment_main_girls, container, false);
-        initView(view);
-        intiData();
-        return view;
+    protected int setLayoutId() {
+        return R.layout.girl_fragment_main_girls;
     }
 
-
-
-    private void initView(View view) {
-
+    @Override
+    protected void initViews(View view) {
+        super.initViews(view);
     }
 
-    private void intiData() {
+    @Override
+    protected void initData() {
+        super.initData();
         GirlsActivity.startGirlsActivity(getContext());
 
     }
+
 
     @Override
     public void onResume() {

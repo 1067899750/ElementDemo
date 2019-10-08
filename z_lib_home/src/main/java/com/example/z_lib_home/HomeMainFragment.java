@@ -3,14 +3,12 @@ package com.example.z_lib_home;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterManager;
 import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_home.glide.SimpleActivity;
 import com.example.z_lib_home.glide.ViewpagerActivity;
 
@@ -22,7 +20,7 @@ import com.example.z_lib_home.glide.ViewpagerActivity;
  * @date 2019/9/25 16:42
  */
 @Route(path = ARouterUtils.HOME_MAIN_FRAGMENT)
-public class HomeMainFragment extends Fragment implements View.OnClickListener{
+public class HomeMainFragment extends BaseFragment implements View.OnClickListener{
 
     public HomeMainFragment() {
         // Required empty public constructor
@@ -43,20 +41,26 @@ public class HomeMainFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment_home_main, container, false);
-        initView(view);
-        return view;
+    protected int setLayoutId() {
+        return R.layout.home_fragment_home_main;
     }
 
-    private void initView(View view) {
+    @Override
+    protected void initViews(View view) {
+        super.initViews(view);
         view.findViewById(R.id.news_button).setOnClickListener(this);
         view.findViewById(R.id.girls_button).setOnClickListener(this);
         view.findViewById(R.id.fragment_button).setOnClickListener(this);
         view.findViewById(R.id.glide_button1).setOnClickListener(this);
         view.findViewById(R.id.glide_button2).setOnClickListener(this);
     }
+
+    @Override
+    protected void initData() {
+        super.initData();
+    }
+
+
 
     @Override
     public void onClick(View v) {

@@ -1,15 +1,12 @@
 package com.example.z_lib_datas;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.z_lib_common.base.BaseFragment;
 
 
 /**
@@ -19,7 +16,7 @@ import com.example.z_lib_common.arouter.ARouterUtils;
  * @date 2019/9/25 15:18
  */
 @Route(path = ARouterUtils.DATA_MAIN_FRAGMENT)
-public class DataMainFragment extends Fragment {
+public class DataMainFragment extends BaseFragment {
 
 
 
@@ -43,11 +40,19 @@ public class DataMainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.data_fragment_data_main, container, false);
+    protected int setLayoutId() {
+        return R.layout.data_fragment_data_main;
     }
 
+    @Override
+    protected void initViews(View view) {
+        super.initViews(view);
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+    }
 
     @Override
     public void onAttach(Context context) {
