@@ -1,6 +1,7 @@
 package com.example.z_lib_girl;
 
 
+import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -10,29 +11,30 @@ import com.example.z_lib_girl.main.GirlsActivity;
 
 
 /**
- *
- * @description
  * @author puyantao
+ * @description
  * @date 2019/9/25 17:10
  */
 @Route(path = ARouterUtils.GIRLS_MAIN_FRAGMENT)
 public class GirlsMainFragment extends BaseFragment {
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment GirlsMainFragment.
-     */
-    public static GirlsMainFragment newInstance() {
-        return new GirlsMainFragment();
-    }
-
-
     public GirlsMainFragment() {
         // Required empty public constructor
     }
 
+    public static GirlsMainFragment newInstance() {
+        GirlsMainFragment fragment = new GirlsMainFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+        }
+    }
 
     @Override
     protected int setLayoutId() {
@@ -58,8 +60,10 @@ public class GirlsMainFragment extends BaseFragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
+        if (isVisible() && !hidden){
+            GirlsActivity.startGirlsActivity(getContext());
+        }
     }
-
 
 
 }
