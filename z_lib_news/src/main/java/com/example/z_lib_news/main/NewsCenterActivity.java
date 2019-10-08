@@ -6,7 +6,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
-import com.example.z_lib_common.base.activity.BaseAppBarActivity;
+import com.example.z_lib_common.base.activity.BaseSupportBarActivity;
 import com.example.z_lib_news.R;
 
 
@@ -20,7 +20,7 @@ import java.util.Locale;
  * <p>类说明</p>
  */
 @Route(path = ARouterUtils.NEWS_CENTER)
-public class NewsCenterActivity extends BaseAppBarActivity {
+public class NewsCenterActivity extends BaseSupportBarActivity {
 
     protected Toolbar mToolBar;
     protected TabLayout mTabLayout;

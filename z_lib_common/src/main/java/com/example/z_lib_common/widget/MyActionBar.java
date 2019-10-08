@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.z_lib_common.R;
@@ -21,6 +22,7 @@ import com.example.z_lib_common.utils.ValueUtil;
 public class MyActionBar extends LinearLayout {
     private ImageView ivBack;
     private TextView tvTitle;
+    private RelativeLayout rlActionBar;
 
     public MyActionBar(Context context) {
         super(context);
@@ -41,6 +43,7 @@ public class MyActionBar extends LinearLayout {
         LayoutInflater.from(context).inflate(R.layout.common_action_bar, this, true);
         ivBack = findViewById(R.id.iv_back);
         tvTitle = findViewById(R.id.tv_title);
+        rlActionBar = findViewById(R.id.rl_action_bar);
 
         ivBack.setOnClickListener(new OnClickListener() {
             @Override
@@ -62,7 +65,7 @@ public class MyActionBar extends LinearLayout {
             return (Activity) cont;
         } else if (cont instanceof ContextWrapper) {
             return scanForActivity(((ContextWrapper) cont).getBaseContext());
-        }else {
+        } else {
             return (Activity) cont;
         }
     }
@@ -76,6 +79,15 @@ public class MyActionBar extends LinearLayout {
         if (ValueUtil.isStrNotEmpty(title)) {
             tvTitle.setText(title);
         }
+    }
+
+    /**
+     * 设置actionBar的背景颜色
+     *
+     * @param color
+     */
+    public void setActionBarColor(int color) {
+        rlActionBar.setBackgroundColor(color);
     }
 
 

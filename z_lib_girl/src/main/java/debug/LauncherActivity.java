@@ -19,7 +19,7 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //在这里传值给需要调试的Activity
         //在这里传值给需要调试的Activity
-        setContentView(R.layout.gril_fragment);
+        setContentView(R.layout.girl_fragment);
         GirlsActivity.startGirlsActivity(this);
 //        getSupportFragmentManager()
 //                .beginTransaction()

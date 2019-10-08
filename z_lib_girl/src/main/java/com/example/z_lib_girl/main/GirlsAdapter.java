@@ -44,7 +44,7 @@ public class GirlsAdapter extends RecyclerArrayAdapter<Girls> {
         private ImageView image;
 
         private GirlsViewHolder(ViewGroup parent) {
-            super(parent, R.layout.gril_item_girl);
+            super(parent, R.layout.girl_item_girl);
             image = $(R.id.girl_img);
         }
 

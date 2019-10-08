@@ -44,7 +44,7 @@ public class GirlAdapter extends PagerAdapter {
     @Override
     public View instantiateItem(ViewGroup container, int position) {
         final String imageUrl = mData.get(position).getUrl();
-        View view = layoutInflater.inflate(R.layout.gril_item_girl_detail, container, false);
+        View view = layoutInflater.inflate(R.layout.girl_item_detail, container, false);
         PhotoView imageView = (PhotoView) view.findViewById(R.id.girl_image);
         Glide.with(mContext)
                 .load(imageUrl)

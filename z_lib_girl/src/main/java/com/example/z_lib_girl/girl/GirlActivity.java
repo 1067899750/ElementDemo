@@ -1,6 +1,5 @@
 package com.example.z_lib_girl.girl;
 
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.WindowManager;
 
@@ -12,7 +11,12 @@ import com.example.z_lib_girl.data.bean.Girls;
 
 import java.util.List;
 
-
+/**
+ *
+ * @description
+ * @author puyantao
+ * @date 2019/10/8 9:53
+ */
 @Route(path = "/girls/detail")
 public class GirlActivity extends BaseActivity {
 

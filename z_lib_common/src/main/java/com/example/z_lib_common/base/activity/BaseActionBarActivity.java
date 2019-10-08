@@ -1,12 +1,9 @@
 package com.example.z_lib_common.base.activity;
 
-import android.os.Bundle;
+import android.graphics.Color;
 import android.support.annotation.Keep;
-import android.support.annotation.StringRes;
-import android.support.v7.app.ActionBar;
 import android.view.View;
 
-import com.example.z_lib_common.R;
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.widget.MyActionBar;
 
@@ -26,14 +23,23 @@ public abstract class BaseActionBarActivity extends BaseActivity {
     @Override
     protected void beforeInit() {
         super.beforeInit();
-        //设置内容
-        flRoot.addView(setConnectView());
         //标题栏设置
         flActionBar.setVisibility(View.VISIBLE);
         MyActionBar actionBar = new MyActionBar(this);
         actionBar.setTitle(setTitle());
+        actionBar.setActionBarColor(setActionBarColor());
         flActionBar.addView(actionBar);
     }
+
+    /**
+     * 设置actionBar的背景颜色
+     *
+     * @return
+     */
+    public int setActionBarColor() {
+        return Color.parseColor("#03A9F4");
+    }
+
 
     /**
      * 设置默认标题
@@ -42,17 +48,6 @@ public abstract class BaseActionBarActivity extends BaseActivity {
      */
     protected abstract String setTitle();
 
-    @Override
-    protected int setLayoutId() {
-        return 0;
-    }
-
-    /**
-     * 设置内容
-     *
-     * @return
-     */
-    protected abstract View setConnectView();
 
 
 }

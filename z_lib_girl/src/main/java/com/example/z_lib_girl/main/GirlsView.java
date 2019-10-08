@@ -53,7 +53,7 @@ public class GirlsView extends FrameLayout implements GirlsContract.View, SwipeR
 
 
     private void initView() {
-        inflate(getContext(), R.layout.gril_view_girls_content, this);
+        inflate(getContext(), R.layout.girl_view_content, this);
         mNetworkErrorLayout = findViewById(R.id.network_error_layout);
         mGirlsRecyclerView = findViewById(R.id.girls_recycler_view);
         StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);

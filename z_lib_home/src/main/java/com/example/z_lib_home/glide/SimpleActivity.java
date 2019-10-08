@@ -3,24 +3,22 @@ package com.example.z_lib_home.glide;
 import android.animation.ObjectAnimator;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
+import com.example.z_lib_common.base.activity.BaseActionBarActivity;
 import com.example.z_lib_common.imageloader.config.Contants;
 import com.example.z_lib_common.imageloader.config.PriorityMode;
 import com.example.z_lib_common.imageloader.config.ScaleMode;
 import com.example.z_lib_common.imageloader.imagei.ImageDownLoadCallBack;
 import com.example.z_lib_common.imageloader.loader.ImageLoader;
 import com.example.z_lib_common.imageloader.utils.DownLoadImageService;
-
 import com.example.z_lib_home.R;
 import com.example.z_lib_home.glide.config.ImageConfig;
 
@@ -28,12 +26,11 @@ import java.io.File;
 
 
 /**
- *
- * @description
  * @author puyantao
+ * @description
  * @date 2019/9/25 17:35
  */
-public class SimpleActivity extends AppCompatActivity {
+public class SimpleActivity extends BaseActionBarActivity {
 
     private ImageView iv_test1;
     private ImageView iv_test2;
@@ -53,35 +50,33 @@ public class SimpleActivity extends AppCompatActivity {
 
     private static final String TAG = SimpleActivity.class.getSimpleName();
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_activity_sample);
-
-        findview();
-
-        load();
+    protected int setLayoutId() {
+        return R.layout.home_activity_sample;
     }
 
-    private void findview() {
-        iv_test1 = (ImageView) findViewById(R.id.iv_test1);
-        iv_test2 = (ImageView) findViewById(R.id.iv_test2);
-        iv_test3 = (ImageView) findViewById(R.id.iv_test3);
-        iv_test4 = (ImageView) findViewById(R.id.iv_test4);
-        iv_test5 = (ImageView) findViewById(R.id.iv_test5);
-        iv_test6 = (ImageView) findViewById(R.id.iv_test6);
-        iv_test7 = (ImageView) findViewById(R.id.iv_test7);
-        iv_test8 = (ImageView) findViewById(R.id.iv_test8);
-        iv_test9 = (ImageView) findViewById(R.id.iv_test9);
-        iv_test10 = (ImageView) findViewById(R.id.iv_test10);
-        iv_test11 = (ImageView) findViewById(R.id.iv_test11);
-        iv_test12 = (ImageView) findViewById(R.id.iv_test12);
-        iv_test13 = (ImageView) findViewById(R.id.iv_test13);
-        iv_test14 = (ImageView) findViewById(R.id.iv_test14);
-        iv_test15 = (ImageView) findViewById(R.id.iv_test15);
+    @Override
+    protected void initViews() {
+        iv_test1 = findViewById(R.id.iv_test1);
+        iv_test2 = findViewById(R.id.iv_test2);
+        iv_test3 = findViewById(R.id.iv_test3);
+        iv_test4 = findViewById(R.id.iv_test4);
+        iv_test5 = findViewById(R.id.iv_test5);
+        iv_test6 = findViewById(R.id.iv_test6);
+        iv_test7 = findViewById(R.id.iv_test7);
+        iv_test8 = findViewById(R.id.iv_test8);
+        iv_test9 = findViewById(R.id.iv_test9);
+        iv_test10 = findViewById(R.id.iv_test10);
+        iv_test11 = findViewById(R.id.iv_test11);
+        iv_test12 = findViewById(R.id.iv_test12);
+        iv_test13 = findViewById(R.id.iv_test13);
+        iv_test14 = findViewById(R.id.iv_test14);
+        iv_test15 = findViewById(R.id.iv_test15);
     }
 
-    private void load() {
+    @Override
+    protected void initDate() {
         ViewPropertyAnimation.Animator animationObject = new ViewPropertyAnimation.Animator() {
             @Override
             public void animate(View view) {
@@ -230,4 +225,8 @@ public class SimpleActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    protected String setTitle() {
+        return getResources().getString(R.string.home_title_activity_fragment_module);
+    }
 }

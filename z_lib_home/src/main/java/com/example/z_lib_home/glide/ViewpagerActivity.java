@@ -1,12 +1,11 @@
 package com.example.z_lib_home.glide;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.example.z_lib_common.base.activity.BaseActionBarActivity;
 import com.example.z_lib_common.imageloader.config.ScaleMode;
 import com.example.z_lib_common.imageloader.loader.ImageLoader;
 import com.example.z_lib_home.R;
@@ -15,16 +14,28 @@ import com.example.z_lib_home.glide.config.ImageConfig;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class ViewpagerActivity extends Activity {
-    ViewPager viewPager;
+/**
+ *
+ * @description
+ * @author puyantao
+ * @date 2019/10/8 9:34
+ */
+public class ViewpagerActivity extends BaseActionBarActivity {
+    private ViewPager viewPager;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_activity_viewpager);
+    protected int setLayoutId() {
+        return R.layout.home_activity_viewpager;
+    }
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+    @Override
+    protected void initViews() {
+        viewPager =  findViewById(R.id.viewpager);
+    }
+
+    @Override
+    protected void initDate() {
         List<String> urls = new ArrayList<>();
         ArrayList<View> views = new ArrayList<>();
         urls.add("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1490359324536&di=f1c2dfd6b0ebe0043f089d933d5d9e10&imgtype=0&src=http%3A%2F%2Fyouimg1.c-ctrip.com%2Ftarget%2Ffd%2Ftg%2Fg1%2FM02%2FFE%2FB5%2FCghzfFSrqqCATzfcACG0aD33PsY070.jpg");
@@ -53,7 +64,6 @@ public class ViewpagerActivity extends Activity {
 
         PagerAdapterForBigImage adapter = new PagerAdapterForBigImage(views);
         viewPager.setAdapter(adapter);
-
     }
 
     @Override
@@ -63,4 +73,10 @@ public class ViewpagerActivity extends Activity {
         //viewPager.destroyDrawingCache();
 //        ImageLoader.clearAllMemoryCaches();//调了没用,也不需要调,下次进来自动会刷新内存
     }
+
+    @Override
+    protected String setTitle() {
+        return getResources().getString(R.string.home_title_activity_fragment_module);
+    }
+
 }

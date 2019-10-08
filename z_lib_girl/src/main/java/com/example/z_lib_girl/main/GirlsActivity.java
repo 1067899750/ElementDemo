@@ -1,6 +1,5 @@
 package com.example.z_lib_girl.main;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -33,7 +32,7 @@ public class GirlsActivity extends BaseActionBarActivity {
 
     @Override
     protected String setTitle() {
-        return getResources().getString(R.string.gril_girls_activity_title);
+        return getResources().getString(R.string.girl_activity_title);
     }
 
     @Override
@@ -54,6 +53,10 @@ public class GirlsActivity extends BaseActionBarActivity {
         parseManifests();
     }
 
+    @Override
+    public int setActionBarColor() {
+        return getResources().getColor(R.color.colorPrimary);
+    }
 
     private void parseManifests() {
         String packageName = getApplicationContext().getPackageName();

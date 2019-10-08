@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void afterInit() {
         super.afterInit();
-        getAppliactionPackage();
+        getApplicationPackage();
         getChannel();
     }
 
@@ -160,7 +160,7 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    private void getAppliactionPackage() {
+    private void getApplicationPackage() {
         String str = BankResFactory.getInstance().getPackage();
         Log.d("---> BankResFactory", str);
     }

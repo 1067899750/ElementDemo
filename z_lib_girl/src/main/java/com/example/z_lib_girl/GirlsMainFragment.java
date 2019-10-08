@@ -41,7 +41,7 @@ public class GirlsMainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.gril_fragment_main_girls, container, false);
+        View view = inflater.inflate(R.layout.girl_fragment_main_girls, container, false);
         initView(view);
         intiData();
         return view;

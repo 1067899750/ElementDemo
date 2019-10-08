@@ -8,21 +8,13 @@ import android.support.annotation.IdRes;
 import android.support.annotation.Keep;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.RequiresApi;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.SparseArray;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.example.z_lib_common.R;
 import com.example.z_lib_common.utils.Utils;
-import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
-
-import butterknife.ButterKnife;
 
 
 /**
@@ -54,7 +46,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         flRoot = findViewById(R.id.fl_root);
         flActionBar = findViewById(R.id.fl_action_bar);
         if (setLayoutId() != 0) {
+            //用XML试图形式设置内容
             View content = getLayoutInflater().inflate(setLayoutId(), flRoot);
+
+        } else if (setConnectView() != null) {
+            //用试图形式设置内容
+            flRoot.addView(setConnectView());
+
         }
 
         beforeInit();
@@ -71,21 +69,37 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
 
-
-
     /**
-     * 页面布局
+     * 用XML文件设置，页面布局,
      *
      * @return
      */
-    protected abstract @LayoutRes
-    int setLayoutId();
+    protected @LayoutRes
+    int setLayoutId() {
+        return 0;
+    }
+
+    /**
+     * 设置内容, 直接用View试图代替
+     *
+     * @return
+     */
+    protected View setConnectView() {
+        return null;
+    }
+
 
     /**
      * 配置Activity初始化环境
      */
     protected void beforeInit() {
     }
+
+    /**
+     * 初始化试图
+     */
+    protected abstract void initViews();
+
 
     /**
      * 初始化数据
@@ -134,10 +148,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return -1;
     }
 
-    /**
-     * 初始化试图
-     */
-    protected abstract void initViews();
 
     protected void afterInit() {
     }
@@ -181,7 +191,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
-
 
 
     /******************************************管理 fragment *************************************/

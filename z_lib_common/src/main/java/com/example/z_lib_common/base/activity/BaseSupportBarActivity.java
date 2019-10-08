@@ -12,7 +12,7 @@ import com.example.z_lib_common.base.BaseActivity;
  * @describe 用design 框架
  * @create 2019/9/27 16:06
  */
-public abstract class BaseAppBarActivity extends BaseActivity {
+public abstract class BaseSupportBarActivity extends BaseActivity {
     @Override
     protected void afterInit() {
         super.afterInit();
