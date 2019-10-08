@@ -14,13 +14,12 @@ import com.example.z_lib_home.glide.ViewpagerActivity;
 
 
 /**
- *
- * @description 首页
  * @author puyantao
+ * @description 首页
  * @date 2019/9/25 16:42
  */
 @Route(path = ARouterUtils.HOME_MAIN_FRAGMENT)
-public class HomeMainFragment extends BaseFragment implements View.OnClickListener{
+public class HomeMainFragment extends BaseFragment implements View.OnClickListener {
 
     public HomeMainFragment() {
         // Required empty public constructor
@@ -47,7 +46,6 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initViews(View view) {
-        super.initViews(view);
         view.findViewById(R.id.news_button).setOnClickListener(this);
         view.findViewById(R.id.girls_button).setOnClickListener(this);
         view.findViewById(R.id.fragment_button).setOnClickListener(this);
@@ -57,10 +55,8 @@ public class HomeMainFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initData() {
-        super.initData();
+
     }
-
-
 
     @Override
     public void onClick(View v) {

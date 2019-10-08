@@ -38,6 +38,7 @@ public abstract class BaseFragment extends Fragment {
         if (setLayoutId() != 0) {
             v = inflater.inflate(setLayoutId(), container, false);
         }
+        beforeInit();
         initViews(v);
         initData();
         return v;
@@ -50,19 +51,22 @@ public abstract class BaseFragment extends Fragment {
      */
     protected abstract int setLayoutId();
 
-
     /**
-     *  初始化数据
+     * 配置fragment 初始化环境
      */
-    protected void initData() {
+    protected void beforeInit() {
     }
 
     /**
      *  初始化 View
      * @param view
      */
-    protected void initViews(View view) {
-    }
+    protected abstract void initViews(View view);
+
+    /**
+     *  初始化数据
+     */
+    protected abstract void initData();
 
 
     /**

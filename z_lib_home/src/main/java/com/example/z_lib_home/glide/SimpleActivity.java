@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
-import com.example.z_lib_common.base.activity.BaseActionBarActivity;
+import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
 import com.example.z_lib_common.imageloader.config.Contants;
 import com.example.z_lib_common.imageloader.config.PriorityMode;
 import com.example.z_lib_common.imageloader.config.ScaleMode;

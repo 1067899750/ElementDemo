@@ -1,4 +1,4 @@
-package com.example.z_lib_common.base.activity;
+package com.example.z_lib_common.base.mvc.activity;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;

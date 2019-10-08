@@ -46,13 +46,14 @@ public class DataMainFragment extends BaseFragment {
 
     @Override
     protected void initViews(View view) {
-        super.initViews(view);
+
     }
 
     @Override
     protected void initData() {
-        super.initData();
+
     }
+
 
     @Override
     public void onAttach(Context context) {

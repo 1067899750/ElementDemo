@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.z_lib_common.base.activity.BaseActionBarActivity;
+import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
 import com.example.z_lib_common.imageloader.config.ScaleMode;
 import com.example.z_lib_common.imageloader.loader.ImageLoader;
 import com.example.z_lib_home.R;

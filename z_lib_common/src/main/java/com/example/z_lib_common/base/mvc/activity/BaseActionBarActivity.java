@@ -1,4 +1,4 @@
-package com.example.z_lib_common.base.activity;
+package com.example.z_lib_common.base.mvc.activity;
 
 import android.graphics.Color;
 import android.support.annotation.Keep;

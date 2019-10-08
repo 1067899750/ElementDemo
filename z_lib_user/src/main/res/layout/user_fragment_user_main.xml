@@ -4,11 +4,13 @@
     android:layout_height="match_parent"
     tools:context="com.example.z_lib_user.UserMainFragment">
 
-    <TextView
+    <Button
+        android:id="@+id/user_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="User Main Fragment"
         android:textSize="@dimen/d20"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textAllCaps="false"/>
 
 </FrameLayout>

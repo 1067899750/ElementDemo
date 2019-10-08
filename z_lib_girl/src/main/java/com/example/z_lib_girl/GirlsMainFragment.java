@@ -41,14 +41,11 @@ public class GirlsMainFragment extends BaseFragment {
 
     @Override
     protected void initViews(View view) {
-        super.initViews(view);
     }
 
     @Override
     protected void initData() {
-        super.initData();
         GirlsActivity.startGirlsActivity(getContext());
-
     }
 
 
