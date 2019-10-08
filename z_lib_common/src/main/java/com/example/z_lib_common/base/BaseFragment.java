@@ -35,10 +35,8 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = null;
-        if (setLayoutId() > 0) {
+        if (setLayoutId() != 0) {
             v = inflater.inflate(setLayoutId(), container, false);
-        } else {
-            throw new NullPointerException("layoutId = null");
         }
         initViews(v);
         initData();
