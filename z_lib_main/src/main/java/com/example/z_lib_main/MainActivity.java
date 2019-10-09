@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 public class MainActivity extends BaseActivity {
     private long mExitTime = 0;
     private NewStyleToolBar mNewStyleToolBar;
-    private ArrayList<Fragment> mFragments;
+    private ArrayList<String> mFragments;
 
     /**
      * 缓存Fragment或上次显示的Fragment
@@ -68,11 +69,11 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initDate() {
-        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.HOME_MAIN_FRAGMENT).navigation());
-        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.NEWS_MAIN_FRAGMENT).navigation());
-        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.DATA_MAIN_FRAGMENT).navigation());
-        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.GIRLS_MAIN_FRAGMENT).navigation());
-        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.USER_MAIN_FRAGMENT).navigation());
+        mFragments.add(ARouterUtils.HOME_MAIN_FRAGMENT);
+        mFragments.add(ARouterUtils.NEWS_MAIN_FRAGMENT);
+        mFragments.add(ARouterUtils.DATA_MAIN_FRAGMENT);
+        mFragments.add(ARouterUtils.GIRLS_MAIN_FRAGMENT);
+        mFragments.add(ARouterUtils.USER_MAIN_FRAGMENT);
         updateFragment();
         Log.d("--->", BaseApplication.MY_STR);
     }
@@ -110,8 +111,8 @@ public class MainActivity extends BaseActivity {
 
     public void updateFragment() {
         mNewStyleToolBar.setRbPosition(mPosition);
-        Fragment baseFragment = getFragment(mPosition);
-        switchFragment(tempFragment, baseFragment, mPosition);
+        String baseFragment = getFragment(mPosition);
+        switchFragment(baseFragment);
     }
 
     /**
@@ -120,44 +121,63 @@ public class MainActivity extends BaseActivity {
      * @param position
      * @return
      */
-    private Fragment getFragment(int position) {
+    private String getFragment(int position) {
         if (mFragments != null && mFragments.size() > 0) {
-            Fragment fragment = mFragments.get(position);
+            String fragment = mFragments.get(position);
             return fragment;
         }
         return null;
     }
 
+
     /**
      * 切换Fragment
      *
-     * @param fragment     上一个fragment
-     * @param nextFragment 要替换的fragment
+     * @param fragmentId     上一个fragment
      */
-    private void switchFragment(Fragment fragment, Fragment nextFragment, final int position) {
-        Log.i("--> : ", position + "");
-        if (tempFragment != nextFragment) {
-            tempFragment = nextFragment;
-            if (nextFragment != null) {
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                //判断nextFragment是否添加成功
-                if (!nextFragment.isAdded()) {
-                    //隐藏当前的Fragment
-                    if (fragment != null) {
-                        fragmentTransaction.hide(fragment);
-                    }
-                    //添加Fragment
-                    fragmentTransaction.add(R.id.fl_main_content, nextFragment).commitAllowingStateLoss();
+    private void switchFragment(String fragmentId) {
+        FragmentManager mFragmentManager = getSupportFragmentManager();
+        FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentManager.getBackStackEntryCount();
+        for (int i = 0; i < mFragments.size(); i++) {
+            String tag = String.valueOf(mFragments.get(i));
+            Fragment fragment = mFragmentManager.findFragmentByTag(tag);
+            if (mFragments.get(i) == fragmentId) {
+                if (fragment == null || !fragment.isAdded()) {
+                    fragment = createNewInstance(fragmentId);
+                    mFragmentTransaction.add(R.id.fl_main_content, fragment, tag);
                 } else {
-                    //隐藏当前Fragment
-                    if (fragment != null) {
-                        fragmentTransaction.hide(fragment);
-                    }
-                    fragmentTransaction.show(nextFragment).commitAllowingStateLoss();
+                    mFragmentTransaction.show(fragment);
                 }
+            } else if (fragment != null) {
+                mFragmentTransaction.hide(fragment);
             }
         }
+        mFragmentTransaction.commitAllowingStateLoss();
     }
+
+
+    /**
+     *  返回处发的 fragment
+     * @param fragmentId
+     * @return
+     */
+    private Fragment createNewInstance(String fragmentId) {
+        if (fragmentId.equals(ARouterUtils.HOME_MAIN_FRAGMENT)) {
+            return (Fragment) ARouter.getInstance().build(ARouterUtils.HOME_MAIN_FRAGMENT).navigation();
+        } else if (fragmentId.equals(ARouterUtils.NEWS_MAIN_FRAGMENT)) {
+            return (Fragment) ARouter.getInstance().build(ARouterUtils.NEWS_MAIN_FRAGMENT).navigation();
+        } else if (fragmentId.equals(ARouterUtils.DATA_MAIN_FRAGMENT)) {
+            return (Fragment) ARouter.getInstance().build(ARouterUtils.DATA_MAIN_FRAGMENT).navigation();
+        } else if (fragmentId.equals(ARouterUtils.GIRLS_MAIN_FRAGMENT)) {
+            return (Fragment) ARouter.getInstance().build(ARouterUtils.GIRLS_MAIN_FRAGMENT).navigation();
+        } else if (fragmentId.equals(ARouterUtils.USER_MAIN_FRAGMENT)) {
+            return (Fragment) ARouter.getInstance().build(ARouterUtils.USER_MAIN_FRAGMENT).navigation();
+        }else {
+            return new Fragment();
+        }
+    }
+
 
 
     private void getApplicationPackage() {
