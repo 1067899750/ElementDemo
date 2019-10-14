@@ -5,7 +5,10 @@ import android.support.annotation.Keep;
 import android.view.View;
 
 import com.example.z_lib_common.base.BaseActivity;
+import com.example.z_lib_common.http.base.ICallBack;
 import com.example.z_lib_common.widget.MyActionBar;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 
 /**
@@ -18,7 +21,7 @@ import com.example.z_lib_common.widget.MyActionBar;
  * @date 2019/9/27 17:40
  */
 @Keep
-public abstract class BaseActionBarActivity extends BaseActivity {
+public abstract class BaseActionBarActivity extends BaseActivity implements ICallBack {
 
     @Override
     protected void beforeInit() {
@@ -48,6 +51,19 @@ public abstract class BaseActionBarActivity extends BaseActivity {
      */
     protected abstract String setTitle();
 
+    /**
+     * 返回 json 数据
+     * @param tag
+     * @param jsonObject
+     */
+    protected abstract void onSuccess(String tag, JsonObject jsonObject);
+
+
+    @Override
+    public void onSuccess(String tag, String message) {
+        JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
+        onSuccess(tag, jsonObject);
+    }
 
 
 }

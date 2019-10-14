@@ -1,6 +1,9 @@
 package com.example.z_lib_common.base.mvp;
 
-import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
+import android.graphics.Color;
+
+import com.example.z_lib_common.base.BaseActivity;
+import com.example.z_lib_common.widget.MyActionBar;
 
 /**
  *
@@ -9,9 +12,38 @@ import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
  * @date 2019/10/8 14:12
  */
 public abstract class BaseMvpActivity<M extends Model, V extends View, P extends BasePresenter>
-        extends BaseActionBarActivity implements BaseMvp<M, V, P> {
+        extends BaseActivity implements BaseMvp<M, V, P> {
 
     protected P presenter;
+
+    @Override
+    protected void beforeInit() {
+        super.beforeInit();
+        //标题栏设置
+        flActionBar.setVisibility(android.view.View.VISIBLE);
+        MyActionBar actionBar = new MyActionBar(this);
+        actionBar.setTitle(setTitle());
+        actionBar.setActionBarColor(setActionBarColor());
+        flActionBar.addView(actionBar);
+    }
+
+    /**
+     * 设置默认标题
+     *
+     * @return 标题
+     */
+    protected abstract String setTitle();
+
+
+    /**
+     * 设置actionBar的背景颜色
+     *
+     * @return
+     */
+    public int setActionBarColor() {
+        return Color.parseColor("#03A9F4");
+    }
+
 
     @Override
     protected void afterInit() {

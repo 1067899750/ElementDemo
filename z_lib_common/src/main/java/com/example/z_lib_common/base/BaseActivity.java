@@ -26,7 +26,7 @@ import com.gyf.barlibrary.ImmersionBar;
  * @date 2019/9/25 16:25
  */
 @Keep
-public abstract class BaseActivity extends AppCompatActivity  implements ICallBack {
+public abstract class BaseActivity extends AppCompatActivity{
     protected View vStatusBar;
     protected FrameLayout flRoot;
     protected ImmersionBar mImmersionBar;
@@ -194,21 +194,6 @@ public abstract class BaseActivity extends AppCompatActivity  implements ICallBa
         onBackPressed();
         return true;
     }
-
-    /**
-     * 返回 json 数据
-     * @param tag
-     * @param jsonObject
-     */
-    protected abstract void onSuccess(String tag, JsonObject jsonObject);
-
-
-    @Override
-    public void onSuccess(String tag, String message) {
-        JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
-        onSuccess(tag, jsonObject);
-    }
-
 
 
     /******************************************管理 fragment *************************************/

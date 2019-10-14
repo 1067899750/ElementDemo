@@ -1,14 +1,17 @@
 package com.example.z_lib_common.http.net.retrofit.dns;
 
 /**
- * @describe IP基类
- * @euthor puyantao
- * @email puyantao@purang.com
- * @create 2019/8/26 11:33
+ *
+ * @description IP基类
+ * @author puyantao
+ * @date 2019/10/14 10:22
  */
 public class HttpDns {
     private static HttpDns mInstance = null;
-    private static String baseUrl;
+    /**
+     *  URL
+     */
+    public static String baseUrl;
 
     public static HttpDns getInstance() {
         if (mInstance == null) {

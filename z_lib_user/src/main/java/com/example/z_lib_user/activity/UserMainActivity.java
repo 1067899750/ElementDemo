@@ -13,7 +13,6 @@ import com.example.z_lib_user.activity.model.MainModelImpl;
 import com.example.z_lib_user.activity.presenter.MainPresenter;
 import com.example.z_lib_user.activity.view.MainView;
 import com.example.z_lib_user.fragment.BlankFragment;
-import com.google.gson.JsonObject;
 
 /**
  * @author puyantao
@@ -56,11 +55,6 @@ public class UserMainActivity extends BaseMvpActivity<MainModel, MainView, MainP
     }
 
     @Override
-    protected void onSuccess(String tag, JsonObject jsonObject) {
-
-    }
-
-    @Override
     protected String setTitle() {
         return "MVP Activity";
     }
@@ -96,13 +90,4 @@ public class UserMainActivity extends BaseMvpActivity<MainModel, MainView, MainP
     }
 
 
-    @Override
-    public void onFailed(String message) {
-
-    }
-
-    @Override
-    public void onError(int code, String message) {
-
-    }
 }

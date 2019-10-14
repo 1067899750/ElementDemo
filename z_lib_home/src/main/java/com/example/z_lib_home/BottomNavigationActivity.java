@@ -10,7 +10,6 @@ import com.example.z_lib_common.base.ClassUtils;
 import com.example.z_lib_common.base.IViewDelegate;
 import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.widget.NoScrollViewPager;
-import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -58,10 +57,6 @@ public class BottomNavigationActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onSuccess(String tag, JsonObject jsonObject) {
-
-    }
 
     @Override
     protected void initViews() {
@@ -97,15 +92,7 @@ public class BottomNavigationActivity extends BaseActivity {
         return newsFragment;
     }
 
-    @Override
-    public void onFailed(String message) {
 
-    }
-
-    @Override
-    public void onError(int code, String message) {
-
-    }
 }
 
 

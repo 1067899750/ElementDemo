@@ -6,13 +6,16 @@ import android.view.View;
 
 import com.example.z_lib_common.R;
 import com.example.z_lib_common.base.BaseActivity;
+import com.example.z_lib_common.http.base.ICallBack;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 /**
  * @author puyantao
  * @describe 用design 框架
  * @create 2019/9/27 16:06
  */
-public abstract class BaseSupportBarActivity extends BaseActivity {
+public abstract class BaseSupportBarActivity extends BaseActivity implements ICallBack {
     @Override
     protected void afterInit() {
         super.afterInit();
@@ -39,4 +42,33 @@ public abstract class BaseSupportBarActivity extends BaseActivity {
             }
         }
     }
+
+    /**
+     * 返回 json 数据
+     * @param tag
+     * @param jsonObject
+     */
+    protected abstract void onSuccess(String tag, JsonObject jsonObject);
+
+
+    @Override
+    public void onSuccess(String tag, String message) {
+        JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
+        onSuccess(tag, jsonObject);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

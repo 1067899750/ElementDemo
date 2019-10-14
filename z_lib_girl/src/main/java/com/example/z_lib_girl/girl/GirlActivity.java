@@ -8,7 +8,6 @@ import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.widget.HackyViewPager;
 import com.example.z_lib_girl.Constants;
 import com.example.z_lib_girl.data.bean.Girls;
-import com.google.gson.JsonObject;
 
 import java.util.List;
 
@@ -63,19 +62,4 @@ public class GirlActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onSuccess(String tag, JsonObject jsonObject) {
-
-    }
-
-
-    @Override
-    public void onFailed(String message) {
-
-    }
-
-    @Override
-    public void onError(int code, String message) {
-
-    }
 }
