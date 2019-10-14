@@ -13,6 +13,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.example.z_lib_common.http.HttpHelper;
+import com.example.z_lib_common.http.base.IHttpProcessor;
+import com.example.z_lib_common.http.net.retrofit.dns.HttpDns;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.BuildConfig;
 import com.orhanobut.logger.Logger;
@@ -40,12 +43,28 @@ public class Utils {
     }
 
     /**
+     *  初始化网络
+     * @param httpProcessor
+     * @param baseUrl
+     */
+    public static void initHttp(IHttpProcessor httpProcessor, String baseUrl){
+        //初始化网络 httpHelper
+        HttpHelper.init(httpProcessor);
+        //初始化域名
+        HttpDns.init(baseUrl);
+    }
+
+
+
+    /**
      * 获取ApplicationContext
      *
      * @return ApplicationContext
      */
     public static Context getContext() {
-        if (context != null) return context;
+        if (context != null) {
+            return context;
+        }
         throw new NullPointerException("u should init first");
     }
 
@@ -86,7 +105,9 @@ public class Utils {
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isAppDebug() {
-        if (StringUtils.isSpace(context.getPackageName())) return false;
+        if (StringUtils.isSpace(context.getPackageName())) {
+            return false;
+        }
         try {
             PackageManager pm = context.getPackageManager();
             ApplicationInfo ai = pm.getApplicationInfo(context.getPackageName(), 0);

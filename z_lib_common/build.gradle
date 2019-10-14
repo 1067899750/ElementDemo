@@ -53,6 +53,8 @@ dependencies {
     api rootProject.ext.dependencies.butterknife
     //Gson 库
     api rootProject.ext.dependencies.gson
+    //volley
+    api rootProject.ext.dependencies.volley
     // retrofit2
     api rootProject.ext.dependencies.retrofit
     api rootProject.ext.dependencies.PersistentCookieJar

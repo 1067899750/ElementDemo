@@ -6,7 +6,7 @@ import android.view.View;
 import com.bumptech.glide.MemoryCategory;
 import com.example.z_lib_common.imageloader.config.GlobalConfig;
 import com.example.z_lib_common.imageloader.config.SingleConfig;
-import com.example.z_lib_common.imageloader.utils.DownLoadImageService;
+import com.example.z_lib_common.utils.DownLoadImageService;
 
 
 /**

@@ -8,7 +8,7 @@ import android.view.animation.Animation;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
-import com.example.z_lib_common.imageloader.utils.ImageUtil;
+import com.example.z_lib_common.utils.ImageUtil;
 
 import java.io.File;
 

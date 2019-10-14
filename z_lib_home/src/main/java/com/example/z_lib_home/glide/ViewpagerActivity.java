@@ -10,6 +10,7 @@ import com.example.z_lib_common.imageloader.config.ScaleMode;
 import com.example.z_lib_common.imageloader.loader.ImageLoader;
 import com.example.z_lib_home.R;
 import com.example.z_lib_home.glide.config.ImageConfig;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,8 +76,22 @@ public class ViewpagerActivity extends BaseActionBarActivity {
     }
 
     @Override
+    protected void onSuccess(String tag, JsonObject jsonObject) {
+
+    }
+
+    @Override
     protected String setTitle() {
         return getResources().getString(R.string.home_title_activity_fragment_module);
     }
 
+    @Override
+    public void onFailed(String message) {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
+    }
 }

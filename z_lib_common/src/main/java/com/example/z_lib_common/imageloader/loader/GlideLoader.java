@@ -27,8 +27,8 @@ import com.example.z_lib_common.imageloader.config.PriorityMode;
 import com.example.z_lib_common.imageloader.config.ScaleMode;
 import com.example.z_lib_common.imageloader.config.ShapeMode;
 import com.example.z_lib_common.imageloader.config.SingleConfig;
-import com.example.z_lib_common.imageloader.utils.DownLoadImageService;
-import com.example.z_lib_common.imageloader.utils.ImageUtil;
+import com.example.z_lib_common.utils.DownLoadImageService;
+import com.example.z_lib_common.utils.ImageUtil;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.ColorFilterTransformation;

@@ -19,6 +19,7 @@ import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.utils.ToastUtils;
 import com.example.z_lib_common.widget.NewStyleToolBar;
 import com.example.z_lib_common.widget.annotation.PageTypeAnnotation;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
@@ -59,6 +60,11 @@ public class MainActivity extends BaseActivity {
         super.afterInit();
         getApplicationPackage();
         getChannel();
+    }
+
+    @Override
+    protected void onSuccess(String tag, JsonObject jsonObject) {
+
     }
 
 
@@ -218,6 +224,16 @@ public class MainActivity extends BaseActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onFailed(String message) {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
     }
 }
 

@@ -2,14 +2,10 @@ package debug;
 
 
 import android.content.Context;
-import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
-import com.example.z_lib_common.http.DataType;
-import com.example.z_lib_common.http.HttpClient;
 
-import com.example.z_lib_common.http.OnResultListener;
 import com.example.z_lib_news.Constants;
 import com.example.z_lib_news.data.bean.StoryList;
 import com.orhanobut.logger.Logger;

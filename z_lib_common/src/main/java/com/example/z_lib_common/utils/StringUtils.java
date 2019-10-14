@@ -1,5 +1,7 @@
 package com.example.z_lib_common.utils;
 
+import android.net.Uri;
+
 /**
  * 字符串相关工具类
  */
@@ -189,4 +191,41 @@ public class StringUtils {
         }
         return new String(chars);
     }
+
+
+
+
+    /**
+     * @param url
+     * @return
+     */
+    public static String getUrlTag(String url) {
+        try {
+            String tag = Uri.parse(url).getPath().split("/")[Uri.parse(url).getPath().split("/").length -1];
+            if (tag.contains(".")){
+                return tag.substring(0, tag.indexOf("."));
+            } else {
+                return tag;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

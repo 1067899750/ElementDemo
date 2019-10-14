@@ -11,6 +11,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.bankres.ConfigPermission;
 import com.example.z_lib_common.base.BaseApplication;
+import com.example.z_lib_common.http.net.retrofit.RetrofitProcessor;
 import com.example.z_lib_common.multipackage.EnvType;
 import com.example.z_lib_common.utils.Utils;
 
@@ -61,6 +62,9 @@ public class MyApplication extends BaseApplication {
         ACRA.init(this);
         ACRA.getErrorReporter().removeAllReportSenders();
         ACRA.getErrorReporter().setReportSender(new CrashReportSender());
+
+        //初始化
+        Utils.initHttp( new RetrofitProcessor(this), getResources().getString(R.string.base_url));
 
         //初始化多环境打包
         initMultiPackage();

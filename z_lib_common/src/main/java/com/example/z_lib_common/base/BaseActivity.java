@@ -13,7 +13,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.z_lib_common.R;
+import com.example.z_lib_common.http.base.ICallBack;
 import com.example.z_lib_common.utils.Utils;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.gyf.barlibrary.ImmersionBar;
 
 
@@ -23,7 +26,7 @@ import com.gyf.barlibrary.ImmersionBar;
  * @date 2019/9/25 16:25
  */
 @Keep
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity  implements ICallBack {
     protected View vStatusBar;
     protected FrameLayout flRoot;
     protected ImmersionBar mImmersionBar;
@@ -191,6 +194,21 @@ public abstract class BaseActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
+    /**
+     * 返回 json 数据
+     * @param tag
+     * @param jsonObject
+     */
+    protected abstract void onSuccess(String tag, JsonObject jsonObject);
+
+
+    @Override
+    public void onSuccess(String tag, String message) {
+        JsonObject jsonObject = new JsonParser().parse(message).getAsJsonObject();
+        onSuccess(tag, jsonObject);
+    }
+
 
 
     /******************************************管理 fragment *************************************/

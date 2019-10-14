@@ -11,6 +11,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
 import com.example.z_lib_girl.R;
+import com.google.gson.JsonObject;
 
 /**
  * @author puyantao
@@ -47,6 +48,11 @@ public class GirlsActivity extends BaseActionBarActivity {
     }
 
     @Override
+    protected void onSuccess(String tag, JsonObject jsonObject) {
+
+    }
+
+    @Override
     protected void initViews() {
         mPresenter = new GirlsPresenter(mView);
         mPresenter.start();
@@ -77,4 +83,13 @@ public class GirlsActivity extends BaseActionBarActivity {
     }
 
 
+    @Override
+    public void onFailed(String message) {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
+    }
 }
