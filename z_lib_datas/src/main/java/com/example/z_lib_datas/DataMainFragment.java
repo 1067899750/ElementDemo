@@ -93,7 +93,7 @@ public class DataMainFragment extends BaseMvcFragment {
     @Override
     public void onError(int code, String message) {
         System.out.println("--->" + Thread.currentThread());
-        mTextView.setText(message);
+        mTextView.setText(code + ":" + message);
     }
 
 

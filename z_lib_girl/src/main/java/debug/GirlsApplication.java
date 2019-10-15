@@ -3,10 +3,14 @@ package debug;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
-import com.orhanobut.logger.Logger;
+import com.example.z_lib_common.http.net.retrofit.RetrofitProcessor;
+import com.example.z_lib_common.utils.Utils;
 
 /**
- * <p>类说明</p>
+ *
+ * @description 类说明
+ * @author puyantao
+ * @date 2019/10/15 16:19
  */
 public class GirlsApplication extends BaseApplication {
 
@@ -14,34 +18,22 @@ public class GirlsApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         ARouter.init(this);
-        login();
+        //初始化
+        Utils.initHttp(new RetrofitProcessor(this), "https://yanyangtian.purang.com/");
     }
 
-    /**
-     * 在这里模拟登陆，然后拿到sessionId或者Token
-     * 这样就能够在组件请求接口了
-     */
-    private void login() {
-        HttpClient client = new HttpClient.Builder()
-                .baseUrl("http://gank.io/api/data/")
-                .url("福利/10/1")
-                .build();
-        client.get(new OnResultListener<String>() {
 
-            @Override
-            public void onSuccess(String result) {
-                Logger.e(result);
-            }
-
-            @Override
-            public void onError(int code, String message) {
-                Logger.e(message);
-            }
-
-            @Override
-            public void onFailure(String message) {
-                Logger.e(message);
-            }
-        });
-    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

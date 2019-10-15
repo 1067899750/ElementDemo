@@ -26,7 +26,10 @@ import org.acra.sender.ReportSenderException;
 
 
 /**
- * <p>这里仅需做一些初始化的工作</p>
+ *
+ * @description 这里仅需做一些初始化的工作
+ * @author puyantao
+ * @date 2019/10/15 15:52
  */
 @ReportsCrashes(
         mailTo = "1067899750@qq.com",

@@ -2,15 +2,18 @@ package com.example.z_lib_home;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.z_lib_common.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_common.base.ClassUtils;
 import com.example.z_lib_common.base.IViewDelegate;
-import com.example.z_lib_common.base.ViewManager;
 import com.example.z_lib_common.widget.NoScrollViewPager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +25,7 @@ import java.util.List;
 public class BottomNavigationActivity extends BaseActivity {
 
     private NoScrollViewPager mPager;
-    private List<BaseFragment> mFragments;
+    private List<Fragment> mFragments;
     private FragmentAdapter mAdapter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -66,11 +69,13 @@ public class BottomNavigationActivity extends BaseActivity {
     }
 
     private void initViewPager() {
-        //这几个Fragment是主动添加到ViewManager中的
-        mFragments = ViewManager.getInstance().getAllFragment();
-        //主动寻找
-        BaseFragment newsFragment = getNewsFragment();
-        mFragments.add(newsFragment);
+        mFragments = new ArrayList<>();
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.HOME_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.NEWS_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.DATA_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.GIRLS_MAIN_FRAGMENT).navigation());
+        mFragments.add((Fragment) ARouter.getInstance().build(ARouterUtils.USER_MAIN_FRAGMENT).navigation());
+
         mPager = findViewById(R.id.container_pager);
         mAdapter = new FragmentAdapter(getSupportFragmentManager(), mFragments);
         mPager.setPagerEnabled(false);

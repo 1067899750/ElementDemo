@@ -1,4 +1,4 @@
 <resources>
-    <string name="data_app_name">z_lib_datas</string>
-
+    <string name="data_app_name">z_lib_data</string>
+    <string name="data_name">Data</string>
 </resources>

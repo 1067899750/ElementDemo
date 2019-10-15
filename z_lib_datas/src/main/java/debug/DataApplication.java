@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
+import com.example.z_lib_common.http.net.retrofit.RetrofitProcessor;
+import com.example.z_lib_common.utils.Utils;
 
 /**
  *
@@ -24,8 +26,8 @@ public class DataApplication extends BaseApplication {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
-        // dex突破65535的限制
-//        MultiDex.install(this);
+        //初始化
+        Utils.initHttp(new RetrofitProcessor(this), "https://yanyangtian.purang.com/");
     }
 
 

@@ -1,5 +1,4 @@
 <resources>
-
     <!-- 崩溃 -->
     <string name="crash_toast_text">程序崩溃了</string>
     <string name="crash_dialog_text">感谢您对我们的支持！</string>

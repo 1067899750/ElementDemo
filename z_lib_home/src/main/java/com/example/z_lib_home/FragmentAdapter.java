@@ -4,8 +4,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.z_lib_common.base.BaseFragment;
-
 import java.util.List;
 
 
@@ -13,9 +11,9 @@ import java.util.List;
  * <p>Fragments适配器 </p>
  */
 public class FragmentAdapter extends FragmentStatePagerAdapter {
-    private List<BaseFragment> mFragments;
+    private List<Fragment> mFragments;
 
-    public FragmentAdapter(FragmentManager fm, List<BaseFragment> mFragments) {
+    public FragmentAdapter(FragmentManager fm, List<Fragment> mFragments) {
         super(fm);
         this.mFragments = mFragments;
     }
