@@ -5,7 +5,7 @@ import android.support.annotation.Keep;
 import android.view.View;
 
 import com.example.z_lib_common.base.BaseActivity;
-import com.example.z_lib_common.http.base.ICallBack;
+import com.example.z_lib_net.http.base.ICallBack;
 import com.example.z_lib_common.widget.MyActionBar;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

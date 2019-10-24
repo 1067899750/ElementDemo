@@ -61,20 +61,6 @@ dependencies {
     api rootProject.ext.dependencies.multidex
     //    butterKnife 引用
     api rootProject.ext.dependencies.butterknife
-    //Gson 库
-    api rootProject.ext.dependencies.gson
-    //volley
-    implementation rootProject.ext.dependencies.volley
-    // retrofit2
-    api rootProject.ext.dependencies.retrofit
-    api rootProject.ext.dependencies.PersistentCookieJar
-    api rootProject.ext.dependencies["adapter-rxjava"]
-    api rootProject.ext.dependencies["converter-gson"]
-    //配合RxJava 使用
-    api rootProject.ext.dependencies["okhttp-logging-interceptor"]
-    //下面两个是RxJava 和 RxAndroid
-    api rootProject.ext.dependencies.rxjava
-    api rootProject.ext.dependencies.rxandroid
 
     //recyclerView
     api rootProject.ext.support["recyclerview-v7"]

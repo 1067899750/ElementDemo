@@ -13,10 +13,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.z_lib_common.R;
-import com.example.z_lib_common.http.base.ICallBack;
 import com.example.z_lib_common.utils.Utils;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.gyf.barlibrary.ImmersionBar;
 
 

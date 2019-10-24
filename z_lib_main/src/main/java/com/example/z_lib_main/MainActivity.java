@@ -17,11 +17,11 @@ import com.example.z_lib_common.bankres.BankResFactory;
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_common.base.ViewManager;
-import com.example.z_lib_common.http.HttpHelper;
-import com.example.z_lib_common.http.Url;
-import com.example.z_lib_common.http.base.ICallBack;
-import com.example.z_lib_common.http.net.retrofit.dns.HttpDns;
-import com.example.z_lib_common.utils.ToastUtils;
+import com.example.z_lib_net.http.HttpHelper;
+import com.example.z_lib_net.http.Url;
+import com.example.z_lib_net.http.base.ICallBack;
+import com.example.z_lib_net.http.net.retrofit.dns.HttpDns;
+import com.example.z_lib_net.utils.ToastUtils;
 import com.example.z_lib_common.widget.NewStyleToolBar;
 import com.example.z_lib_common.widget.annotation.PageTypeAnnotation;
 

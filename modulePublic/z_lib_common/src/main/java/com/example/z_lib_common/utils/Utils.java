@@ -14,9 +14,9 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.example.z_lib_base.utils.BaseUtils;
-import com.example.z_lib_common.http.HttpHelper;
-import com.example.z_lib_common.http.base.IHttpProcessor;
-import com.example.z_lib_common.http.net.retrofit.dns.HttpDns;
+import com.example.z_lib_net.http.HttpHelper;
+import com.example.z_lib_net.http.base.IHttpProcessor;
+import com.example.z_lib_net.http.net.retrofit.dns.HttpDns;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.BuildConfig;
 import com.orhanobut.logger.Logger;

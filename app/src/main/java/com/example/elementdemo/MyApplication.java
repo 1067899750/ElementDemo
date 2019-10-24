@@ -11,7 +11,7 @@ import android.util.Log;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.bankres.ConfigPermission;
 import com.example.z_lib_common.base.BaseApplication;
-import com.example.z_lib_common.http.net.retrofit.RetrofitProcessor;
+import com.example.z_lib_net.http.net.retrofit.RetrofitProcessor;
 import com.example.z_lib_common.multipackage.EnvType;
 import com.example.z_lib_common.utils.Utils;
 

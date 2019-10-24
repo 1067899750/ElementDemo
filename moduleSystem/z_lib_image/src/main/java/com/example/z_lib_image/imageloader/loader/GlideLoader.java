@@ -28,7 +28,7 @@ import com.example.z_lib_image.imageloader.config.ScaleMode;
 import com.example.z_lib_image.imageloader.config.ShapeMode;
 import com.example.z_lib_image.imageloader.config.SingleConfig;
 import com.example.z_lib_image.utils.DownLoadImageService;
-import com.example.z_lib_image.utils.ImageUtil;
+import com.example.z_lib_image.utils.ImageUtils;
 
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
@@ -100,7 +100,7 @@ public class GlideLoader implements ILoader {
                 return;
             }
 
-            if (ImageUtil.shouldSetPlaceHolder(config)) {
+            if (ImageUtils.shouldSetPlaceHolder(config)) {
                 request.placeholder(config.getPlaceHolderResId());
             }
 
@@ -203,10 +203,10 @@ public class GlideLoader implements ILoader {
     private DrawableTypeRequest getDrawableTypeRequest(SingleConfig config, RequestManager requestManager) {
         DrawableTypeRequest request = null;
         if (!TextUtils.isEmpty(config.getUrl())) {
-            request = requestManager.load(ImageUtil.appendUrl(config.getUrl()));
+            request = requestManager.load(ImageUtils.appendUrl(config.getUrl()));
             Log.e("TAG", "getUrl : " + config.getUrl());
         } else if (!TextUtils.isEmpty(config.getFilePath())) {
-            request = requestManager.load(ImageUtil.appendUrl(config.getFilePath()));
+            request = requestManager.load(ImageUtils.appendUrl(config.getFilePath()));
             Log.e("TAG", "getFilePath : " + config.getFilePath());
         } else if (!TextUtils.isEmpty(config.getContentProvider())) {
             request = requestManager.loadFromMediaStore(Uri.parse(config.getContentProvider()));

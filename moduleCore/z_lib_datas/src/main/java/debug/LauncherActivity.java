@@ -3,9 +3,9 @@ package debug;
 import android.widget.Toast;
 
 import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
-import com.example.z_lib_common.http.HttpHelper;
-import com.example.z_lib_common.http.Url;
-import com.example.z_lib_common.http.net.retrofit.dns.HttpDns;
+import com.example.z_lib_net.http.HttpHelper;
+import com.example.z_lib_net.http.Url;
+import com.example.z_lib_net.http.net.retrofit.dns.HttpDns;
 import com.example.z_lib_datas.DataMainFragment;
 import com.example.z_lib_datas.R;
 import com.google.gson.JsonObject;

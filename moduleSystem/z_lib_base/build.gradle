@@ -60,7 +60,7 @@ dependencies {
     //arouter
     api rootProject.ext.dependencies.arouter
     api project(path: ':moduleSystem:z_lib_image')
-
+    api project(path: ':moduleSystem:z_lib_net')
 
 }
 

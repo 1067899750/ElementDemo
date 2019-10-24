@@ -2,8 +2,8 @@ package com.example.z_lib_base.utils;
 
 import android.content.Context;
 
-import com.example.z_lib_image.utils.ImageUtil;
 import com.example.z_lib_image.utils.ImageUtils;
+import com.example.z_lib_net.utils.NetUtils;
 
 /**
  * @author puyantao
@@ -22,6 +22,8 @@ public class BaseUtils {
         BaseUtils.context = context;
         //初始化 image 模块
         ImageUtils.init(getContext());
+        //初始化 Net 模块
+        NetUtils.init(getContext());
     }
 
 

@@ -12,7 +12,10 @@ import android.content.SharedPreferences;
  */
 public class SharePreferencesUtils {
     private final static String SP_NAME = "sp_cache";
-    private static SharedPreferences mPreferences;        // SharedPreferences的实例
+    /**
+     *  SharedPreferences的实例
+     */
+    private static SharedPreferences mPreferences;
 
     private static SharedPreferences getSp(Context context) {
         if (mPreferences == null) {
@@ -55,7 +58,8 @@ public class SharePreferencesUtils {
      */
     public static void setBoolean(Context context, String key, boolean value) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        // 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.putBoolean(key, value);
         edit.commit();
     }
@@ -84,7 +88,7 @@ public class SharePreferencesUtils {
      */
     public static void setInt(Context context, String key, int value) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.putInt(key, value);
         edit.commit();
     }
@@ -92,14 +96,14 @@ public class SharePreferencesUtils {
 
     public static void setString(Context context, String key, String value) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.putString(key, value);
         edit.commit();
     }
 
     public static void setLong(Context context, String key, long value) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.putLong(key, value);
         edit.commit();
     }
@@ -107,7 +111,7 @@ public class SharePreferencesUtils {
 
     public static void setInt(Context context, String key, String value) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.putString(key, value);
         edit.commit();
     }
@@ -121,7 +125,7 @@ public class SharePreferencesUtils {
      */
     public static void deleteKeyData(Context context, String key) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.remove(key);
         edit.commit();
     }
@@ -132,7 +136,7 @@ public class SharePreferencesUtils {
      */
     public static void deleteData(Context context) {
         SharedPreferences sp = getSp(context);
-        SharedPreferences.Editor edit = sp.edit();// 获取编辑器
+        SharedPreferences.Editor edit = sp.edit();
         edit.clear().commit();
     }
 

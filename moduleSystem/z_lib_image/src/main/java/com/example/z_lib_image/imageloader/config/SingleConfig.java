@@ -8,7 +8,7 @@ import android.view.animation.Animation;
 
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
-import com.example.z_lib_image.utils.ImageUtil;
+import com.example.z_lib_image.utils.ImageUtils;
 
 
 import java.io.File;
@@ -301,7 +301,7 @@ public class SingleConfig {
     }
 
     public void setBitmapListener(BitmapListener bitmapListener) {
-        this.bitmapListener = ImageUtil.getBitmapListenerProxy(bitmapListener);
+        this.bitmapListener = ImageUtils.getBitmapListenerProxy(bitmapListener);
     }
 
     private void show() {
@@ -591,7 +591,7 @@ public class SingleConfig {
         }
 
         public void asBitmap(BitmapListener bitmapListener) {
-            this.bitmapListener = ImageUtil.getBitmapListenerProxy(bitmapListener);
+            this.bitmapListener = ImageUtils.getBitmapListenerProxy(bitmapListener);
             this.asBitmap = true;
             new SingleConfig(this).show();
         }
@@ -604,8 +604,8 @@ public class SingleConfig {
          * @return
          */
         public ConfigBuilder override(int oWidth, int oHeight) {
-            this.oWidth = ImageUtil.dip2px(oWidth);
-            this.oHeight = ImageUtil.dip2px(oHeight);
+            this.oWidth = ImageUtils.dip2px(oWidth);
+            this.oHeight = ImageUtils.dip2px(oHeight);
             return this;
         }
 
@@ -649,7 +649,7 @@ public class SingleConfig {
          * @return
          */
         public ConfigBuilder rectRoundCorner(int rectRoundRadius) {
-            this.rectRoundRadius = ImageUtil.dip2px(rectRoundRadius);
+            this.rectRoundRadius = ImageUtils.dip2px(rectRoundRadius);
             this.shapeMode = ShapeMode.RECT_ROUND;
             return this;
         }

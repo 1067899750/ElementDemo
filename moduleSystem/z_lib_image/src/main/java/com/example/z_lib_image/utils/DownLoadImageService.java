@@ -69,7 +69,8 @@ public class DownLoadImageService implements Runnable {
 
     public void saveImageToGallery(Context context, Bitmap bmp) {
         // 首先保存图片
-        File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile();//注意小米手机必须这样获得public绝对路径
+        //注意小米手机必须这样获得public绝对路径
+        File file = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).getAbsoluteFile();
 
         File appDir = new File(file ,fileName);
         if (!appDir.exists()) {

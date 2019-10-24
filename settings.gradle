@@ -4,6 +4,7 @@ include ':app',
 
         ':modulePublic:z_lib_common',
 
+        ':moduleSystem:z_lib_net',
         ':moduleSystem:z_lib_image',
         ':moduleSystem:z_lib_base',
 

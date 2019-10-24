@@ -1,7 +1,7 @@
 package com.example.z_lib_common.base.mvc.fragment;
 
 import com.example.z_lib_common.base.BaseFragment;
-import com.example.z_lib_common.http.base.ICallBack;
+import com.example.z_lib_net.http.base.ICallBack;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 

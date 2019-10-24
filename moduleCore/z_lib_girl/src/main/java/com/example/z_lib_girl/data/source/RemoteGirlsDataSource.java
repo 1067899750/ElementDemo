@@ -1,8 +1,8 @@
 package com.example.z_lib_girl.data.source;
 
 
-import com.example.z_lib_common.http.HttpHelper;
-import com.example.z_lib_common.http.base.ICallBack;
+import com.example.z_lib_net.http.HttpHelper;
+import com.example.z_lib_net.http.base.ICallBack;
 import com.example.z_lib_girl.Constants;
 import com.example.z_lib_girl.data.GirlsDataSource;
 import com.example.z_lib_girl.data.bean.GirlsParser;

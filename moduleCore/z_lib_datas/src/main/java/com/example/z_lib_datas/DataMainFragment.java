@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_base.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcFragment;
-import com.example.z_lib_common.http.HttpHelper;
-import com.example.z_lib_common.http.Url;
-import com.example.z_lib_common.http.net.retrofit.dns.HttpDns;
+import com.example.z_lib_net.http.HttpHelper;
+import com.example.z_lib_net.http.Url;
+import com.example.z_lib_net.http.net.retrofit.dns.HttpDns;
 import com.google.gson.JsonObject;
 
 import java.util.HashMap;
