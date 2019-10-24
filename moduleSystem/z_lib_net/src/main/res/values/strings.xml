@@ -1,4 +1,5 @@
 <resources>
     <string name="net_app_name">z_lib_net</string>
     <string name="net_internet_invalid">当前网络未连接</string>
+    <string name="net_base_url_null">baseUrl不能为空</string>
 </resources>
