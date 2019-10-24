@@ -6,7 +6,7 @@ import android.content.Context;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_net.http.net.retrofit.RetrofitProcessor;
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 /**
  *
@@ -27,7 +27,7 @@ public class DataApplication extends BaseApplication {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         //初始化
-        Utils.initHttp(new RetrofitProcessor(this), "https://yanyangtian.purang.com/");
+        CommonUtils.initHttp(new RetrofitProcessor(this), "https://yanyangtian.purang.com/");
     }
 
 

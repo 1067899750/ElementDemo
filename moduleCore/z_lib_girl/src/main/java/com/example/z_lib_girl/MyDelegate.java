@@ -4,7 +4,7 @@ import android.support.annotation.Keep;
 
 import com.example.z_lib_common.base.IApplicationDelegate;
 import com.example.z_lib_common.base.ViewManager;
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 
 /**
@@ -15,7 +15,7 @@ public class MyDelegate implements IApplicationDelegate {
 
     @Override
     public void onCreate() {
-        Utils.initLogger();
+        CommonUtils.initLogger();
         //主动添加
         ViewManager.getInstance().addFragment(0, GirlsMainFragment.newInstance());
     }

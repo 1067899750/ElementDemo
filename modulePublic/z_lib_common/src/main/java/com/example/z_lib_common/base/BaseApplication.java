@@ -3,7 +3,7 @@ package com.example.z_lib_common.base;
 import android.app.Application;
 
 import com.example.z_lib_image.imageloader.loader.ImageLoader;
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
-        Utils.init(this);
+        CommonUtils.init(this);
         ImageLoader.init(getApplicationContext());
         mAppDelegateList = ClassUtils.getObjectsWithInterface(this, IApplicationDelegate.class, ROOT_PACKAGE);
         for (IApplicationDelegate delegate : mAppDelegateList) {

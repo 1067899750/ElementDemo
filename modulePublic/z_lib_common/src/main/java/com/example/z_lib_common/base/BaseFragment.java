@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 
 /**
@@ -89,7 +89,7 @@ public abstract class BaseFragment extends Fragment {
      * @param frameId
      */
     protected void addFragment(BaseFragment fragment, @IdRes int frameId) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getHoldingActivity().addFragment(fragment, frameId);
 
     }
@@ -102,7 +102,7 @@ public abstract class BaseFragment extends Fragment {
      * @param frameId
      */
     protected void replaceFragment(BaseFragment fragment, @IdRes int frameId) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getHoldingActivity().replaceFragment(fragment, frameId);
     }
 
@@ -113,7 +113,7 @@ public abstract class BaseFragment extends Fragment {
      * @param fragment
      */
     protected void hideFragment(BaseFragment fragment) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getHoldingActivity().hideFragment(fragment);
     }
 
@@ -124,7 +124,7 @@ public abstract class BaseFragment extends Fragment {
      * @param fragment
      */
     protected void showFragment(BaseFragment fragment) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getHoldingActivity().showFragment(fragment);
     }
 
@@ -135,7 +135,7 @@ public abstract class BaseFragment extends Fragment {
      * @param fragment
      */
     protected void removeFragment(BaseFragment fragment) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getHoldingActivity().removeFragment(fragment);
 
     }

@@ -8,7 +8,7 @@ import android.os.Build;
 import android.support.annotation.Keep;
 import android.util.Log;
 
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -196,7 +196,7 @@ public class ClassUtils {
             }
         }
 
-        if (Utils.isAppDebug()) {
+        if (CommonUtils.isAppDebug()) {
             // Search instant run support only debuggable
             sourcePaths.addAll(tryLoadInstantRunDexFile(applicationInfo));
         }

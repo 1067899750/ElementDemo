@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.example.z_lib_common.R;
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 import com.gyf.barlibrary.ImmersionBar;
 
 
@@ -203,7 +203,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @param frameId
      */
     protected void addFragment(BaseFragment fragment, @IdRes int frameId) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getSupportFragmentManager().beginTransaction()
                 .add(frameId, fragment, fragment.getClass().getSimpleName())
                 .addToBackStack(fragment.getClass().getSimpleName())
@@ -219,7 +219,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @param frameId
      */
     protected void replaceFragment(BaseFragment fragment, @IdRes int frameId) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getSupportFragmentManager().beginTransaction()
                 .replace(frameId, fragment, fragment.getClass().getSimpleName())
                 .addToBackStack(fragment.getClass().getSimpleName())
@@ -234,7 +234,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @param fragment
      */
     protected void hideFragment(BaseFragment fragment) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getSupportFragmentManager().beginTransaction()
                 .hide(fragment)
                 .commitAllowingStateLoss();
@@ -248,7 +248,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @param fragment
      */
     protected void showFragment(BaseFragment fragment) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getSupportFragmentManager().beginTransaction()
                 .show(fragment)
                 .commitAllowingStateLoss();
@@ -262,7 +262,7 @@ public abstract class BaseActivity extends AppCompatActivity{
      * @param fragment
      */
     protected void removeFragment(BaseFragment fragment) {
-        Utils.checkNotNull(fragment);
+        CommonUtils.checkNotNull(fragment);
         getSupportFragmentManager().beginTransaction()
                 .remove(fragment)
                 .commitAllowingStateLoss();

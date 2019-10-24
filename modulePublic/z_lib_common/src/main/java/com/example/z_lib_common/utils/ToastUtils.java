@@ -230,7 +230,7 @@ public class ToastUtils {
      * @param duration 显示时长
      */
     private static void showToast(@StringRes int resId, int duration) {
-        showToast(Utils.getContext().getResources().getText(resId).toString(), duration);
+        showToast(CommonUtils.getContext().getResources().getText(resId).toString(), duration);
     }
 
     /**
@@ -241,7 +241,7 @@ public class ToastUtils {
      * @param args     参数
      */
     private static void showToast(@StringRes int resId, int duration, Object... args) {
-        showToast(String.format(Utils.getContext().getResources().getString(resId), args), duration);
+        showToast(String.format(CommonUtils.getContext().getResources().getString(resId), args), duration);
     }
 
     /**
@@ -266,7 +266,7 @@ public class ToastUtils {
             cancelToast();
         }
         if (sToast == null) {
-            sToast = Toast.makeText(Utils.getContext(), text, duration);
+            sToast = Toast.makeText(CommonUtils.getContext(), text, duration);
             TextView tv = (TextView) sToast.getView().findViewById(android.R.id.message);
             tv.setTextSize(14);
             sToast.setGravity(Gravity.CENTER, 0, 0);

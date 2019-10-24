@@ -14,21 +14,22 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.example.z_lib_base.utils.BaseUtils;
-import com.example.z_lib_net.http.HttpHelper;
 import com.example.z_lib_net.http.base.IHttpProcessor;
-import com.example.z_lib_net.http.net.retrofit.dns.HttpDns;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.BuildConfig;
 import com.orhanobut.logger.Logger;
 
 /**
- * <p>Utils初始化相关 </p>
+ *
+ * @description CommonUtils 初始化相关
+ * @author puyantao
+ * @date 2019/10/24 16:27
  */
-public class Utils {
+public class CommonUtils {
 
     private static Context context;
 
-    private Utils() {
+    private CommonUtils() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
@@ -38,7 +39,7 @@ public class Utils {
      * @param context 上下文
      */
     public static void init(Context context) {
-        Utils.context = context.getApplicationContext();
+        CommonUtils.context = context.getApplicationContext();
         //初始化 base 模块
         BaseUtils.init(getContext());
         //初始化logger

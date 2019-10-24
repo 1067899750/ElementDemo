@@ -13,7 +13,7 @@ import com.example.z_lib_common.bankres.ConfigPermission;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_net.http.net.retrofit.RetrofitProcessor;
 import com.example.z_lib_common.multipackage.EnvType;
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 import org.acra.ACRA;
 import org.acra.ReportField;
@@ -55,7 +55,7 @@ public class MyApplication extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        if (Utils.isAppDebug()) {
+        if (CommonUtils.isAppDebug()) {
             //开启InstantRun之后，一定要在ARouter.init之前调用openDebug
             ARouter.openDebug();
             ARouter.openLog();
@@ -67,7 +67,7 @@ public class MyApplication extends BaseApplication {
         ACRA.getErrorReporter().setReportSender(new CrashReportSender());
 
         //初始化
-        Utils.initHttp( new RetrofitProcessor(this), getResources().getString(R.string.base_url));
+        CommonUtils.initHttp( new RetrofitProcessor(this), getResources().getString(R.string.base_url));
 
         //初始化多环境打包
         initMultiPackage();

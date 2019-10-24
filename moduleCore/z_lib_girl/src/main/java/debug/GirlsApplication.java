@@ -4,7 +4,7 @@ package debug;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_common.base.BaseApplication;
 import com.example.z_lib_net.http.net.retrofit.RetrofitProcessor;
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 
 /**
  *
@@ -19,7 +19,7 @@ public class GirlsApplication extends BaseApplication {
         super.onCreate();
         ARouter.init(this);
         //初始化
-        Utils.initHttp(new RetrofitProcessor(this), "https://yanyangtian.purang.com/");
+        CommonUtils.initHttp(new RetrofitProcessor(this), "https://yanyangtian.purang.com/");
     }
 
 

@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
 
-import com.example.z_lib_common.utils.Utils;
+import com.example.z_lib_common.utils.CommonUtils;
 import com.example.z_lib_girl.Constants;
 import com.example.z_lib_girl.R;
 import com.example.z_lib_girl.data.bean.Girls;
@@ -73,11 +73,11 @@ public class GirlsView extends FrameLayout implements GirlsContract.View, SwipeR
             @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onItemClick(int position, BaseViewHolder holder) {
-                Intent intent = new Intent(Utils.getActivity(GirlsView.this), GirlActivity.class);
+                Intent intent = new Intent(CommonUtils.getActivity(GirlsView.this), GirlActivity.class);
                 intent.putParcelableArrayListExtra(Constants.INTENT_GIRLS, mData);
                 intent.putExtra(Constants.INTENT_INDEX, position);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeScaleUpAnimation(holder.itemView, holder.itemView.getWidth() / 2, holder.itemView.getHeight() / 2, 0, 0);
-                Utils.getActivity(GirlsView.this).startActivity(intent, options.toBundle());
+                CommonUtils.getActivity(GirlsView.this).startActivity(intent, options.toBundle());
             }
         });
 
