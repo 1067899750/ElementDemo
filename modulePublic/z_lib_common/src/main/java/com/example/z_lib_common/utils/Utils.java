@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
+import com.example.z_lib_base.utils.BaseUtils;
 import com.example.z_lib_common.http.HttpHelper;
 import com.example.z_lib_common.http.base.IHttpProcessor;
 import com.example.z_lib_common.http.net.retrofit.dns.HttpDns;
@@ -38,6 +39,8 @@ public class Utils {
      */
     public static void init(Context context) {
         Utils.context = context.getApplicationContext();
+        //初始化 base 模块
+        BaseUtils.init(getContext());
         //初始化logger
         initLogger();
     }

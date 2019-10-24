@@ -31,6 +31,19 @@ android {
         }
     }
 
+    //代码混淆
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    //避免资源名冲突
+    resourcePrefix "image_"
+
+
 }
 
 dependencies {

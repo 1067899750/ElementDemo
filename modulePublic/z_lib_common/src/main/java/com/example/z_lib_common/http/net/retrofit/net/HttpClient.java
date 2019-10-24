@@ -73,7 +73,7 @@ public class HttpClient {
 
     private HttpClient() {
         ClearableCookieJar cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(Utils.getContext()));
-        ///HttpsUtil.SSLParams sslParams = HttpsUtil.getSslSocketFactory(Utils.getContext(), R.raw.cer,STORE_PASS , STORE_ALIAS);
+        ///HttpsUtil.SSLParams sslParams = HttpsUtil.getSslSocketFactory(BaseUtils.getContext(), R.raw.cer,STORE_PASS , STORE_ALIAS);
         //缓存
         File cacheFile = new File(Utils.getContext().getCacheDir(), "cache");
         //100Mb
@@ -87,7 +87,7 @@ public class HttpClient {
 
 //                .addInterceptor(new LoginInterceptor())
 //                .addInterceptor(new HeaderInterceptor())
-//                .cookieJar(new CookieManger(Utils.getContext()))
+//                .cookieJar(new CookieManger(BaseUtils.getContext()))
 //                .cookieJar(cookieJar)
 
                 .addInterceptor(new AddSsionInterceptor()) //向HTTP中写入cookie
