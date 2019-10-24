@@ -30,13 +30,18 @@ public class BaseUtils {
     }
 
 
+    /**
+     * 获取ApplicationContext
+     *
+     * @return ApplicationContext
+     */
     public static Context getContext() {
-        return context;
+        if (context != null) {
+            return context;
+        }
+        throw new NullPointerException("you should init first");
     }
 
-    public static void setContext(Context context) {
-        BaseUtils.context = context;
-    }
 
     /**
      *  初始化网络

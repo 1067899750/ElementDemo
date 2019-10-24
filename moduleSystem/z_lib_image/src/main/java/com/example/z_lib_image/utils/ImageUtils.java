@@ -51,12 +51,16 @@ public class ImageUtils {
     }
 
 
+    /**
+     * 获取ApplicationContext
+     *
+     * @return ApplicationContext
+     */
     public static Context getContext() {
-        return context;
-    }
-
-    public static void setContext(Context context) {
-       ImageUtils.context = context;
+        if (context != null) {
+            return context;
+        }
+        throw new NullPointerException("you should init first");
     }
 
     public static SingleConfig.BitmapListener getBitmapListenerProxy(final SingleConfig.BitmapListener listener) {
@@ -94,7 +98,8 @@ public class ImageUtils {
 
         if (config.getResId() > 0 || !TextUtils.isEmpty(config.getFilePath()) || GlobalConfig.getLoader().isCached(config.getUrl())) {
             return false;
-        } else {//只有在图片源为网络图片,并且图片没有缓存到本地时,才给显示placeholder
+        } else {
+            //只有在图片源为网络图片,并且图片没有缓存到本地时,才给显示placeholder
             return true;
         }
     }
@@ -123,7 +128,8 @@ public class ImageUtils {
         float scaleHeight = targeHeight / sourceHeight;
 
         Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight); //长和宽放大缩小的比例
+        ////长和宽放大缩小的比例
+        matrix.postScale(scaleWidth, scaleHeight);
         Bitmap bm = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         if (needRecycle) {
             bitmap.recycle();
@@ -306,7 +312,8 @@ public class ImageUtils {
                 .sslSocketFactory(sslContext.getSocketFactory())
                 .hostnameVerifier(DO_NOT_VERIFY)
                 .readTimeout(0, TimeUnit.SECONDS)
-                .connectTimeout(30, TimeUnit.SECONDS).writeTimeout(0, TimeUnit.SECONDS) //设置超时
+                //设置超时
+                .connectTimeout(30, TimeUnit.SECONDS).writeTimeout(0, TimeUnit.SECONDS)
                 .build();
 
         return client;
@@ -317,7 +324,8 @@ public class ImageUtils {
                 //.sslSocketFactory(sslContext.getSocketFactory())
                 //.hostnameVerifier(DO_NOT_VERIFY)
                 .readTimeout(0, TimeUnit.SECONDS)
-                .connectTimeout(30, TimeUnit.SECONDS).writeTimeout(0, TimeUnit.SECONDS) //设置超时
+                //设置超时
+                .connectTimeout(30, TimeUnit.SECONDS).writeTimeout(0, TimeUnit.SECONDS)
                 .build();
         return client;
     }

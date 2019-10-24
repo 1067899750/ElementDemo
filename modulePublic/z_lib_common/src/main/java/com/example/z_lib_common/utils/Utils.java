@@ -66,7 +66,7 @@ public class Utils {
         if (context != null) {
             return context;
         }
-        throw new NullPointerException("u should init first");
+        throw new NullPointerException("you should init first");
     }
 
     /**
