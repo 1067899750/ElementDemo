@@ -24,12 +24,12 @@ public class HttpDns {
         return mInstance;
     }
 
-    public static void init(String url) {
+    public void init(String url) {
         baseUrl = url;
     }
 
 
-    public static String getIp() {
+    public String getIp() {
         return baseUrl;
     }
 }

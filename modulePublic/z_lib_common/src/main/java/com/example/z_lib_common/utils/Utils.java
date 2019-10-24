@@ -51,10 +51,8 @@ public class Utils {
      * @param baseUrl
      */
     public static void initHttp(IHttpProcessor httpProcessor, String baseUrl){
-        //初始化网络 httpHelper
-        HttpHelper.init(httpProcessor);
-        //初始化域名
-        HttpDns.init(baseUrl);
+        //初始化网络
+        BaseUtils.initHttp(httpProcessor, baseUrl);
     }
 
 

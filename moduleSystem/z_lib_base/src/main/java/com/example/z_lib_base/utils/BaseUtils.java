@@ -3,6 +3,9 @@ package com.example.z_lib_base.utils;
 import android.content.Context;
 
 import com.example.z_lib_image.utils.ImageUtils;
+import com.example.z_lib_net.http.HttpHelper;
+import com.example.z_lib_net.http.base.IHttpProcessor;
+import com.example.z_lib_net.http.net.retrofit.dns.HttpDns;
 import com.example.z_lib_net.utils.NetUtils;
 
 /**
@@ -34,4 +37,36 @@ public class BaseUtils {
     public static void setContext(Context context) {
         BaseUtils.context = context;
     }
+
+    /**
+     *  初始化网络
+     * @param httpProcessor
+     * @param baseUrl
+     */
+    public static void initHttp(IHttpProcessor httpProcessor, String baseUrl){
+        //初始化网络 httpHelper
+        HttpHelper.init(httpProcessor);
+        //初始化域名
+        HttpDns.getInstance().init(baseUrl);
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
