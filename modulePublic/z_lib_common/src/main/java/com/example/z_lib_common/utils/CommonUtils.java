@@ -30,7 +30,7 @@ public class CommonUtils {
     private static Context context;
 
     private CommonUtils() {
-        throw new UnsupportedOperationException("u can't instantiate me...");
+        throw new UnsupportedOperationException("you can't instantiate me...");
     }
 
     /**
