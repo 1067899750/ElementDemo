@@ -1,12 +1,12 @@
-package com.example.z_lib_common.arouter;
+package com.example.modulebase.arouter;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 
 /**
- * @Describe  ARouter管理器
- * @Author puyantao
- * @Email 1067899750@qq.com
- * @create 2019/7/12 14:41
+ *
+ * @description ARouter管理器
+ * @author puyantao
+ * @date 2019/10/24 10:47
  */
 public class ARouterManager {
 

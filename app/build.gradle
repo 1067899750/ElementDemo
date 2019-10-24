@@ -310,6 +310,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':z_lib_common')
     implementation project(':z_lib_main')
+    implementation project(path: ':moduleBase')
     if (!isModule.toBoolean()) {
         implementation project(':z_lib_news')
         implementation project(':z_lib_girl')
@@ -320,6 +321,7 @@ dependencies {
     //butterknife 引用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation files('libs/acra-4.5.0.jar')
+
 
 
 }

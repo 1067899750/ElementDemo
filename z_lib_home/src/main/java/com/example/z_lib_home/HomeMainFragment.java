@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.z_lib_common.arouter.ARouterManager;
-import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.modulebase.arouter.ARouterManager;
+import com.example.modulebase.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_home.glide.SimpleActivity;
 import com.example.z_lib_home.glide.ViewpagerActivity;

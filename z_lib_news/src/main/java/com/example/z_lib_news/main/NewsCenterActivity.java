@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.modulebase.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.activity.BaseSupportBarActivity;
 import com.example.z_lib_news.R;
 import com.google.gson.JsonObject;

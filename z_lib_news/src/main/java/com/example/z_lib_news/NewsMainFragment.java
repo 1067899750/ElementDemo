@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.z_lib_common.arouter.ARouterManager;
-import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.modulebase.arouter.ARouterManager;
+import com.example.modulebase.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseFragment;
 
 

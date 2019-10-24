@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.modulebase.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
 import com.example.z_lib_girl.R;
 import com.google.gson.JsonObject;

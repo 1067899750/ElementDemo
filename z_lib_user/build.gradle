@@ -85,6 +85,7 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     implementation project(':z_lib_common')
+    implementation project(path: ':moduleBase')
 
 }
 

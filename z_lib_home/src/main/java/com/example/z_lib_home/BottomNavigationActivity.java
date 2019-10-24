@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.z_lib_common.arouter.ARouterUtils;
+import com.example.modulebase.arouter.ARouterUtils;
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_common.base.ClassUtils;
