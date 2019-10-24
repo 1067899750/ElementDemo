@@ -17,7 +17,7 @@
 
     <application>
         <meta-data
-            android:name="com.example.z_lib_common.glide.OkHttpGlideModule"
+            android:name="com.example.z_lib_image.glide.OkHttpGlideModule"
             android:value="GlideModule" />
 
     </application>

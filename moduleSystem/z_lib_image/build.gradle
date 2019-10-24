@@ -30,25 +30,27 @@ android {
             debuggable true
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     testImplementation 'junit:junit:4.12'
-    //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     api rootProject.ext.support["appcompat-v7"]
     api rootProject.ext.support["constraint-layout"]
 
-    //arouter
-    api rootProject.ext.dependencies.arouter
-    api project(path: ':moduleSystem:z_lib_image')
+    //glide
+    api rootProject.ext.dependencies.glide
+    api rootProject.ext.dependencies["glide-transformations"]
 
-
+    //okhttp
+    api rootProject.ext.dependencies.okhttp
 }
+
+
 
 
 

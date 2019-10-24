@@ -5,10 +5,12 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.z_lib_girl.R;
 import com.example.z_lib_girl.data.bean.Girls;
+import com.example.z_lib_image.imageloader.config.ScaleMode;
+import com.example.z_lib_image.imageloader.loader.ImageLoader;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.List;
@@ -46,8 +48,10 @@ public class GirlAdapter extends PagerAdapter {
         final String imageUrl = mData.get(position).getUrl();
         View view = layoutInflater.inflate(R.layout.girl_item_detail, container, false);
         PhotoView imageView = (PhotoView) view.findViewById(R.id.girl_image);
-        Glide.with(mContext)
-                .load(imageUrl)
+        ImageLoader.with(mContext)
+                .url(imageUrl)
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .placeHolder(R.mipmap.ic_launcher)
                 .thumbnail(0.2f)
                 .into(imageView);
         container.addView(view);

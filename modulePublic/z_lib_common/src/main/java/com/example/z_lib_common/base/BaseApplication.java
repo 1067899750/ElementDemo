@@ -2,7 +2,7 @@ package com.example.z_lib_common.base;
 
 import android.app.Application;
 
-import com.example.z_lib_common.imageloader.loader.ImageLoader;
+import com.example.z_lib_image.imageloader.loader.ImageLoader;
 import com.example.z_lib_common.utils.Utils;
 
 import java.util.List;

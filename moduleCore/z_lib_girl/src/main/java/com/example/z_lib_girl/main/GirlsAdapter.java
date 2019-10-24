@@ -5,10 +5,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.z_lib_girl.R;
 import com.example.z_lib_girl.data.bean.Girls;
+import com.example.z_lib_image.imageloader.config.ScaleMode;
+import com.example.z_lib_image.imageloader.loader.ImageLoader;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -51,9 +52,11 @@ public class GirlsAdapter extends RecyclerArrayAdapter<Girls> {
         @Override
         public void setData(Girls data) {
             super.setData(data);
-            Glide.with(getContext())
-                    .load(data.getUrl())
+            ImageLoader.with(getContext())
+                    .url(data.getUrl())
                     .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                    .placeHolder(R.mipmap.ic_launcher)
+                    .scale(ScaleMode.FIT_CENTER)
                     .into(image);
         }
     }

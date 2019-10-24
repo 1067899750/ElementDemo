@@ -60,7 +60,6 @@ dependencies {
     api rootProject.ext.dependencies["adapter-rxjava"]
     api rootProject.ext.dependencies["converter-gson"]
     //配合RxJava 使用
-    api rootProject.ext.dependencies.okhttp
     api rootProject.ext.dependencies["okhttp-logging-interceptor"]
     //下面两个是RxJava 和 RxAndroid
     api rootProject.ext.dependencies.rxjava
@@ -73,14 +72,14 @@ dependencies {
     //PhotoView
     api rootProject.ext.dependencies.PhotoView
 
-    //glide
-    api rootProject.ext.dependencies.glide
-    implementation rootProject.ext.dependencies["glide-transformations"]
     implementation rootProject.ext.dependencies["gpuimage-library"]
     implementation files('libs/simple-xml-core.jar')
 
     //沉溺式状态栏
     implementation rootProject.ext.dependencies.barlibrary
+
+    api project(path: ':moduleSystem:z_lib_base')
+
 }
 
 

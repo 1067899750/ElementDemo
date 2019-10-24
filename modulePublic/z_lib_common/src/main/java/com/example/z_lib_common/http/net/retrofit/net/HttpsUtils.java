@@ -3,7 +3,7 @@ package com.example.z_lib_common.http.net.retrofit.net;
 import android.content.Context;
 import android.support.annotation.RawRes;
 import android.text.TextUtils;
-import com.example.z_lib_common.utils.CloseUtils;
+import com.example.z_lib_image.utils.CloseUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

@@ -1,5 +1,7 @@
 package com.example.z_lib_common.utils;
 
+import com.example.z_lib_image.utils.CloseUtils;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -94,7 +96,9 @@ public class ShellUtils {
             process = Runtime.getRuntime().exec(isRoot ? "su" : "sh");
             os = new DataOutputStream(process.getOutputStream());
             for (String command : commands) {
-                if (command == null) continue;
+                if (command == null) {
+                    continue;
+                }
                 os.write(command.getBytes());
                 os.writeBytes("\n");
                 os.flush();

@@ -1,8 +1,12 @@
 include ':app',
-        ':modulePublic:z_lib_common',
         ':z_lib_main',
 
+
+        ':modulePublic:z_lib_common',
+
+        ':moduleSystem:z_lib_image',
         ':moduleSystem:z_lib_base',
+
         ':moduleCore:z_lib_news',
         ':moduleCore:z_lib_girl',
         ':moduleCore:z_lib_user',
