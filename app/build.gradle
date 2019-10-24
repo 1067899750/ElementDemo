@@ -261,7 +261,7 @@ android {
         //mavenLocal()
         //mavenCentral()
         flatDir {
-            dirs 'libs', project(':z_lib_girl').file('libs')
+            dirs 'libs', project(':moduleCore:z_lib_girl').file('libs')
         }
     }
 
@@ -308,15 +308,15 @@ dependencies {
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation project(':z_lib_common')
+    implementation project(':modulePublic:z_lib_common')
     implementation project(':z_lib_main')
-    implementation project(path: ':moduleBase')
+    implementation project(path: ':moduleSystem:z_lib_base')
     if (!isModule.toBoolean()) {
-        implementation project(':z_lib_news')
-        implementation project(':z_lib_girl')
-        implementation project(':z_lib_user')
-        implementation project(':z_lib_datas')
-        implementation project(path: ':z_lib_home')
+        implementation project(':moduleCore:z_lib_news')
+        implementation project(':moduleCore:z_lib_girl')
+        implementation project(':moduleCore:z_lib_user')
+        implementation project(':moduleCore:z_lib_datas')
+        implementation project(path: ':moduleCore:z_lib_home')
     }
     //butterknife 引用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]

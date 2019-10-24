@@ -1,7 +1,12 @@
-apply plugin: 'com.android.library'
+if (isModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
+}
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
+
 
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
@@ -10,14 +15,18 @@ android {
         versionName build_versions.version_name
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        consumerProguardFiles 'consumer-rules.pro'
         //这是为了让ARouter知道这个模块用来区分其他模块的名字是什么，不然报错
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                arguments = [ AROUTER_MODULE_NAME : project.getName() ]
             }
         }
+    }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     buildTypes {
@@ -34,12 +43,22 @@ android {
         debugUat {
             debuggable true
         }
-
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    // 分模块，根据是否是debug，使用不同的 Manifest
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                //集成开发模式下排除debug文件夹中的所有Java文件
+                java {
+                    exclude 'debug/**'
+                }
+            }
+
+        }
     }
 
 
@@ -53,23 +72,25 @@ android {
     }
 
     //避免资源名冲突
-    resourcePrefix "main_"
-
+    resourcePrefix "user_"
 
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     implementation project(':modulePublic:z_lib_common')
     implementation project(path: ':moduleSystem:z_lib_base')
+
 }
+
+
+
 
 
 

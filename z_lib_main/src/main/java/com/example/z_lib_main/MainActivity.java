@@ -12,7 +12,7 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.modulebase.arouter.ARouterUtils;
+import com.example.z_lib_base.arouter.ARouterUtils;
 import com.example.z_lib_common.bankres.BankResFactory;
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_common.base.BaseApplication;

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.elementdemo.R;
-import com.example.modulebase.arouter.ARouterUtils;
+import com.example.z_lib_base.arouter.ARouterUtils;
 
 
 public class LLWelcomeBootPage extends LinearLayout {
