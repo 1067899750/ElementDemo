@@ -27,115 +27,6 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:background="#ffc4f2ea"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="产品名称"
-                    android:textColor="#ff154f15"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="预期年化收益率"
-                    android:textColor="#ff154f15"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/action_line"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|right"
-                    android:paddingRight="@dimen/d25"
-                    android:text="操作"
-                    android:textColor="#ff154f15"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#e1f8f4"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/tab_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:checked="true"
-                    android:gravity="center"
-                    android:padding="9.5dp"
-                    android:text="保本保息"
-                    android:textColor="@color/news_select_choose_red_to_green"
-                    android:textSize="14sp" />
-
-                <RadioButton
-                    android:id="@+id/tab_2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="9.5dp"
-                    android:text="保本浮息"
-                    android:textColor="@color/news_select_choose_red_to_green"
-                    android:textSize="14sp" />
-
-                <RadioButton
-                    android:id="@+id/tab_3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:padding="9.5dp"
-                    android:textColor="@color/news_select_choose_red_to_green"
-                    android:text="浮本浮息"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="3dp"
-                    android:background="#999999" />
-
-                <TextView
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="3dp"
-                    android:background="#999999" />
-
-            </RadioGroup>
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/finance_viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-        </LinearLayout>
-
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -224,6 +115,117 @@
                     app:layout_collapseMode="pin" />
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#e1f8f4"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/tab_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:padding="9.5dp"
+                    android:text="保本保息"
+                    android:textColor="@color/news_select_choose_red_to_green"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="#999999" />
+
+                <RadioButton
+                    android:id="@+id/tab_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="9.5dp"
+                    android:text="保本浮息"
+                    android:textColor="@color/news_select_choose_red_to_green"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:background="#999999" />
+
+                <RadioButton
+                    android:id="@+id/tab_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:padding="9.5dp"
+                    android:text="浮本浮息"
+                    android:textColor="@color/news_select_choose_red_to_green"
+                    android:textSize="14sp" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="#ffc4f2ea"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="产品名称"
+                    android:textColor="#ff154f15"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="预期年化收益率"
+                    android:textColor="#ff154f15"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/action_line"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="@dimen/d25"
+                    android:text="操作"
+                    android:textColor="#ff154f15"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/finance_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </LinearLayout>
+
+
     </android.support.design.widget.CoordinatorLayout>
 
 </LinearLayout>
