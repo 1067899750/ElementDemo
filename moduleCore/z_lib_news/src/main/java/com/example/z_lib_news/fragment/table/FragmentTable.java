@@ -4,6 +4,7 @@ package com.example.z_lib_news.fragment.table;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 
@@ -28,6 +29,7 @@ public class FragmentTable extends BaseFragment {
     private RadioButton tab_1;
     private RadioButton tab_2;
     private RadioButton tab_3;
+    private LinearLayout ll_show;
 
     public static FragmentTable instance() {
         return new FragmentTable();
@@ -46,6 +48,8 @@ public class FragmentTable extends BaseFragment {
         tab_1 = view.findViewById(R.id.tab_1);
         tab_2 = view.findViewById(R.id.tab_2);
         tab_3 = view.findViewById(R.id.tab_3);
+        ll_show = view.findViewById(R.id.ll_show);
+        ll_show.setVisibility(View.VISIBLE);
     }
 
 
