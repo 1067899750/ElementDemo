@@ -5,11 +5,10 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.bumptech.glide.Glide;
+
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.z_lib_girl.R;
 import com.example.z_lib_girl.data.bean.Girls;
-import com.example.z_lib_image.imageloader.config.ScaleMode;
 import com.example.z_lib_image.imageloader.loader.ImageLoader;
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -46,7 +45,7 @@ public class GirlAdapter extends PagerAdapter {
     @Override
     public View instantiateItem(ViewGroup container, int position) {
         final String imageUrl = mData.get(position).getUrl();
-        View view = layoutInflater.inflate(R.layout.girl_item_detail, container, false);
+        View view = layoutInflater.inflate(R.layout.tools_item_detail, container, false);
         PhotoView imageView = (PhotoView) view.findViewById(R.id.girl_image);
         ImageLoader.with(mContext)
                 .url(imageUrl)

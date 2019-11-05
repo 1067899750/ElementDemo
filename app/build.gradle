@@ -261,7 +261,7 @@ android {
         //mavenLocal()
         //mavenCentral()
         flatDir {
-            dirs 'libs', project(':moduleCore:z_lib_girl').file('libs')
+            dirs 'libs', project(':moduleCore:z_lib_tools').file('libs')
         }
     }
 
@@ -313,7 +313,7 @@ dependencies {
     implementation project(path: ':moduleSystem:z_lib_base')
     if (!isModule.toBoolean()) {
         implementation project(':moduleCore:z_lib_news')
-        implementation project(':moduleCore:z_lib_girl')
+        implementation project(':moduleCore:z_lib_tools')
         implementation project(':moduleCore:z_lib_user')
         implementation project(':moduleCore:z_lib_datas')
         implementation project(path: ':moduleCore:z_lib_home')

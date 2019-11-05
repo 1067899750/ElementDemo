@@ -33,7 +33,7 @@ public class GirlsActivity extends BaseActionBarActivity {
 
     @Override
     protected String setTitle() {
-        return getResources().getString(R.string.girl_activity_title);
+        return getResources().getString(R.string.tools_activity_title);
     }
 
     @Override

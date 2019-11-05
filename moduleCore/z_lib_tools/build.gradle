@@ -72,7 +72,7 @@ android {
     }
 
     //避免资源名冲突
-    resourcePrefix "girl_"
+    resourcePrefix "tools_"
 
 }
 

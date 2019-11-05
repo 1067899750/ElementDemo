@@ -38,7 +38,7 @@ public class GirlsMainFragment extends BaseFragment {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.girl_fragment_main_girls;
+        return R.layout.tools_fragment_main_girls;
     }
 
     @Override

@@ -16,7 +16,7 @@ public class LauncherActivity extends BaseActionBarActivity {
 
     @Override
     protected int setLayoutId() {
-        return R.layout.girl_fragment;
+        return R.layout.tools_fragment;
     }
 
     @Override
