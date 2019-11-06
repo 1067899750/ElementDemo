@@ -5,7 +5,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcFragment;
 import com.example.z_lib_news.R;
 import com.google.gson.JsonObject;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
  */
 public class HomeChildFragment extends BaseMvcFragment {
     private RecyclerView mRecyclerView;
-    private HomeChildAdapter mTableChildAdapter;
+    private HomeChildAdapter mHomeChildAdapter;
     private ArrayList<String> mDates;
 
 
@@ -63,8 +62,8 @@ public class HomeChildFragment extends BaseMvcFragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        mTableChildAdapter = new HomeChildAdapter(getContext(), mDates);
-        mRecyclerView.setAdapter(mTableChildAdapter);
+        mHomeChildAdapter = new HomeChildAdapter(getContext(), mDates);
+        mRecyclerView.setAdapter(mHomeChildAdapter);
 
     }
 
