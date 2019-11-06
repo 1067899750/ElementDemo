@@ -99,11 +99,6 @@ public class NewsCenterActivity extends BaseSupportBarActivity {
      * @param tab
      */
     private void switchTab(String tab) {
-        radioTabHomePage.setChecked(false);
-        radioTabTable.setChecked(false);
-        radioTabAttention.setChecked(false);
-        radioTabMe.setChecked(false);
-
         if (tab.equals(HOME)) {
             radioTabHomePage.setChecked(true);
 
