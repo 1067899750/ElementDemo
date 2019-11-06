@@ -10,7 +10,9 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_base.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.activity.BaseSupportBarActivity;
 import com.example.z_lib_news.R;
+import com.example.z_lib_news.fragment.attention.AttentionFragment;
 import com.example.z_lib_news.fragment.home.HomeFragment;
+import com.example.z_lib_news.fragment.me.MeFragment;
 import com.example.z_lib_news.fragment.table.TableFragment;
 import com.google.gson.JsonObject;
 
@@ -176,9 +178,9 @@ public class NewsCenterActivity extends BaseSupportBarActivity {
         } else if (fragmentId.equals(TABLE)) {
             return TableFragment.newInstance();
         } else if (fragmentId.equals(ATTENTION)) {
-            return HomeFragment.newInstance();
+            return AttentionFragment.newInstance();
         } else if (fragmentId.equals(ME)) {
-            return HomeFragment.newInstance();
+            return MeFragment.newInstance();
         } else {
             return new Fragment();
         }
