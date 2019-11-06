@@ -12,12 +12,9 @@ import android.widget.RadioButton;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcActionBarFragment;
 import com.example.z_lib_news.R;
-import com.example.z_lib_news.fragment.table.TableFragment;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-
-
 
 /**
  *
@@ -37,8 +34,8 @@ public class HomeFragment extends BaseMvcActionBarFragment {
     public HomeFragment() {
     }
 
-    public static TableFragment newInstance() {
-        TableFragment fragment = new TableFragment();
+    public static HomeFragment newInstance() {
+        HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
