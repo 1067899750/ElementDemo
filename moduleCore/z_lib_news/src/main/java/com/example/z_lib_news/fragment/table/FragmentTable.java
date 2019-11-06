@@ -8,12 +8,12 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 
-import com.example.z_lib_common.base.BaseFragment;
+import com.example.z_lib_common.base.mvc.fragment.BaseMvcActionBarFragment;
 import com.example.z_lib_news.R;
+import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
 
 
 /**
@@ -22,7 +22,7 @@ import butterknife.BindView;
  * @author puyantao
  * @date 2019/11/5 16:35
  */
-public class FragmentTable extends BaseFragment {
+public class FragmentTable extends BaseMvcActionBarFragment {
     private ViewPager mViewPager;
     private FragmentViewPagerAdapter mFragmentViewPagerAdapter;
     private ArrayList<Fragment> mFragments;
@@ -33,6 +33,11 @@ public class FragmentTable extends BaseFragment {
 
     public static FragmentTable instance() {
         return new FragmentTable();
+    }
+
+    @Override
+    protected String setTitle() {
+        return "理财";
     }
 
 
@@ -85,8 +90,20 @@ public class FragmentTable extends BaseFragment {
 
     }
 
+    @Override
+    protected void onSuccess(String tag, JsonObject jsonObject) {
 
+    }
 
+    @Override
+    public void onFailed(String message) {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
+    }
 }
 
 

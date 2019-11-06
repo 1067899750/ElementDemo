@@ -4,24 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <RelativeLayout
-        android:id="@+id/action_title_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/c1b9cde">
-
-        <TextView
-            android:id="@+id/action_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="?android:actionBarSize"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="理财"
-            android:textSize="@dimen/f24" />
-
-    </RelativeLayout>
-
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

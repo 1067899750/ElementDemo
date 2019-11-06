@@ -4,14 +4,18 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.annotation.Keep;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
+import com.example.z_lib_common.R;
 import com.example.z_lib_common.utils.CommonUtils;
+import com.gyf.barlibrary.ImmersionBar;
 
 
 /**
@@ -21,8 +25,9 @@ import com.example.z_lib_common.utils.CommonUtils;
  */
 @Keep
 public abstract class BaseFragment extends Fragment {
-
     protected BaseActivity mActivity;
+    protected FrameLayout flRoot;
+    protected FrameLayout flActionBar;
 
     @Override
     public void onAttach(Context context) {
@@ -34,22 +39,42 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = null;
+        View view = inflater.inflate(R.layout.common_fragment_base, container, false);
+        flRoot = view.findViewById(R.id.fl_root);
+        flActionBar = view.findViewById(R.id.fl_action_bar);
         if (setLayoutId() != 0) {
-            v = inflater.inflate(setLayoutId(), container, false);
+            //用XML试图形式设置内容
+            getLayoutInflater().inflate(setLayoutId(), flRoot);
+        }else if (setConnectView() != null) {
+            //用试图形式设置内容
+            flRoot.addView(setConnectView());
+
         }
         beforeInit();
-        initViews(v);
+        initViews(view);
         initData();
-        return v;
+        return view;
     }
 
     /**
-     * XML 布局文件
+     * 用XML文件设置，页面布局,
      *
      * @return
      */
-    protected abstract int setLayoutId();
+    protected @LayoutRes
+    int setLayoutId() {
+        return 0;
+    }
+
+    /**
+     * 设置内容, 直接用View试图代替
+     *
+     * @return
+     */
+    protected View setConnectView() {
+        return null;
+    }
+
 
     /**
      * 配置fragment 初始化环境
@@ -58,13 +83,14 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     *  初始化 View
+     * 初始化 View
+     *
      * @param view
      */
     protected abstract void initViews(View view);
 
     /**
-     *  初始化数据
+     * 初始化数据
      */
     protected abstract void initData();
 
