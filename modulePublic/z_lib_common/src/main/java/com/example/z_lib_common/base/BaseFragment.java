@@ -83,11 +83,11 @@ public abstract class BaseFragment extends Fragment {
     }
 
     /**
-     * 初始化 View
+     * 初始化 root
      *
-     * @param view
+     * @param root
      */
-    protected abstract void initViews(View view);
+    protected abstract void initViews(View root);
 
     /**
      * 初始化数据

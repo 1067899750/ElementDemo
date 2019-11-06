@@ -15,14 +15,14 @@ import com.google.gson.JsonParser;
  * @create 2019/11/6 9:19
  */
 public abstract class BaseMvcActionBarFragment extends BaseFragment  implements ICallBack {
-
+    protected MyActionBar actionBar;
 
     @Override
     protected void beforeInit() {
         super.beforeInit();
         //标题栏设置
         flActionBar.setVisibility(View.VISIBLE);
-        MyActionBar actionBar = new MyActionBar(getContext());
+        actionBar = new MyActionBar(getContext());
         actionBar.setTitle(setTitle());
         actionBar.setActionBarColor(setActionBarColor());
         flActionBar.addView(actionBar);

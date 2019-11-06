@@ -22,13 +22,14 @@ import com.google.gson.JsonParser;
  */
 @Keep
 public abstract class BaseActionBarActivity extends BaseActivity implements ICallBack {
+    protected MyActionBar actionBar;
 
     @Override
     protected void beforeInit() {
         super.beforeInit();
         //标题栏设置
         flActionBar.setVisibility(View.VISIBLE);
-        MyActionBar actionBar = new MyActionBar(this);
+        actionBar = new MyActionBar(this);
         actionBar.setTitle(setTitle());
         actionBar.setActionBarColor(setActionBarColor());
         flActionBar.addView(actionBar);
