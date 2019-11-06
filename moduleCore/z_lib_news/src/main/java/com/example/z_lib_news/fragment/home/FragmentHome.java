@@ -1,4 +1,4 @@
-package com.example.z_lib_news.fragment.table;
+package com.example.z_lib_news.fragment.home;
 
 
 import android.support.v4.app.Fragment;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
  * @author puyantao
  * @date 2019/11/5 16:35
  */
-public class FragmentTable extends BaseMvcActionBarFragment {
+public class FragmentHome extends BaseMvcActionBarFragment {
     private ViewPager mViewPager;
     private FragmentViewPagerAdapter mFragmentViewPagerAdapter;
     private ArrayList<Fragment> mFragments;
@@ -32,19 +32,19 @@ public class FragmentTable extends BaseMvcActionBarFragment {
     private RadioButton tab_3;
     private LinearLayout ll_show;
 
-    public static FragmentTable instance() {
-        return new FragmentTable();
+    public static FragmentHome instance() {
+        return new FragmentHome();
     }
 
     @Override
     protected String setTitle() {
-        return "理财";
+        return "首页";
     }
 
 
     @Override
     protected int setLayoutId() {
-        return R.layout.news_fragment_table;
+        return R.layout.news_fragment_home;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class FragmentTable extends BaseMvcActionBarFragment {
     @Override
     protected void initData() {
         for (int i =0; i < 3; i ++){
-            mFragments.add(TableChildFragment.newInstance());
+            mFragments.add(HomeChildFragment.newInstance());
         }
         mFragmentViewPagerAdapter = new FragmentViewPagerAdapter(getChildFragmentManager(), mFragments);
         mViewPager.setAdapter(mFragmentViewPagerAdapter);

@@ -1,4 +1,4 @@
-package com.example.z_lib_news.fragment.table;
+package com.example.z_lib_news.fragment.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/news_selector_tab_home"
+            android:drawableTop="@drawable/news_selector_home"
             android:gravity="center_horizontal"
             android:text="首页" />
 
@@ -34,7 +34,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/news_selector_tab_query"
+            android:drawableTop="@drawable/news_selector_query"
             android:gravity="center_horizontal"
             android:text="表格" />
 
@@ -45,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/news_selector_tab_analysis"
+            android:drawableTop="@drawable/news_selector_analysis"
             android:gravity="center_horizontal"
             android:text="关注" />
 
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawableTop="@drawable/news_selector_tab_real_monitor"
+            android:drawableTop="@drawable/news_selector_real_monitor"
             android:gravity="center_horizontal"
             android:text="我的" />
 

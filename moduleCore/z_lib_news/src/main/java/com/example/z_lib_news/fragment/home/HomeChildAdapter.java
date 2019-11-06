@@ -1,4 +1,4 @@
-package com.example.z_lib_news.fragment.table;
+package com.example.z_lib_news.fragment.home;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -17,11 +17,11 @@ import java.util.ArrayList;
  * @describe
  * @create 2019/11/5 17:18
  */
-public class TableChildAdapter extends RecyclerView.Adapter<TableChildAdapter.MyViewHolder> {
+public class HomeChildAdapter extends RecyclerView.Adapter<HomeChildAdapter.MyViewHolder> {
     private Context mContext;
     private ArrayList<String> mDates;
 
-    public TableChildAdapter(Context context, ArrayList<String> dates) {
+    public HomeChildAdapter(Context context, ArrayList<String> dates) {
         mContext = context;
         mDates = dates;
     }
@@ -29,7 +29,7 @@ public class TableChildAdapter extends RecyclerView.Adapter<TableChildAdapter.My
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view =  LayoutInflater.from(mContext).inflate(R.layout.news_table_child_item, viewGroup, false);
+        View view =  LayoutInflater.from(mContext).inflate(R.layout.news_home_child_item, viewGroup, false);
         return new MyViewHolder(view);
     }
 

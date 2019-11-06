@@ -7,11 +7,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_base.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.activity.BaseSupportBarActivity;
 import com.example.z_lib_news.R;
-import com.example.z_lib_news.fragment.table.FragmentTable;
+import com.example.z_lib_news.fragment.home.FragmentHome;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -172,13 +171,13 @@ public class NewsCenterActivity extends BaseSupportBarActivity {
      */
     private Fragment createNewInstance(String fragmentId) {
         if (fragmentId.equals(HOME)) {
-            return FragmentTable.instance();
+            return FragmentHome.instance();
         } else if (fragmentId.equals(TABLE)) {
-            return FragmentTable.instance();
+            return FragmentHome.instance();
         } else if (fragmentId.equals(ATTENTION)) {
-            return FragmentTable.instance();
+            return FragmentHome.instance();
         } else if (fragmentId.equals(ME)) {
-            return FragmentTable.instance();
+            return FragmentHome.instance();
         } else {
             return new Fragment();
         }
