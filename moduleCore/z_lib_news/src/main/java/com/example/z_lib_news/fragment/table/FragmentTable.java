@@ -4,6 +4,7 @@ package com.example.z_lib_news.fragment.table;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
@@ -85,6 +86,31 @@ public class FragmentTable extends BaseMvcActionBarFragment {
             @Override
             public void onPageScrollStateChanged(int i) {
 
+            }
+        });
+
+        tab_1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mViewPager.setCurrentItem(0);
+                }
+            }
+        });
+        tab_2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mViewPager.setCurrentItem(1);
+                }
+            }
+        });
+        tab_3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mViewPager.setCurrentItem(2);
+                }
             }
         });
 

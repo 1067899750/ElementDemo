@@ -1,13 +1,20 @@
 package com.example.z_lib_news.main;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_base.arouter.ARouterUtils;
 import com.example.z_lib_common.base.mvc.activity.BaseSupportBarActivity;
 import com.example.z_lib_news.R;
 import com.example.z_lib_news.fragment.table.FragmentTable;
 import com.google.gson.JsonObject;
+
+import java.util.ArrayList;
 
 /**
  * @author puyantao
@@ -17,17 +24,29 @@ import com.google.gson.JsonObject;
 @Route(path = ARouterUtils.NEWS_CENTER)
 public class NewsCenterActivity extends BaseSupportBarActivity {
 
-    private static final int HOME = 0;
-    private static final int TABLE = 1;
-    private static final int ATTENTION = 2;
-    private static final int ME = 3;
+    private static final String HOME = "home fragment";
+    private static final String TABLE = "table fragment";
+    private static final String ATTENTION = "attention fragment";
+    private static final String ME = "me fragment";
 
     private RadioGroup mRadioGroup;
-    private int mCurrentTab;
-//    private FragmentHome mFragmentHome;
-    private FragmentTable mFragmentTable;
-//    private FragmentAttention mFragmentAttention;
-//    private FragmentMe mFragmentMe;
+    private ArrayList<String> mFragments;
+    /**
+     * 记录选着的位置
+     */
+    private int mPosition = 0;
+
+    private RadioButton radioTabHomePage;
+    private RadioButton radioTabTable;
+    private RadioButton radioTabAttention;
+    private RadioButton radioTabMe;
+
+
+    @Override
+    protected void beforeInit() {
+        super.beforeInit();
+        mFragments = new ArrayList<>();
+    }
 
 
     @Override
@@ -39,64 +58,135 @@ public class NewsCenterActivity extends BaseSupportBarActivity {
     @Override
     protected void initViews() {
         mRadioGroup = findViewById(R.id.group_bottom_navigation_bar);
+        radioTabHomePage = findViewById(R.id.radio_tab_home_page);
+        radioTabTable = findViewById(R.id.radio_tab_table);
+        radioTabAttention = findViewById(R.id.radio_tab_attention);
+        radioTabMe = findViewById(R.id.radio_tab_me);
     }
 
 
     @Override
     protected void initDate() {
-        mCurrentTab = -1;
-        mFragmentTable = FragmentTable.instance();
-        switchTab(HOME);
+        mFragments.add(HOME);
+        mFragments.add(TABLE);
+        mFragments.add(ATTENTION);
+        mFragments.add(ME);
 
-        initEvent();
+        switchTab(getFragment(mPosition));
 
-    }
-
-
-    private void initEvent() {
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.radio_tab_home_page){
-                    switchTab(HOME);
-                } else if (checkedId == R.id.radio_tab_table){
-//                    switchTab(TABLE);
-                }else if (checkedId == R.id.radio_tab_attention){
-//                    switchTab(ATTENTION);
-                }else if (checkedId == R.id.radio_tab_me){
-//                    switchTab(ME);
+                if (checkedId == R.id.radio_tab_home_page) {
+                    mPosition = 0;
+                } else if (checkedId == R.id.radio_tab_table) {
+                    mPosition = 1;
+                } else if (checkedId == R.id.radio_tab_attention) {
+                    mPosition = 2;
+                } else if (checkedId == R.id.radio_tab_me) {
+                    mPosition = 3;
                 }
+                switchTab(getFragment(mPosition));
 
             }
         });
+
     }
 
-    private void switchTab(int tab) {
-        if (mCurrentTab == tab) {
-            return;
+    /**
+     * 更新 RadioButton 的状态
+     *
+     * @param tab
+     */
+    private void switchTab(String tab) {
+        radioTabHomePage.setChecked(false);
+        radioTabTable.setChecked(false);
+        radioTabAttention.setChecked(false);
+        radioTabMe.setChecked(false);
+
+        if (tab.equals(HOME)) {
+            radioTabHomePage.setChecked(true);
+
+        } else if (tab.equals(TABLE)) {
+            radioTabTable.setChecked(true);
+
+        } else if (tab.equals(ATTENTION)) {
+            radioTabAttention.setChecked(true);
+
+        } else if (tab.equals(ME)) {
+            radioTabMe.setChecked(true);
         }
-        if (tab == HOME){
-            mRadioGroup.check(R.id.radio_tab_home_page);
-            if (mFragmentTable != null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.layout_main_fragment_content, mFragmentTable).commit();
-            }
-        } else if (tab == TABLE){
-            mRadioGroup.check(R.id.radio_tab_home_page);
-            if (mFragmentTable != null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.layout_main_fragment_content, mFragmentTable).commit();
-            }
-        }else if (tab == ATTENTION){
-            mRadioGroup.check(R.id.radio_tab_home_page);
-            if (mFragmentTable != null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.layout_main_fragment_content, mFragmentTable).commit();
-            }
-        }else if (tab == ME){
-            mRadioGroup.check(R.id.radio_tab_home_page);
-            if (mFragmentTable != null) {
-                getSupportFragmentManager().beginTransaction().add(R.id.layout_main_fragment_content, mFragmentTable).commit();
+        updateFragment();
+    }
+
+    /**
+     * 更新 Fragment
+     */
+    public void updateFragment() {
+        String baseFragment = getFragment(mPosition);
+        switchFragment(baseFragment);
+    }
+
+    /**
+     * 根据位置得到对应的 Fragment
+     *
+     * @param position
+     * @return
+     */
+    private String getFragment(int position) {
+        if (mFragments != null && mFragments.size() > 0) {
+            String fragment = mFragments.get(position);
+            return fragment;
+        }
+        return null;
+    }
+
+
+    /**
+     * 切换Fragment
+     *
+     * @param fragmentId 上一个fragment
+     */
+    private void switchFragment(String fragmentId) {
+        FragmentManager mFragmentManager = getSupportFragmentManager();
+        FragmentTransaction mFragmentTransaction = mFragmentManager.beginTransaction();
+        mFragmentManager.getBackStackEntryCount();
+        for (int i = 0; i < mFragments.size(); i++) {
+            String tag = String.valueOf(mFragments.get(i));
+            Fragment fragment = mFragmentManager.findFragmentByTag(tag);
+            if (mFragments.get(i) == fragmentId) {
+                if (fragment == null || !fragment.isAdded()) {
+                    fragment = createNewInstance(fragmentId);
+                    mFragmentTransaction.add(R.id.layout_main_fragment_content, fragment, tag);
+                } else {
+                    mFragmentTransaction.show(fragment);
+                }
+            } else if (fragment != null) {
+                mFragmentTransaction.hide(fragment);
             }
         }
-        mCurrentTab = tab;
+        mFragmentTransaction.commitAllowingStateLoss();
+    }
+
+
+    /**
+     * 返回处发的 fragment
+     *
+     * @param fragmentId
+     * @return
+     */
+    private Fragment createNewInstance(String fragmentId) {
+        if (fragmentId.equals(HOME)) {
+            return FragmentTable.instance();
+        } else if (fragmentId.equals(TABLE)) {
+            return FragmentTable.instance();
+        } else if (fragmentId.equals(ATTENTION)) {
+            return FragmentTable.instance();
+        } else if (fragmentId.equals(ME)) {
+            return FragmentTable.instance();
+        } else {
+            return new Fragment();
+        }
     }
 
     @Override
