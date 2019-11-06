@@ -1,6 +1,7 @@
 package com.example.z_lib_news.fragment.home;
 
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.RadioButton;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcActionBarFragment;
 import com.example.z_lib_news.R;
+import com.example.z_lib_news.fragment.table.TableFragment;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
@@ -23,7 +25,7 @@ import java.util.ArrayList;
  * @author puyantao
  * @date 2019/11/5 16:35
  */
-public class FragmentHome extends BaseMvcActionBarFragment {
+public class HomeFragment extends BaseMvcActionBarFragment {
     private ViewPager mViewPager;
     private FragmentViewPagerAdapter mFragmentViewPagerAdapter;
     private ArrayList<Fragment> mFragments;
@@ -32,8 +34,14 @@ public class FragmentHome extends BaseMvcActionBarFragment {
     private RadioButton tab_3;
     private LinearLayout ll_show;
 
-    public static FragmentHome instance() {
-        return new FragmentHome();
+    public HomeFragment() {
+    }
+
+    public static TableFragment newInstance() {
+        TableFragment fragment = new TableFragment();
+        Bundle args = new Bundle();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override
