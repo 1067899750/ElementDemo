@@ -76,7 +76,8 @@ dependencies {
     implementation rootProject.ext.dependencies.barlibrary
 
     api project(path: ':moduleSystem:z_lib_base')
-
+    //MagicIndicator 导航栏
+    api rootProject.ext.dependencies.magicIndicator
 }
 
 
