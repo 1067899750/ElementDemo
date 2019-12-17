@@ -46,13 +46,16 @@ public class OkHttpProcessor implements IHttpProcessor {
 
     public OkHttpProcessor(Context context) {
         mOkHttpClient = new OkHttpClient.Builder()
-                .addInterceptor(new AddSsionInterceptor()) //向HTTP中写入ssionId
-                .addInterceptor(new ReadCookiesInterceptor()) //从HTTP中读取cookie
+                //向HTTP中写入ssionId
+                .addInterceptor(new AddSsionInterceptor())
+                //从HTTP中读取cookie
+                .addInterceptor(new ReadCookiesInterceptor())
                 .addInterceptor(new LogInterceptor())
 //                .addInterceptor(new LoginInterceptor())
                 .addInterceptor(new GzipRequestInterceptor())
                 .addInterceptor(new RewriteCacheControlInterceptor(context))
-                .addInterceptor(new AddTokenInterceptor()) //向HTTP中写入token
+                //向HTTP中写入token
+                .addInterceptor(new AddTokenInterceptor())
                 .dns(new OKHttpDns(100))
 //                .dns(new OkDns())
                 .build();
