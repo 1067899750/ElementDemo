@@ -9,7 +9,7 @@ include ':app',
         ':moduleSystem:z_lib_base',
 
         ':moduleCore:z_lib_news',
-        ':moduleCore:z_lib_girl',
+        ':moduleCore:z_lib_tools',
         ':moduleCore:z_lib_user',
         ':moduleCore:z_lib_datas',
         ':moduleCore:z_lib_home'

@@ -1,39 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:orientation="vertical">
 
-    <android.support.design.widget.AppBarLayout
+    <FrameLayout
+        android:id="@+id/layout_main_fragment_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/news_title_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            android:theme="@style/Toolbar"
-            app:layout_scrollFlags="scroll|enterAlways" />
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/date_tab"
-            android:layout_width="match_parent"
+    <RadioGroup
+        android:id="@+id/group_bottom_navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <!-- 首页 -->
+        <RadioButton
+            android:id="@+id/radio_tab_home_page"
+            style="@style/NewsMainBottomTabButton"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:tabGravity="fill"
-            app:tabMode="scrollable" />
+            android:layout_weight="1"
+            android:drawableTop="@drawable/news_selector_home"
+            android:gravity="center_horizontal"
+            android:text="首页" />
 
-    </android.support.design.widget.AppBarLayout>
+        <!-- 表格 -->
+        <RadioButton
+            android:id="@+id/radio_tab_table"
+            style="@style/NewsMainBottomTabButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/news_selector_query"
+            android:gravity="center_horizontal"
+            android:text="表格" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/message_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        <!-- 关注 -->
+        <RadioButton
+            android:id="@+id/radio_tab_attention"
+            style="@style/NewsMainBottomTabButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/news_selector_analysis"
+            android:gravity="center_horizontal"
+            android:text="关注" />
 
+        <!-- 我的 -->
+        <RadioButton
+            android:id="@+id/radio_tab_me"
+            style="@style/NewsMainBottomTabButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/news_selector_real_monitor"
+            android:gravity="center_horizontal"
+            android:text="我的" />
 
-</android.support.design.widget.CoordinatorLayout>
+    </RadioGroup>
+
+</LinearLayout>

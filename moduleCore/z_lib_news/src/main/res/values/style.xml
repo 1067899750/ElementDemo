@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="AppTheme.NewsTabStyle" parent="Widget.Design.TabLayout" tools:ignore="ResourceName">
+        <item name="tabTextAppearance">@style/AppTheme.NewsTextStyle</item>
+        <item name="tabTextColor">#7c7c7c</item>
+        <item name="tabSelectedTextColor">#ff4046</item>
+        <item name="tabIndicatorColor">#ff4046</item>
+        <item name="tabIndicatorHeight">2dp</item>
+    </style>
+
+    <style name="AppTheme.NewsTextStyle" parent="TextAppearance.Design.Tab" tools:ignore="ResourceName">
+        <item name="android:textSize">16sp</item>
+        <item name="textAllCaps">false</item>
+    </style>
+
+    <style name="NewsMainBottomTabButton">
+        <item name="android:paddingTop">@dimen/news_padding_tiny</item>
+        <item name="android:paddingBottom">@dimen/news_padding_tiny</item>
+        <item name="android:textSize">@dimen/news_text_size_caption</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">#62B2B2B2</item>
+    </style>
+
+</resources>

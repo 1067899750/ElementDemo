@@ -23,6 +23,7 @@ public class MyActionBar extends LinearLayout {
     private ImageView ivBack;
     private TextView tvTitle;
     private RelativeLayout rlActionBar;
+    private Context mContext;
 
     public MyActionBar(Context context) {
         super(context);
@@ -40,18 +41,17 @@ public class MyActionBar extends LinearLayout {
     }
 
     private void initView(final Context context) {
+        this.mContext = context;
         LayoutInflater.from(context).inflate(R.layout.common_action_bar, this, true);
         ivBack = findViewById(R.id.iv_back);
         tvTitle = findViewById(R.id.tv_title);
         rlActionBar = findViewById(R.id.rl_action_bar);
-
         ivBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                scanForActivity(context).finish();
+                scanForActivity(mContext).finish();
             }
         });
-
     }
 
     /**
@@ -68,6 +68,10 @@ public class MyActionBar extends LinearLayout {
         } else {
             return (Activity) cont;
         }
+    }
+
+    public ImageView getIvBack() {
+        return ivBack;
     }
 
     /**

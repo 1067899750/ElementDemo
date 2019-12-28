@@ -1,27 +1,20 @@
-package com.example.z_lib_common.base.mvc.activity;
+package com.example.z_lib_common.base.mvc.fragment;
 
 import android.graphics.Color;
-import android.support.annotation.Keep;
 import android.view.View;
 
-import com.example.z_lib_common.base.BaseActivity;
-import com.example.z_lib_net.http.base.ICallBack;
+import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_common.widget.MyActionBar;
+import com.example.z_lib_net.http.base.ICallBack;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-
 /**
- * BaseActionBarActivity继承于BaseActivity，封装了actionBar的逻辑；
- * 继承于ActionBarBaseActivity的Activity都将默认带有ActionBar，并且只能使用AppTheme主题；
- * 只有那些ActionBar只带有Title和返回按钮的Activity方可继承
- *
  * @author puyantao
- * @description
- * @date 2019/9/27 17:40
+ * @describe
+ * @create 2019/11/6 9:19
  */
-@Keep
-public abstract class BaseActionBarActivity extends BaseActivity implements ICallBack {
+public abstract class BaseMvcActionBarFragment extends BaseFragment  implements ICallBack {
     protected MyActionBar actionBar;
 
     @Override
@@ -29,7 +22,7 @@ public abstract class BaseActionBarActivity extends BaseActivity implements ICal
         super.beforeInit();
         //标题栏设置
         flActionBar.setVisibility(View.VISIBLE);
-        actionBar = new MyActionBar(this);
+        actionBar = new MyActionBar(getContext());
         actionBar.setTitle(setTitle());
         actionBar.setActionBarColor(setActionBarColor());
         flActionBar.addView(actionBar);
@@ -52,6 +45,7 @@ public abstract class BaseActionBarActivity extends BaseActivity implements ICal
      */
     protected abstract String setTitle();
 
+
     /**
      * 返回 json 数据
      * @param tag
@@ -66,5 +60,31 @@ public abstract class BaseActionBarActivity extends BaseActivity implements ICal
         onSuccess(tag, jsonObject);
     }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
