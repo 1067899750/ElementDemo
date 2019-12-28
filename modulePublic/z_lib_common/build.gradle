@@ -75,7 +75,7 @@ dependencies {
     //沉溺式状态栏
     implementation rootProject.ext.dependencies.barlibrary
 
-    api project(path: ':moduleSystem:z_lib_base')
+    implementation project(path: ':moduleSystem:z_lib_base')
 
 }
 
