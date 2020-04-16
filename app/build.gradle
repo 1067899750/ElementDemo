@@ -18,12 +18,12 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        applicationId build_versions.application_id
+//        applicationId build_versions.application_id
 
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode build_versions.version_code
-        versionName build_versions.version_name
+//        versionCode build_versions.version_code
+//        versionName build_versions.version_name
 
         flavorDimensions "versionCode"//多环境打包设置
         //添加多 dex分包支持
