@@ -147,7 +147,9 @@ android {
     }
 
     android.applicationVariants.all { variant ->
+        //环境名
         def buildType = variant.buildType.name
+        //渠道名
         def productFlavor = variant.flavorName
 
         resValue "string", "app_client", rootProject.ext[productFlavor]["app_client"]
