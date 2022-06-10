@@ -32,7 +32,18 @@ public class CommonUtils {
     private CommonUtils() {
         throw new UnsupportedOperationException("you can't instantiate me...");
     }
-
+    //获取value
+    private static String getSAMetaDataFromApp() {
+        String value = "";
+        try {
+            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(),
+                    PackageManager.GET_META_DATA);
+            value = appInfo.metaData.getString("SA_CONFIG_URL");
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return value;
+    }
     /**
      * 初始化工具类
      *
@@ -44,6 +55,7 @@ public class CommonUtils {
         BaseUtils.init(getContext());
         //初始化logger
         initLogger();
+        ToastUtils.showLongToast(getSAMetaDataFromApp());
     }
 
     /**

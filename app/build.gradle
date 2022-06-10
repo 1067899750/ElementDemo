@@ -13,17 +13,26 @@ static def buildTime() {
     return new Date().format("yyyyMMdd");
 }
 
+String getPointUrl(String type, String saConfigUrl) {
+    if (type.contains("release")) {
+        return rootProject.ext["point_url"]["point_release"] + saConfigUrl;
+    } else if (type.contains("debugUat")) {
+        return rootProject.ext["point_url"]["point_uat"] + saConfigUrl;
+    } else {
+        return rootProject.ext["point_url"]["point_test"] + saConfigUrl;
+    }
+}
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        applicationId build_versions.application_id
+//        applicationId build_versions.application_id
 
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        versionCode build_versions.version_code
-        versionName build_versions.version_name
+//        versionCode build_versions.version_code
+//        versionName build_versions.version_name
 
         flavorDimensions "versionCode"//多环境打包设置
         //添加多 dex分包支持
@@ -138,7 +147,9 @@ android {
     }
 
     android.applicationVariants.all { variant ->
+        //环境名
         def buildType = variant.buildType.name
+        //渠道名
         def productFlavor = variant.flavorName
 
         resValue "string", "app_client", rootProject.ext[productFlavor]["app_client"]
@@ -148,26 +159,16 @@ android {
         buildConfigField "String", "APP_ID", rootProject.ext[productFlavor]["app_id_app_key"]
 
         //配置参数信息 和 productFlavors中的不能同时存在
-        if (buildType.contains("debug")) {
-            variant.mergedFlavor.manifestPlaceholders = [app_name        : rootProject.ext[productFlavor]["app_name"],
-                                                         app_icon        : rootProject.ext[productFlavor]["app_icon"],
-                                                         app_package     : rootProject.ext[productFlavor]["application_package"],
-                                                         "APP_ID"        : rootProject.ext[productFlavor]["app_id_app_key"],
 
-                                                         GETUI_APP_ID    : rootProject.ext[productFlavor]["getui_app_id_debug"],
-                                                         GETUI_APP_KEY   : rootProject.ext[productFlavor]["getui_app_key_debug"],
-                                                         GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"],]
-        } else {
-            variant.mergedFlavor.manifestPlaceholders = [app_name        : rootProject.ext[productFlavor]["app_name"],
-                                                         app_icon        : rootProject.ext[productFlavor]["app_icon"],
-                                                         app_package     : rootProject.ext[productFlavor]["application_package"],
-                                                         "APP_ID"        : rootProject.ext[productFlavor]["app_id_app_key"],
+        variant.mergedFlavor.manifestPlaceholders = [app_name        : rootProject.ext[productFlavor]["app_name"],
+                                                     app_icon        : rootProject.ext[productFlavor]["app_icon"],
+                                                     app_package     : rootProject.ext[productFlavor]["application_package"],
+                                                     "APP_ID"        : rootProject.ext[productFlavor]["app_id_app_key"],
 
-                                                         GETUI_APP_ID    : rootProject.ext[productFlavor]["getui_app_id_debug"],
-                                                         GETUI_APP_KEY   : rootProject.ext[productFlavor]["getui_app_key_debug"],
-                                                         GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"],]
-        }
-
+                                                     GETUI_APP_ID    : rootProject.ext[productFlavor]["getui_app_id_debug"],
+                                                     GETUI_APP_KEY   : rootProject.ext[productFlavor]["getui_app_key_debug"],
+                                                     GETUI_APP_SECRET: rootProject.ext[productFlavor]["getui_app_secret_debug"],
+                                                     SA_CONFIG_URL   : getPointUrl(buildType, rootProject.ext[productFlavor]["sa_config_url"])]
         variant.outputs.all {
             if (outputFileName.endsWith('.apk')) {
                 //这里使用之前定义apk文件名称
@@ -175,6 +176,7 @@ android {
             }
         }
     }
+
     /************************************打包设置结束******************************************/
 
     /**********************************多环境打包设置开始******************************************/
@@ -321,7 +323,6 @@ dependencies {
     //butterknife 引用
     annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation files('libs/acra-4.5.0.jar')
-
 
 
 }
