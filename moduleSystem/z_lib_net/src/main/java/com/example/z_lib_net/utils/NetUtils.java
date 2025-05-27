@@ -1,8 +1,8 @@
 package com.example.z_lib_net.utils;
 
 import android.content.Context;
-import android.net.Uri;
-import android.support.annotation.StringRes;
+
+import androidx.annotation.StringRes;
 
 /**
  * @author puyantao

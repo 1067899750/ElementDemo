@@ -1,8 +1,9 @@
 package com.example.z_lib_common.base.mvc.activity;
 
 import android.graphics.Color;
-import android.support.annotation.Keep;
 import android.view.View;
+
+import androidx.annotation.Keep;
 
 import com.example.z_lib_common.base.BaseActivity;
 import com.example.z_lib_net.http.base.ICallBack;

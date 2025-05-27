@@ -6,12 +6,13 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.z_lib_base.utils.BaseUtils;
 import com.example.z_lib_net.http.base.IHttpProcessor;
@@ -20,9 +21,8 @@ import com.orhanobut.logger.BuildConfig;
 import com.orhanobut.logger.Logger;
 
 /**
- *
- * @description CommonUtils 初始化相关
  * @author puyantao
+ * @description CommonUtils 初始化相关
  * @date 2019/10/24 16:27
  */
 public class CommonUtils {
@@ -32,6 +32,7 @@ public class CommonUtils {
     private CommonUtils() {
         throw new UnsupportedOperationException("you can't instantiate me...");
     }
+
     //获取value
     private static String getSAMetaDataFromApp() {
         String value = "";
@@ -44,6 +45,7 @@ public class CommonUtils {
         }
         return value;
     }
+
     /**
      * 初始化工具类
      *
@@ -59,15 +61,15 @@ public class CommonUtils {
     }
 
     /**
-     *  初始化网络
+     * 初始化网络
+     *
      * @param httpProcessor
      * @param baseUrl
      */
-    public static void initHttp(IHttpProcessor httpProcessor, String baseUrl){
+    public static void initHttp(IHttpProcessor httpProcessor, String baseUrl) {
         //初始化网络
         BaseUtils.initHttp(httpProcessor, baseUrl);
     }
-
 
 
     /**
@@ -88,9 +90,7 @@ public class CommonUtils {
      * @param view view
      * @return Activity
      */
-    public static
-    @NonNull
-    Activity getActivity(View view) {
+    public static Activity getActivity(View view) {
         Context context = view.getContext();
 
         while (context instanceof ContextWrapper) {

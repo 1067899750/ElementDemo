@@ -1,8 +1,9 @@
 package com.example.z_lib_common.base.mvc.activity;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.z_lib_common.R;
 import com.example.z_lib_common.base.BaseActivity;

@@ -50,7 +50,7 @@ dependencies {
     //noinspection GradleCompatible
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    api rootProject.ext.support["appcompat-v7"]
+    api rootProject.ext.support["appcompat"]
     api rootProject.ext.support["constraint-layout"]
     //    design
     api rootProject.ext.support["design"]

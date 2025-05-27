@@ -3,8 +3,9 @@ package com.example.z_lib_net.http.net;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.example.z_lib_net.utils.NetUtils;
 

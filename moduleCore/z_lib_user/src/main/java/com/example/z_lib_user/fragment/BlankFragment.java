@@ -1,10 +1,11 @@
 package com.example.z_lib_user.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.example.z_lib_common.base.mvp.BaseMvpFragment;
 import com.example.z_lib_user.R;

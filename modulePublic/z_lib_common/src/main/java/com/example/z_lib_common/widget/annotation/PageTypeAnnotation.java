@@ -1,6 +1,6 @@
 package com.example.z_lib_common.widget.annotation;
 
-import android.support.annotation.IntDef;
+import androidx.annotation.IntDef;
 
 import com.example.z_lib_common.widget.PageType;
 

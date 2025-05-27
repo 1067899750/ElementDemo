@@ -15,9 +15,11 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
 
 import com.example.z_lib_common.R;
 
@@ -30,7 +32,7 @@ import java.util.List;
  * Created by doudou on 2017/5/3.
  */
 
-public class MultiView extends android.support.v7.widget.AppCompatImageView {
+public class MultiView extends AppCompatImageView {
     /**
      * 图片的类型，圆形or圆角or多边形
      */

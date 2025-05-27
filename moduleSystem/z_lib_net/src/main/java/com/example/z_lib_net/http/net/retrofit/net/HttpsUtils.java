@@ -1,8 +1,9 @@
 package com.example.z_lib_net.http.net.retrofit.net;
 
 import android.content.Context;
-import android.support.annotation.RawRes;
 import android.text.TextUtils;
+
+import androidx.annotation.RawRes;
 
 import com.example.z_lib_net.utils.CloseUtils;
 

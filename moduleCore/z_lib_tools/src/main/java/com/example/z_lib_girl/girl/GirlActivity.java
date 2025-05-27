@@ -1,7 +1,8 @@
 package com.example.z_lib_girl.girl;
 
-import android.support.v4.view.ViewPager;
 import android.view.WindowManager;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.z_lib_common.base.BaseActivity;

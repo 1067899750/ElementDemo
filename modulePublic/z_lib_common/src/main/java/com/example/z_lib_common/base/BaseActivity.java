@@ -3,14 +3,15 @@ package com.example.z_lib_common.base;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.IdRes;
-import android.support.annotation.Keep;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Keep;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.z_lib_common.R;
 import com.example.z_lib_common.utils.CommonUtils;
@@ -23,7 +24,7 @@ import com.gyf.barlibrary.ImmersionBar;
  * @date 2019/9/25 16:25
  */
 @Keep
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
     protected View vStatusBar;
     protected FrameLayout flRoot;
     protected ImmersionBar mImmersionBar;

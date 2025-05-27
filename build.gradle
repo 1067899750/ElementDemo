@@ -6,28 +6,42 @@ buildscript {
     apply from: 'versions.gradle'
 
     repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/google'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
         google()
         jcenter()
         maven { url "https://jitpack.io" }
-        maven {
-            url "http://mvn.mob.com/android"
-        }
-
+        maven { url 'https://repo1.maven.org/maven2/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.2'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        classpath("com.android.tools.build:gradle:7.1.2")
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.5.21'
 //        classpath 'com.jakewharton:butterknife-gradle-plugin:8.8.1'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
 allprojects {
     repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/jcenter'
+        }
+        maven {
+            url 'https://maven.aliyun.com/repository/public'
+        }
+        maven {
+            url = uri("https://maven.aliyun.com/repository/google")
+        }
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url 'https://repo1.maven.org/maven2/' }
     }
 }
 
