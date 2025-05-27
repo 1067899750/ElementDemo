@@ -1,9 +1,10 @@
 package com.example.z_lib_home.glide;
 
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.z_lib_common.base.mvc.activity.BaseActionBarActivity;
 import com.example.z_lib_image.imageloader.config.ScaleMode;

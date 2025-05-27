@@ -2,13 +2,13 @@ package com.example.z_lib_news.fragment.attention;
 
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcFragment;
 import com.example.z_lib_news.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.JsonObject;
 
 /**

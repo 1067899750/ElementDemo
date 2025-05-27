@@ -59,8 +59,6 @@ dependencies {
     api rootProject.ext.dependencies.logger
     //分包
     api rootProject.ext.dependencies.multidex
-    //    butterKnife 引用
-    api rootProject.ext.dependencies.butterknife
 
     //recyclerView
     api rootProject.ext.support["recyclerview-v7"]

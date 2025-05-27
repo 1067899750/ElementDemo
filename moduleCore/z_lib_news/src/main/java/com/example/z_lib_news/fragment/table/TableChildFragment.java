@@ -1,18 +1,13 @@
 package com.example.z_lib_news.fragment.table;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcFragment;
 import com.example.z_lib_news.R;
-import com.example.z_lib_news.fragment.home.HomeChildAdapter;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;

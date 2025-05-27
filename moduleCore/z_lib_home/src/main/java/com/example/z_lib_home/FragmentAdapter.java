@@ -1,8 +1,9 @@
 package com.example.z_lib_home;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 
 import java.util.List;
 
@@ -30,6 +31,6 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getItemPosition(Object object) {
-        return android.support.v4.view.PagerAdapter.POSITION_NONE;
+        return PagerAdapter.POSITION_NONE;
     }
 }

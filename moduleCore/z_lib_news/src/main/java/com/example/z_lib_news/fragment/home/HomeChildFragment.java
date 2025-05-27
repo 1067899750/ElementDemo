@@ -1,9 +1,10 @@
 package com.example.z_lib_news.fragment.home;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcFragment;
 import com.example.z_lib_news.R;

@@ -320,8 +320,6 @@ dependencies {
         implementation project(':moduleCore:z_lib_datas')
         implementation project(path: ':moduleCore:z_lib_home')
     }
-    //butterknife 引用
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     implementation files('libs/acra-4.5.0.jar')
 
 

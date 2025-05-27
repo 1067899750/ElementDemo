@@ -2,13 +2,14 @@ package com.example.z_lib_news.fragment.home;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcActionBarFragment;
 import com.example.z_lib_news.R;

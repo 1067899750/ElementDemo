@@ -1,9 +1,9 @@
 package com.example.z_lib_home;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.view.MenuItem;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.z_lib_base.arouter.ARouterUtils;
@@ -12,14 +12,14 @@ import com.example.z_lib_common.base.BaseFragment;
 import com.example.z_lib_common.base.ClassUtils;
 import com.example.z_lib_common.base.IViewDelegate;
 import com.example.z_lib_common.widget.NoScrollViewPager;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @description
  * @author puyantao
+ * @description
  * @date 2019/9/27 15:04
  */
 public class BottomNavigationActivity extends BaseActivity {

@@ -89,7 +89,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     implementation project(':modulePublic:z_lib_common')
     implementation project(path: ':moduleSystem:z_lib_base')

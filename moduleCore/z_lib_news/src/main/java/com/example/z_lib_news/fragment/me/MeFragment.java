@@ -3,19 +3,18 @@ package com.example.z_lib_news.fragment.me;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.z_lib_common.base.mvc.fragment.BaseMvcFragment;
 import com.example.z_lib_news.R;
 import com.example.z_lib_news.fragment.home.HomeChildAdapter;
+import com.google.android.material.appbar.AppBarLayout;
 import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
-
-import static android.support.design.widget.AppBarLayout.*;
 
 /**
  *
@@ -23,7 +22,7 @@ import static android.support.design.widget.AppBarLayout.*;
  * @author puyantao
  * @date 2019/11/6 16:19
  */
-public class MeFragment extends BaseMvcFragment implements OnOffsetChangedListener {
+public class MeFragment extends BaseMvcFragment implements AppBarLayout.OnOffsetChangedListener {
     private AppBarLayout mAppBarLayout;
     private View tlExpand;
     private View tlCollapse;
