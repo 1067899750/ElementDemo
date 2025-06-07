@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 import androidx.annotation.StringRes;
 
+import java.util.Objects;
+
 /**
  * Toast相关工具类
  */
@@ -267,14 +269,10 @@ public class ToastUtils {
             cancelToast();
         }
         if (sToast == null) {
-            sToast = Toast.makeText(CommonUtils.getContext(), text, duration);
-            TextView tv = (TextView) sToast.getView().findViewById(android.R.id.message);
-            tv.setTextSize(14);
-            sToast.setGravity(Gravity.CENTER, 0, 0);
-        } else {
-            sToast.setText(text);
-            sToast.setDuration(duration);
+            sToast = Toast.makeText(CommonUtils.getContext(), text, Toast.LENGTH_SHORT);
         }
+        sToast.setText(text);
+        sToast.setGravity(Gravity.CENTER, 0, 0);
         sToast.show();
     }
 
