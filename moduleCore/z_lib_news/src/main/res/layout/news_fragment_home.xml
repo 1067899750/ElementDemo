@@ -5,16 +5,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <android.support.design.widget.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.design.widget.CollapsingToolbarLayout
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:contentScrim="@color/cFFFFFF"
@@ -93,7 +93,7 @@
                     </LinearLayout>
                 </LinearLayout>
 
-            </android.support.design.widget.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
 
 
             <LinearLayout
@@ -101,8 +101,9 @@
                 android:layout_height="match_parent"
                 android:fillViewport="true"
                 android:orientation="vertical"
-                app:layout_collapseMode="pin"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layout_collapseMode="pin">
+
                 <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -198,16 +199,16 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/finance_viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    </android.support.design.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>
 
